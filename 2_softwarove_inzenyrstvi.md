@@ -1,378 +1,378 @@
-# Softwarové inženýrství
+# Softvérové inžinierstvo
 
-> Životní cyklus SW, proces vývoje a řízení softwarového vývoje. Metodika (Rational) Unified Process (UP, RUP), agilní metodiky a principy agilního vývoje SW. Nasazení a provoz softwarových systémů. Údržba softwarových systémů, znovupoužitelnost. Příklady z praxe pro vše výše uvedené. (PA017)
+> Životný cyklus SW, proces vývoja a riadenie softvérového vývoja. Metodika (Rational) Unified Process (UP, RUP), agilné metodiky a principy agilného vývoja SW. Nasadenie a prevádzka softvérových systémov. Údržba softvérových systémov, opätovná použiteľnosť. Príklady z praxe pre všetko vyššie uvedené. (PA017)
 
-1. [Životní cyklus sw, proces vývoje a řízení softwarového vývoje (1/5)](#životní-cyklus-sw-proces-vývoje-a-řízení-softwarového-vývoje-15)
+1. [Životný cyklus sw, proces vývoja a riadenie softvérového vývoja (1/5)](#životní-cyklus-sw-proces-vývoje-a-rízení-softvérového-vývoje-15)
 2. [Metodika (Rational) Unified Process (UP, RUP) (2/5)](#metodika-rational-unified-process-up-rup-25)
-3. [Agilní metodiky a principy agilního vývoje SW (3/5)](#agilní-metodiky-a-principy-agilního-vývoje-sw-35)
-4. [Nasazení a provoz softwarových systémů (4/5)](#nasazení-a-provoz-softwarových-systémů-45)
-5. [Údržba softwarových systémů, znovupoužitelnost (5/5)](#údržba-softwarových-systémů-znovupoužitelnost-55)
+3. [Agilné metodiky a principy agilného vývoja SW (3/5)](#agilní-metodiky-a-principy-agilního-vývoje-sw-35)
+4. [Nasadenie a prevádzka softvérových systémov (4/5)](#nasadenie-a-prevádzka-softvérových-systémov-45)
+5. [Údržba softvérových systémov, opätovná použiteľnosť (5/5)](#údržba-softvérových-systémov-opätovná použiteľnosť-55)
 
-## Životní cyklus sw, proces vývoje a řízení softwarového vývoje (1/5)
+## Životný cyklus sw, proces vývoja a riadenie softvérového vývoja (1/5)
 
-Vždy nějakým způsobem obsahuje fáze analýza, návrh, implementace, testování a provoz (včetně nasazení). Rozdíly jsou v tom, zda a jakým způsobem dělíme projekt na uchopitelnější části. Důsledkem toho jsou i různé způsoby, jakým se vývoj řídí.
+Vždy neakým spôsobem obsahuje fázy analýza, návrh, implementácia, testovanie a prevádzka (včetne nasadenie). Rozdiely sú v tom, či a akým spôsobem delíme projekt na uchopiteľnejšie časti. Dôsledkom toho sú i rôzne spôsoby, akým se vývoj rídí.
 
-Existuje několik základních modelů:
+Existuje niekoľko základnéch modelov:
 
 ### Vodopádový model
 
-Skládá se z:
+Skladá se z:
 - **Analýza**
-    - sběr požadavků klienta
-    - Je důležité rozlišovat mezi tím, co říká že potřebuje, a co skutečně potřebuje. Pro lepší představu můžeme sledovat, jak koncový uživatel pracuje se současným řešením.
-    - zajímá nás **co** a **proč**, často ale klient zmiňuje **jak**. V takových případech je důležité se ptát **proč**. Může jít o legitimní důvod, ale také třeba o nevědomost. => studie proveditelnosti, dokument požadavků...
+    - zber požiadaviek klienta
+    - Je duležité rozlišovat medzi tým, co hovorí, že potrebuje, a co skutočne potrebuje. Pre lepšiu predstavu môžeme sledovať, ako koncový používateľ pracuje se súčasným riešením.
+    - zaujíma nás **co** a **proč**, často ale klient zmieňuje **jak**. V takých prípadech je duležité se pýtať **proč**. Môže ísť o legitimní dôvod, ale tiež napríklad o nevedomosť. => studie uskutočniteľnosti, dokument požiadaviek...
 - **Návrh**
-    - návrh architektury, jednotek, výběr technologií, plán testování => diagramy (uml), wireframy, prototypy
-- **Implementace**
-    - tvorba systému dle návrhu
-- **Testování**
+    - návrh architektúry, jednotek, výber technologií, plán testovanie => diagramy (uml), wireframy, prototypy
+- **Implementácia**
+    - tvorba systémov podľa návrhu
+- **Testovanie**
 - **Provoz**
 
-tj. nejprve sesbíráme všechny požadavky, pak sw jako celek postupně navrhneme, implementujeme, otestujeme a nasadíme
+tj. nejprve sesbíráme všechny požadavky, pak sw jako celek postupne navrhneme, implementujeme, otestujeme a nasadíme
 
 **Výhody:**
-- snadný na řízení
-- pokud vše jde hladce, je to nejlevnější způsob
+- jednoduchý na rízení
+- ak vše jde hladce, je to nejlevnejší spôsob
 
 **Nevýhody:**
-- většinou všechno nejde hladce
-- špatně se reaguje na změny (musíme se vracet do předchozích fází modelu)
-- zákazník předem nedokáže přesně a úplně definovat, co potřebuje
-- v praxi nejsou kroky v tomto pořadí dodržovány (testovat chceme ideálně při vývoji, něco chceme ukázat netrpělivému zákazníkovi...)
+- vetšinou všechno nejde hladce
+- špatne se reaguje na zmeny (musíme se vracet do predchozích fáz modelov)
+- zákazník predem nedokáže presne a úplne definovat, co potrebuje
+- v praxi nesú kroky v tomto poradie dodržovány (testovat chceme ideálne počas vývoja, neco chceme ukázat netrpelivému zákazníkovi...)
 
-### Inkrementální model
+### Inkrementálné model
 
-- Projekt se rozdělí na inkrementy, části, které budou vyvíjeny a dodávány postupně, pro každý si uděláme jednoduchou rámcovou analýzu
-- Inkrementy se vyvíjí v pořadí podle priority
-- Po nasazení do systému máme o inkrementu od zákazníka zpětnou vazbu
+- Projekt se rozdelí na inkrementy, časti, ktoré budú vyvíjeny a dodávány postupne, pre každý si udeláme jednoduchou rámcovou analýzu
+- Inkrementy se vyvíjí v poradie popodľa priority
+- Po nasadenie do systémov máme o inkrementu od zákazníka zpetnou vazbu
 
 **Výhody:**
-- Systém je dodáván po částech, celkové náklady jsou distribuovány
-- Není potřeba vytvářet velký tým, protože práce je dodávaná po částech
-- Uživatel vidí systém v raných fázích projektu. Lze rychle reagovat na zpětnou vazbu uživatele
-- O nutnosti změny se dozvíme dříve a její zavedení bude levnější (není třeba vše překopávat, přidáme změnový inkrement)
+- Systém je dodáván po častiach, celkové náklady sú distribuovány
+- Nie je ponapríklad vytváret velký tým, pretože práce je dodávaná po častiach
+- Používateľ vidí systém v raných fázch projektu. Možno rychle reagovat na zpetnou vazbu používateľa
+- O nutnosti zmeny se dozvíme dríve a jej zavedení bude levnejší (nie je napríklad vše prekopávat, pridáme zmenový inkrement)
 
 **Nevýhody:**
-- Náklady na vývoj jsou vysoké kvůli dodávce systému po částech
-- Model vyžaduje náročné plánování k distribuci práce
-- Pro připojení modulů vyvinutých s každou fází je nezbytné důkladně popsat rozhraní
+- Náklady na vývoj sú vysoké kvuli dodávce systémov po častiach
+- Model vyžaduje náročné plánovanie k distribuci práce
+- Pre pripojení modulu vyvinutých s každou fáz je nezbytné dukladne popsat rozhrania
 
 ### Spirála
 
 ![](img/20230607122950.png)
 
-- kombinace iterací a vodopádu, důraz na analýzu rizik
-- vývoj probíhá v cyklech, každý má několik fází
+- kombinace iterací a vodopádu, duraz na analýzu rizik
+- vývoj probíhá v cyklech, každý má niekoľko fáz
 
 **Fáze:**
 - **Analýza**
 - **Návrh**
-- **Implementace**
-- **Testování, zpětná vazba a plán dalšího cyklu** - zpětnou vazbu používáme pro práci v dalším cyklu
+- **Implementácia**
+- **Testovanie, zpetná väzba a plán dalšího cyklu** - zpetnou vazbu používáme pre práci v dalším cyklu
 
-- oproti inkrementálnímu modelu nemusíme mít po každé iteraci hotovou část nasazeného systému (inkrement je třeba ve formě jasných požadavků, návrhu systému, nebo tak).
-- cykly aplikujeme i na jednotlivé fáze vodopádu
+- oproti inkrementálnímu modelov nemusíme mať po každé iteraci hotovou část nasazeného systémov (inkrement je napríklad ve forme jasných požiadaviek, návrhu systémov, alebo tak).
+- cykly aplikujeme i na jednotlivé fázy vodopádu
 - lépe pracujeme s nejistotou, ale trvá to déle
 
-### Prototypování
+### Prototypovanie
 
-- vytvoříme prototyp systému, abychom porozuměli, jakým způsobem chce zákazník systém používat a co od něj očekává
-- po analýze prototypu ho zahodíme a začneme práci na reálném systému, využijeme vhodný model
+- vytvoríme prototyp systémov, abychom porozumeli, akým spôsobem chce zákazník systém používat a co od nej očekává
+- po analýze prototypu ho zahodíme a začneme práci na reálném systémov, využijeme vhodný model
 
 ### Model výzkumník
 
-- navrhni systém a implementuj ho. Vyhovuje? Super. Nevyhovuje? Zpět k návrhu/implementaci
-- nelze pořádně řídit, neexistuje dokumentace, řešitelé jsou obtížně nahraditelní, jde o experimentování
+- navrhni systém a implementuj ho. Vyhovuje? Super. Nevyhovuje? Zpet k návrhu/implementaci
+- nemožno porádne rídit, neexistuje dokumentácia, rešitelé sú obtížne nahraditelní, jde o experimentovanie
 
 ### V-model
 
 ![](img/vmodel.png)
 
-- ala vodopád, ale zobrazuje i různé testy k fázím (jednotkové, integrační, systémové, uživatelské, akceptační...)
+- ala vodopád, ale zobrazuje i rôzne testy k fázm (jednotkové, integračné, systémové, popopoužívateľské, akceptačné...)
 
-1. Požadavky / Use Casy $\rightarrow$ Validují se pomocí Akceptačních testů (ověření se zákazníkem, zda systém dělá to, co měl).
-2. Analýza systému / Architektura $\rightarrow$ Verifikuje se pomocí Systémových testů (testuje se systém jako celek, včetně nefunkčních požadavků jako výkon či bezpečnost).
-3. Detailní návrh (komponenty a subsystémy) $\rightarrow$ Ověřuje se pomocí Integračních testů (zda komponenty přes definovaná rozhraní správně spolupracují).
-4. Implementace (třídy a metody) $\rightarrow$ Pokrývá se pomocí Jednotkových testů (Unit testy přímo nad kódem).
+1. Požadavky / Use Casy $\rightarrow$ Validují se pomocí Akceptačnéch testu (overenie se zákazníkem, či systém delá to, co mel).
+2. Analýza systémov / Architektúra $\rightarrow$ Verifikuje se pomocí Systémových testu (testuje se systém jako celek, včetne nefunkčnéch požiadaviek jako výkon či Bezpečnosť).
+3. Detailné návrh (komponenty a subsystémy) $\rightarrow$ Overuje se pomocí Integračnéch testu (či komponenty pres definovaná rozhrania správne spolupracují).
+4. Implementácia (trídy a metody) $\rightarrow$ Pokrývá se pomocí Jednotkových testu (Unit testy prímo nad kódem).
 
-Nezávisle na modelu je důležité nastavit správnou komunikaci, definovat a používat jednotný jazyk. Pokud chceme cokoliv řídit, je potřeba mít informace o aktuálním stavu, dodržování plánu, očekávaných změnách, problémech...
+Nezávisle na modelov je duležité nastavit správnou komunikaci, definovat a používat jednotný jazyk. Ak chceme cokoliv rídit, je ponapríklad mať informace o aktuálním stavu, dodržiavanie plánu, očekávaných zmenách, problémech...
 
-Hlavní metodiky řízení sw projektů jsou **prediktivní metodiky (např. RUP)** a **agilní (např. SCRUM)**.
+Hlavní metodiky riadenie sw projektu sú **prediktivní metodiky (napr. RUP)** a **agilní (napr. SCRUM)**.
 
 ## Metodika (Rational) Unified Process (UP, RUP) (2/5)
 
-Při popisu charakteristického RUP/UP diagramu (tzv. hump chart nebo vlnový diagram) chtějí zkoušející slyšet, že diagram zachycuje dvě dimenze vývoje softwaru:
+Pri popisu charakteristického RUP/UP diagramu (tzv. hump chart alebo vlnový diagram) chtejí zkoušející slyšet, že diagram zachycuje dve dimenze vývoje softwaru:
 
-**Sloupečky (Dimenze časová / dynamická)**: Představují časovou osu projektu rozdělenou do 4 hlavních fází (Inception, Elaboration, Construction, Transition), přičemž každá fáze se dál dělí na jednotlivé iterace.
+**Sloupečky (Dimenze časová / dynamická)**: Predstavují časovou osu projektu rozdelenou do 4 hlavních fáz (Inception, Elaboration, Construction, Transition), pričemž každá fázy se dál delí na jednotlivé iterace.
 
-**Státnicový chyták:** Fáze nejsou totéž co jedna iterace! Fáze pokrývají celý životní cyklus projektu od začátku do konce a každá z nich se skládá z jedné či více dílčích iterací.
+**Státnicový chyták:** Fáze nesú totéž čo jedna iterace! Fáze pokrývají celý životný cyklus projektu od začátku do konce a každá z nich se skládá z jedné či viac dílčích iterací.
 
-**Řádky (Dimenze obsahová / statická)**: Představují jednotlivé disciplíny / workflows (např. Business Modeling, Requirements, Analysis & Design, Implementation, Test, Deployment a podpůrné disciplíny jako Configuration & Change Management, Project Management, Environment).
+**Řádky (Dimenze obsahová / statická)**: Predstavují jednotlivé disciplíny / workflows (napr. Business Modeling, Requirements, Analysis & Design, Implementation, Test, Deployment a podpurné disciplíny jako Configuration & Change Management, Project Management, Environment).
 
-**Vlnovky (Humps)**: Výška plochy v daném místě vyjadřuje intenzitu úsilí/práce, kterou tým konkrétní disciplíně v dané iteraci věnuje. Například v rané fázi Inception je vlnovka u disciplíny Requirements velmi vysoká, zatímco u Implementation je téměř nulová. V průběhu Construction se tento poměr obrací.
+**Vlnovky (Humps)**: Výška plochy v daném míste vyjadruje intenzitu úsilí/práce, kterou tým konkrétné disciplíne v dané iteraci venuje. Napríklad v rané fázi Inception je vlnovka u disciplíny Requirements velmi vysoká, zatiaľ čo u Implementation je témer nulová. V prubehu Construction se tento pomer obrací.
 
-- rigidní, důraz na procesy
-- vhodná, pokud máme jasné a pevné požadavky, variabilní aspekty mohou být čas a zdroje
-- vyžaduje podstatné plánování předem
-- iterativní a inkrementální, jednotlivé aktivity (plánování, požadavky, modelování, návrh, vývoj, testování, nasazení...) se částečně překrývají
-- řízena riziky, use-case požadavky
-- architektura je středobodem - existuje architektonický tým, se kterým ostatní týmy konzultují případné nejasnosti/problémy, slouží jako centrální komunikační uzel (lepší, než kdyby spousta dev týmů komunikovala navzájem)
+- rigidní, duraz na procesy
+- vhodná, ak máme jasné a pevné požadavky, variabilní aspekty mohou byť čas a zdroje
+- vyžaduje podstatné plánovanie predem
+- iterativní a inkrementálné, jednotlivé aktivity (plánovanie, požadavky, modelovanie, návrh, vývoj, testovanie, nasadenie...) se částečne prekrývají
+- rízena riziky, use-case požadavky
+- Architektúra je stredobodem - existuje architektonický tým, se kterým ostatné týmy konzultují prípadné nejasnosti/problémy, slouží jako centrálné komunikačné uzel (lepší, než kdyby spousta dev týmu komunikovala navzájem)
 - umožňuje pevnou kontrolu nad procesy a týmem
-- vhodná, pokud potřebujeme pořádnou dokumentaci (UML diagramy)
-- hodí se pro velké a heterogenní produkty, velké týmy...
+- vhodná, ak potrebujeme porádnou dokumentaci (UML diagramy)
+- hodí se pre velké a heterogenní produkty, velké týmy...
 
 **Výhody:**
-- zákazník není při vývoji potřeba, definice produktu je zakotvena v kontraktu (přesně ví, co dostane)
+- zákazník nie je počas vývoja ponapríklad, definícia produktu je zakotvena v kontraktu (presne ví, co dostane)
 
 **Nevýhody:**
 - pracujeme s fixními deadliny, rozpočtem i funkcionalitou
-    - v reálu se deadline a rozpočet může lehce měnit v závislosti na vývoji
-- změnové požadavky jsou problém
-- potřeba více času k plánování
-- složitý kontrakt, je třeba myslet na všechno (exhaustive kritéria přijetí, penále...)
+    - v reálu se deadline a rozpočet muže lehce menit v závislosťi na vývoji
+- zmenové požadavky sú problém
+- ponapríklad viac času k plánovanie
+- složitý kontrakt, je napríklad myslet na všechno (exhaustive kritéria prijetí, penále...)
 
 ![](img/20230523215135.png)
 
 ### Fáze iterací
 
-Iterace jsou seskupovány do fází:
+Iterace sú seskupovány do fáz:
 
 #### Inception (1 iterace)
-- řešíme feasibilitu, zachycujeme klíčové požadavky, rizika
-- popis významných požadavků s dopadem na architekturu
-- identifikace actorů
-- identifikace dalších systémů, se kterými máme komunikovat
+- rešíme feasibilitu, zachycujeme kľúčové požadavky, rizika
+- popis významných požiadaviek s dopadem na architekturu
+- identifikace actoru
+- identifikace dalších systémov, se kterými máme komunikovat
 - na konci známe cíle, hrubou architekturu
-- co se používá pro podobné systémy? s čím máme zkušenosti?
-- určení použitých technologií
-- určení orientační ceny, časového plánu a rizik => **Project brief**
+- čo sa používá pre podobné systémy? s čím máme zkušenosti?
+- určenie použitých technologií
+- určenie orientační ceny, časového plánu a rizik => **Project brief**
 
 #### Elaboration (2 iterace)
-- řešíme požadavky, architekturu, hrajeme si s UML diagramy
-- na konci máme architekturu, návrh systému reflektující požadavky
+- rešíme požadavky, architekturu, hrajeme si s UML diagramy
+- na konci máme architekturu, návrh systémov reflektující požadavky
 
 #### Construction (4 iterace)
-- tvoříme systém, testujeme, nasazujeme
-- na konci máme beta verzi, relativně stabilní a otestovanou, připravenou k použití
+- tvoríme systém, testujeme, nasazujeme
+- na konci máme beta verzi, relativne stabilní a otestovanou, pripravenou k použití
 
 #### Transition (2 iterace)
-- hledáme a opravujeme chyby, děláme manuály, poskytujeme konzultace
-- testování s uživateli (beta, na základě feedbacku děláme změnové požadavky), akceptační testy
+- hledáme a opravujeme chyby, deláme manuály, poskytujeme konzultace
+- testovanie s používateľmi (beta, na základe feedbacku deláme zmenové požadavky), akceptačné testy
 
 ### Workflows a UML diagramy
 
-Iterace by neměla překročit 3 měsíce, přínos iterace je **inkrement**, každá iterace obsahuje workflows, které jsou více či méně přítomné. Pro každé workflow se používají určité UML diagramy:
+Iterace by nemela prekročit 3 mesíce, prínos iterace je **inkrement**, každá iterace obsahuje workflows, ktoré sú viac či méne prítomné. Pre každé workflow se používají určiťé UML diagramy:
 
-- **Business modelování**
-    - **activity diagram** - popisuje obchodní procesy, které se mají řešit
+- **Business modelovanie**
+    - **activity diagram** - popisuje obchodní procesy, ktoré se majú rešit
 - **Požadavky**
-    - **use case diagram** - definuje hranice systému, aktory a jejich interakce s funkcionalitou systému
+    - **use case diagram** - definuje hranice systémov, aktory a ich interakce s funkcionalitou systémov
 - **Analýza a návrh**
-    - **sequence diagram** - Interakční diagramy, které ukazují, jak si objekty mezi sebou posílají zprávy, aby realizovaly konkrétní scénář z Use Case diagramu.
-    - **class diagram** - Zobrazuje klíčové pojmy z reálného světa a vztahy mezi nimi (např. Zákazník, Objednávka, Faktura), bez programátorských detailů.
-- **Implementace**
-    - **class diagram** - Už obsahuje konkrétní datové typy, viditelnosti (public/private) a metody, ze kterých lze přímo generovat kód.
-    - **component diagrams** - Ukazuje fyzické uspořádání kódu – moduly, knihovny (JAR, DLL), zdrojové soubory a jejich vzájemné závislosti.
-- **Testování**
-    - **use case** - Slouží jako přímý podklad pro akceptační testy (Acceptance Tests) a systémové funkční testy
-    - **class diagram** - Základní stavební kámen pro vývojáře při psaní jednotkových testů (Unit Tests)
-    **activity diagrams** - Vynikající podklad pro tvorbu integračních a end-to-end (E2E) testů
+    - **sequence diagram** - Interakční diagramy, ktoré ukazují, ako si objekty medzi sebou posílají zprávy, aby realizovaly konkrétné scénár z Use Case diagramu.
+    - **class diagram** - Zobrazuje kľúčové pojmy z reálného sveta a vztahy medzi nimi (napr. Zákazník, Objednávka, Faktura), bez programátorských detailu.
+- **Implementácia**
+    - **class diagram** - Už obsahuje konkrétné datové typy, viditelnosti (public/private) a metody, ze kterých možno prímo generovat kód.
+    - **component diagrams** - Ukazuje fyzické usporádání kódu – moduly, knihovny (JAR, DLL), zdrojové soubory a ich vzájemné závislosťi.
+- **Testovanie**
+    - **use case** - Slouží jako prímý podklad pre akceptačné testy (Acceptance Tests) a systémové funkčné testy
+    - **class diagram** - Základné stavební kámen pre vývojáre pri psaní jednotkových testu (Unit Tests)
+    **activity diagrams** - Vynikající podklad pre tvorbu integračnéch a end-to-end (E2E) testu
 - **Deployment**
-    - **deployment diagram** - zobrazuje fyzické uspořádání systému – servery, databáze, síťové prvky a jak jsou mezi sebou propojené
+    - **deployment diagram** - zobrazuje fyzické usporádání systémov – servery, Databázy, sieťové prvky a ako sú medzi sebou propojené
 
-RUP je konkrétní komerční metodika stavějící na UP (přidává třeba jednotlivé role a odpovědnosti v týmu, konkrétní postupy...), UP je obecný rámec.
+RUP je konkrétné komerční metodika stavející na UP (pridává napríklad jednotlivé role a odpovednosti v týmu, konkrétné postupy...), UP je obecný rámec.
 
-**Iterativní vývoj (Evoluce celku):** Vývoj probíhá v opakovaných cyklech (iteracích). V každé iteraci se bere v úvahu celý systém (nebo jeho podstatná část) a ten se postupně zahušťuje, vylepšuje a zpřesňuje.
+**Iterativní vývoj (Evoluce celku):** Vývoj probíhá v opakovaných cyklech (iteráciach). V každé iteraci se bere v úvahu celý systém (alebo jeho podstatná část) a ten se postupne zahušťuje, vylepšuje a zpresňuje.
 
-**Metafora:** Jako když malíř nejdřív naskicuje celou kompozici uhlem na celé plátno, pak v další iteraci přidá základní barvy všude a v poslední iteraci vykresluje detaily. V UP to odpovídá např. fázi Elaboration, kde se definuje a ověřuje architektura celého systému na základě klíčových use casů.
+**Metafora:** Jako keď malír nejdrív naskicuje celou kompozici uhlem na celé plátno, pak v další iteraci pridá základné barvy všude a v poslednej iteraci vykresluje detaily. V UP to odpovídá napr. fázi Elaboration, kde se definuje a overuje Architektúra celého systémov na základe kľúčových use casu.
 
-**Inkrementální vývoj (Stavba po kusech):** Systém se vyvíjí a dodává po samostatných, kompletně dokončených částech – přírůstcích (inkrementech).
+**Inkrementálné vývoj (Stavba po kusech):** Systém se vyvíjí a dodává po samostatných, kompletne dokončených častiach – prírustcích (inkrementech).
 
-**Metafora:** Jako když stavíš dům pokoj po pokoji – nejdříve kompletně postavíš, vymaluješ a vybavíš kuchyň, pak obývák, pak ložnici. V UP to odpovídá fázi Construction, kde se v každé iteraci implementují a dokončují konkrétní sady funkcionalit.
+**Metafora:** Jako keď stavíš dum pokoj po pokoji – nejdríve kompletne postavíš, vymaluješ a vybavíš kuchyň, pak obývák, pak ložnici. V UP to odpovídá fázi Construction, kde se v každé iteraci implementují a dokončují konkrétné sady funkcionalit.
 
-**Propojení v UP:** UP je iterativní i inkrementální zároveň. Je iterativní, protože v každé jednotlivé iteraci tým prochází všemi disciplínami (od analýzy přes kódování po testování) a produkt se evolučně zpřesňuje. Je inkrementální, protože výstupem každé dokončené iterace musí být spustitelný, otestovaný a stabilní přírůstek kódu (executable architecture/increment), který rozšiřuje předchozí verzi.
+**Propojení v UP:** UP je iterativní i inkrementálné zároveň. Je iterativní, pretože v každé jednotlivé iteraci tým prochází všemi disciplínami (od analýzy pres kódovanie po testovanie) a produkt se evolučne zpresňuje. Je inkrementálné, pretože výstupem každé dokončené iterace musí byť spustitelný, otestovaný a stabilní prírustek kódu (executable architecture/increment), ktorý rozširuje predchozí verzi.
 
-## Agilní metodiky a principy agilního vývoje SW (3/5)
+## Agilné metodiky a principy agilného vývoja SW (3/5)
 
-- flexibilní, důraz na lidi
-- radši budeme reagovat na změnu, než se pevně držet plánu
-- snažíme se fixovat čas a zdroje, proměnlivá může být funkcionalita (*Postavili jsme dům a plot, v rozpočtu zbývají zdroje na garáž, nebo bazén. Co z toho chcete?*)
-- vhodná, pokud se požadavky mění, není jasná kýžená výsledná podoba systému, nebo zákazník požaduje něco hmatatelného relativně brzo => není přesné datum dokončení
-- vyžaduje minimální plánování předem
-- klíčová je dobrá komunikace a spolupráce týmu
-- automatizované testování
-- variabilita funkcionality (vývoj postupuje tak, že když dojde čas/peníze, tak se ptáme zákazníka, zda něco přihodí, nebo zda vyškrtneme nějakou část systému)
-- face-to-face komunikace, rychlé meetingy - rychlejší, získáme lepší porozumění
-- jednoduchá dokumentace - dokumentace těžko udržuje tempo s realitou, proto ji držme co nejjednodušší, ideálně navázanou na kód
+- flexibilní, duraz na lidi
+- radši budeme reagovat na zmenu, než se pevne držet plánu
+- snažíme se fixovat čas a zdroje, promenlivá muže byť funkcionalita (*Postavili jsme dum a plot, v rozpočtu zbývají zdroje na garáž, alebo bazén. Co z toho chcete?*)
+- vhodná, ak se požadavky mení, nie je jasná kýžená výsledná podoba systémov, alebo zákazník požaduje neco hmatatelného relativne brzo => nie je presné dátamm dokončení
+- vyžaduje minimálné plánovanie predem
+- kľúčová je dobrá komunikácia a spolupráce týmu
+- automatizované testovanie
+- variabilita funkcionality (vývoj postupuje tak, že keď dojde čas/peníze, tak se ptáme zákazníka, či neco prihodí, alebo či vyškrtneme nejakou část systémov)
+- face-to-face komunikácia, rychlé meetingy - rychlejší, získáme lepší porozumení
+- jednoduchá dokumentácia - dokumentácia težko udržuje tempo s realitou, proto ji držme co nejjednodušší, ideálne navázanou na kód
 - častá setkání se stakeholdery (sprint review), prezentace nové funkcionality (lepší, než jen popis)
 
-### Příklady agilních metodik
+### Príklady agilních metodik
 
 #### Extreme programming
-- osvědčené postupy tahá do extrému (osvědčují se reviews? => dělej reviews co to jde)
-- párové programování, důraz na testy, refaktorizaci, kód je single source of truth (dokumentaci generujeme z kódu, používáme schéma pro generování ostatních věcí...)
-- rychlá zpětná vazba, důraz na jednoduchost, malé inkrementy
+- osvedčené postupy tahá do extrému (osvedčují se reviews? => delej reviews co to jde)
+- párové programovanie, duraz na testy, refaktorizaci, kód je single source of truth (dokumentaci generujeme z kódu, používáme schéma pre generovanie ostatních vecí...)
+- rychlá zpetná väzba, duraz na jednoduchosť, malé inkrementy
 
 ### SCRUM
 
-- nejčastěji využívaná agilní metodika
-- iterativní, inkrementální
-- jednoduchý, očekává se použití i dalších nástrojů/procesů
-- vhodný pro menší týmy (<=15 lidí)
-- hodí se, když máme tým schopný samostatnější práce, potřebujeme rychle vytvořit aspoň nějaký produkt
+- nejčasteji využívaná agilní metodika
+- iterativní, inkrementálné
+- jednoduchý, očekává se použití i dalších nástrojov/procesu
+- vhodný pre menší týmy (<=15 lidí)
+- hodí se, keď máme tým schopný samostatnejší práce, potrebujeme rychle vytvorit aspoň nejaký produkt
 
 #### Role
 
-- **product owner** - reprezentuje stakeholdery, má největší přehled o požadavcích na produkt, spravuje product backlog
-- **scrum master** - zodpovědný za dodržování scrumu, řeší procesy
-- **tým vývojářů** - 3-9 lidí, soběstačný (má lidi na všechno) a sebeorganizující se, spravují sprint backlog, zodpovědný za doručení produktu
+- **product owner** - reprezentuje stakeholdery, má nejvetší prehled o požadavcích na produkt, spravuje product backlog
+- **scrum master** - zodpovedný za dodržiavanie scrumu, reší procesy
+- **tým vývojáru** - 3-9 lidí, sobestačný (má lidi na všechno) a sebeorganizující se, spravují sprint backlog, zodpovedný za doručenie produktu
 
 #### Artefakty
 
 ##### Product backlog
-- obsahuje veškerou zbývající požadovanou funkcionalitu ve formě **user stories**
+- obsahuje veškerou zbývající požadovanou funkcionalitu ve forme **user stories**
     - jednotka funkcionality, testovatelná, logický celek
     - každé story má:
         - **story points** reprezentující časovou náročnost odhadnutou pomocí [planning pokeru](#planning-poker)
-        - akceptační kritéria (testovatelná, formulovaná jako Given ... When ... Then ...)
-        - může mít seznam rizik
-        - stories mají prioritu (MoSCoW) dle hodnoty, náročnosti, rizika, přínosu...
+        - akceptačné kritéria (testovatelná, formulovaná jako Given ... When ... Then ...)
+        - muže mať seznam rizik
+        - stories majú prioritu (MoSCoW) podľa hodnoty, náročnosti, rizika, prínosu...
             - Must - nezbytné
-            - Should - mělo by být
-            - Could - bylo by fajn
+            - Should - melo by byť
+            - Could - bolo by fajn
             - Won't/Wish - zapomeň na to, možná jindy
-        - pro testování je možné použít Gherkin/Cucumber (As a ... I can ... So that ...)
+        - pre testovanie je možné použít Gherkin/Cucumber (As a ... I can ... So that ...)
 
-- tvořen celým scrum týmem, spravuje ho product owner
-- v praxi jde o tabuli (reálnou/virtuální) se sticky notes
+- tvoren celým scrum týmem, spravuje ho product owner
+- v praxi jde o tabuli (reálnou/virtuálné) se sticky notes
 
 ##### Sprint backlog
-- část product backlogu (množina user stories), která se má provést v daném sprintu
-- stories jsou rozděleny na jednotlivé tasky, u každého je určen časový odhad v hodinách
-- task má fáze Todo, In progress a Done
-- tasky si k práci vybírají vývojáři dle vlastního uvážení, ale žádné (ani user stories) nemohou být v rámci sprintu přidány/odebrány
-    - bylo by nutné zrušit celý sprint product ownerem
-- spravován týmem vývojářů
+- část product backlogu (množina user stories), ktorá se má provést v daném sprintu
+- stories sú rozdeleny na jednotlivé tasky, u každého je určen časový odhad v hodinách
+- task má fázy Todo, In progress a Done
+- tasky si k práci vybírají vývojári podľa vlastního uvážení, ale žádné (ani user stories) nemohou byť v rámci sprintu pridány/odebrány
+    - bolo by nutné zrušit celý sprint product ownerem
+- spravován týmem vývojáru
 
 ##### Product increment
-- všechny předměty product backlogu, které se splní během sprintu (a.k.a. to, co se za sprint stihne/udělá)
-- tvořen týmem vývojářů, testován zákazníkem, může být released product ownerem
-- je nutné, aby byl použitelný a byl splněn (dle definice scrum týmu)
+- všechny predmety product backlogu, ktoré se splní behem sprintu (a.k.a. to, čo sa za sprint stihne/udelá)
+- tvoren týmem vývojáru, testován zákazníkem, muže byť released product ownerem
+- je nutné, aby bol použiteľný a bol splnen (podľa definícia scrum týmu)
 
 #### Události
 
 ##### Project planning
 - tvorba [project charteru](3_projektove_rizeni.md#pmi-project-management-body-of-knowledge-pmbok)
 - tvorba product backlogu
-- výběr klíčových strategií (komunikace, rizika, řízení změn, kvalita...)
+- výber kľúčových strategií (komunikácia, rizika, riadenie zmen, kvalita...)
 
 ##### Sprint planning
 - probíhá na začátku sprintu, cca 8 hodin
 - účastní se celý scrum tým
-- vytyčuje se cíl nadcházejícího sprintu (a.k.a. co chceme udělat), vybíráme věci z product backlogu a přiřazujeme jim tasky
+- vytyčuje se cieľ nadcházejícího sprintu (a.k.a. co chceme udelat), vybíráme veci z product backlogu a prirazujeme jim tasky
 
 ##### Sprint
-- iterace soustředěná na vývoj funkcionality v sprint backlogu, cílem je vytvořit použitelný a potenciálně vydatelný product increment
-- pracuje na něm celý scrum team
-- product owner řeší komunikaci, vývojáři vývojáří, scrum master sleduje dodržování procesů
-- analýza, návrh, implementace, testování
-- max 1 měsíc, všechny sprinty trvají stejnou dobu
-- po sprintu sledujeme [team velocity](#team-velocity), podle ní máme lepší odhad pro budoucí plány, lze podle ní upravit rozsah sprint backlogu
+- iterace soustredená na vývoj funkcionality v sprint backlogu, cieľom je vytvorit použiteľný a potenciálne vydatelný product increment
+- pracuje na nem celý scrum team
+- product owner reší komunikaci, vývojári vývojárí, scrum master sleduje dodržiavanie procesu
+- analýza, návrh, implementácia, testovanie
+- max 1 mesíc, všechny sprinty trvají stejnou dobu
+- po sprintu sledujeme [team velocity](#team-velocity), popodľa ní máme lepší odhad pre budúcí plány, možno popodľa ní upravit rozsah sprint backlogu
 
 ##### Daily scrum (standup)
-- 15 minut každý den, účastní se vývojáři a možná i scrum master
-- co jsem dělal včera, co budu dělat dneska, narazil jsem na nějaké problémy?
+- 15 minut každý den, účastní se vývojári a možná i scrum master
+- co jsem delal včera, co budu delat dneska, narazil jsem na nejaké problémy?
 
 ##### Sprint review
-- 4 hodiny, účastní se celý scrum team a klíčoví stakeholdeři (např. zákazník, uživatel)
-- proběhne předvedení inkrementu
-- proberou se případné problémy, změny, odpovídá se na případné otázky stakeholderů
-- proberou se případné změny product backlogu
-- případně se přepočítá předpokládané datum dokončení
-- probere se, co by se mělo dělat dál, upraví se priorita/pořadí v product backlogu
+- 4 hodiny, účastní se celý scrum team a kľúčoví stakeholderi (napr. zákazník, používateľ)
+- probehne predvedení inkrementu
+- proberou se prípadné problémy, zmeny, odpovídá se na prípadné otázky stakeholderu
+- proberou se prípadné zmeny product backlogu
+- prípadne se prepočítá predpokládané dátamm dokončení
+- probere se, co by se melo delat dál, upraví se priorita/poradie v product backlogu
 
 ##### Sprint retrospective
 - 3 hodiny, účastní se scrum team
-- řeší se procesy - rozložení práce, splnil se cíl, je třeba něco upravit?
-- řeší se vztahy - klapalo to? potřebuje někdo užší spolupráci?
-- řeší se nástroje - dobrá komunikace? dostatečná transparentnost?
-- řeší se lidi - měl někdo trable? někoho pochválíme?
-- co nefungovalo, co můžeme zlepšit
-- ideálně se vymyslí jedno zlepšení procesů, které se v příštím sprintu bude používat
-- případně se upraví klíčové strategie, rizika
+- reší se procesy - rozložení práce, splnil se cieľ, je napríklad neco upravit?
+- reší se vztahy - klapalo to? potrebuje nekdo užší spolupráci?
+- reší se nástroje - dobrá komunikácia? dostatečná transparentnost?
+- reší se lidi - mel nekdo trable? nekoho pochválíme?
+- co nefungovalo, co môžeme zlepšit
+- ideálne se vymyslí jedno zlepšenie procesu, ktoré se v príštím sprintu bude používat
+- prípadne se upraví kľúčové strategie, rizika
 
 ##### Project retrospective
-- uzavření projektu s týmem
-- řešíme lessons learned, co se povedlo, nepovedlo...
-- poděkujeme všem
+- uzavrení projektu s týmem
+- rešíme lessons learned, čo sa povedlo, nepovedlo...
+- podekujeme všem
 
 #### Ukončení SCRUM
 
-SCRUM může skončit, když:
-- product backlog je prázdný (vše hotovo), nebo nepovažujeme (společně se stakeholdery) jeho obsah za důležitý
+SCRUM muže skončit, keď:
+- product backlog je prázdný (vše hotovo), alebo nepovažujeme (společne se stakeholdery) jeho obsah za duležitý
 - dojde čas/peníze
-- udělali jsme poslední sprint a je sice co spravovat, ale defekty jsou přijatelné
+- udelali jsme poslední sprint a je sice co spravovat, ale defekty sú prijatelné
 - product owner/stakeholder se rozhodne ukončit projekt
 
 #### Další aspekty SCRUM
 
-- návrh a architektura se mohou dělat průběžně pro jednotlivé user stories, nebo se do procesu zavádí jako standard (např. používáme vrstvenou architekturu, používáme tyto technologie...)
-- kontrakt se obvykle určuje podle toho, kolik (a jakých) lidí bude za dané období na projektu pracovat
-    - super na flexibilitu, ale těžko se určuje výsledná cena/deadline
-- zákazník je zatažen do postupu vývoje, může hned dávat zpětnou vazbu, ale tento overhead vyžaduje extra čas
+- návrh a Architektúra se mohou delat prubežne pre jednotlivé user stories, alebo se do procesu zavádí jako standard (napr. používáme vrstvenou architekturu, používáme tyto technologie...)
+- kontrakt se zvyčajne určuje popodľa toho, kolik (a jakých) lidí bude za dané období na projektu pracovat
+    - super na flexibilitu, ale težko se určuje výsledná cena/deadline
+- zákazník je zatažen do postupu vývoje, muže hned dávat zpetnou vazbu, ale tento overhead vyžaduje extra čas
 - balancuje se Čas, Cena a Rozsah funkcionalit
 
 ### Burndown chart
 
-Ukazuje kolik práce zbývá a jak si vedeme oproti plánu:
+Ukazuje kolik práce zbývá a ako si vedeme oproti plánu:
 
 ![](img/20230525221317.png)
 
 ### Team velocity
 
-Dokončené story pointy za sprint, je vidět v Burndown Chartu v dy/dx, nebo jako samostatná křivka:
+Dokončené story pointy za sprint, je videt v Burndown Chartu v dy/dx, alebo jako samostatná krivka:
 
 ![](img/20230525221638.png)
 
 ### Planning poker
 
-Pro každé story každý z týmu provede odhad, odhady se zveřejní najednou. Následuje diskuze, dokud se na bodech za dané story všichni neshodnou (doporučené použité body jsou podle Fibonacciho posloupnosti).
+Pre každé story každý z týmu provede odhad, odhady se zverejní najednou. Následuje diskuze, dokud se na bodech za dané story všichni neshodnou (doporučené použité body sú popodľa Fibonacciho posloupnosti).
 
 ### SCRUM Board
 
-Viditelný celému týmu, na jednotlivých lístcích tasků je vidět i zpracovávající člověk:
+Viditelný celému týmu, na jednotlivých lístcích tasku je videt i zpracovávající človek:
 
 ![](img/20230525224009.png)
 
-## Nasazení a provoz softwarových systémů (4/5)
+## Nasadenie a prevádzka softvérových systémov (4/5)
 
-- před nasazením je důležité systém otestovat v prostředí, které bude co nejbližší tomu produkčnímu
-- klíčové je v provozu logování událostí (abychom v případě chyby věděli, co se v systému dělo), monitoring, systém zpětné vazby
-- nasazení zahrnuje přípravu prostředí (instalace os, databází...), lze automatizovat/zjednodušit použitím Platform as a Service, případně kubernetes
-- před nasazením do provozu je fajn projít a zkontrolovat dokumentaci, která může být kvůli vývoji neaktuální
-- součástí nasazení je i školení uživatelů, abychom předešli neúspěchu z důvodu neochoty/neznalosti používání
-- součástí nasazení může být i customizace systému pro specifické potřeby zákazníka (pokud to náš systém umožňuje)
+- pred nasadeniem je duležité systém otestovat v prostredia, ktoré bude co nejbližší tomu produkčnímu
+- kľúčové je v prevádzkau protokolovanie udalostí (abychom v prípade chyby vedeli, čo sa v systémov delo), monitoring, systém zpetné väzby
+- nasadenie zahrnuje prípravu prostredia (instalace os, databáz...), možno automatizovat/zjednodušit použitím Platform as a Service, prípadne kubernetes
+- pred nasadeniem do prevádzkau je fajn projít a zkontrolovat dokumentaci, ktorá muže byť kvuli vývoji neaktuální
+- součástí nasadenie je i školení používateľu, abychom predešli neúspechu z dôvodu neochoty/neznalosti používanie
+- součástí nasadenie muže byť i customizace systémov pre specifické potreby zákazníka (ak to náš systém umožňuje)
 
-## Údržba softwarových systémů, znovupoužitelnost (5/5)
+## Údržba softvérových systémov, opätovná použiteľnosť (5/5)
 
 ### Analýza projektu
 
-V závěru je fajn si udělat analýzu toho, co (ne)fungovalo, co zlepšit...
+V záveru je fajn si udelat analýzu toho, co (ne)fungovalo, co zlepšit...
 - dosažená produktivita a kvalita
-- použitý proces, odchylky, důvody
-- plán vs realita a důvody (čas, peníze, chyby, FP/LOC...)
-- rizika (plán vs realita, jak jsme řešili rizika a problémy)
-- pracnost (i dle etap)
-- souhrn defektů
-- kauzální analýza - analýza odchylek výkonu u použitého procesu (jak a proč)
-- použité technologie a jejich hodnocení
-- popsat v dokumentu tým a jednotlivce, na které je možné se případně obrátit (třeba když se řeší problém v dalším projektu)
-- aktiva procesu - co vzniklo a může být použito i v jiných projektech (třeba knihovny, checklisty...)
+- použitý proces, odchylky, dôvody
+- plán vs realita a dôvody (čas, peníze, chyby, FP/LOC...)
+- rizika (plán vs realita, ako jsme rešili rizika a problémy)
+- pracnost (i podľa etap)
+- souhrn defektov
+- kauzální analýza - analýza odchylek výkonu u použitého procesu (ako a proč)
+- použité technologie a ich hodnocení
+- popsat v dokumentu tým a jednotlivce, na ktoré je možné se prípadne obrátit (napríklad keď se reší problém v dalším projektu)
+- aktiva procesu - co vzniklo a muže byť použito i v jiných projektech (napríklad knihovny, checklisty...)
 
-### Údržba systému
+### Údržba systémov
 
-- údržba se může dělat jako samostatný projekt, mohou na to být specializované týmy
-- řeší se oprava (i bezpečnostních) chyb, aktualizace a vylepšení (ideálně nějakým způsobem automatizované, ale může být fajn potvrzení uživatele), správu změn (co se jak a proč změnilo)
-- znovupoužitelnost se obvykle řeší v rámci jednotlivých služeb/programů/komponent, ale ne znovupoužitím struktur mezi různými projekty (pokud nejde o specializovanou knihovnu) - mohli bychom mít problém v případě změny
+- údržba se muže delat jako samostatný projekt, mohou na to byť specializované týmy
+- reší se oprava (i bezpečnosťních) chýb, aktualizace a vylepšení (ideálne neakým spôsobem automatizované, ale muže byť fajn potvrdenie používateľa), správu zmen (čo sa ako a proč zmenilo)
+- opätovná použiteľnosť se zvyčajne reší v rámci jednotlivých služeb/programu/komponent, ale ne znovupoužitím struktur medzi rôznymi projekty (ak nejde o specializovanou knihovnu) - mohli bychom mať problém v prípade zmeny
 
 [Go to the next question](./3_projektove_rizeni.md)

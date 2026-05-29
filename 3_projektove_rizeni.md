@@ -1,386 +1,386 @@
-# **Projektové řízení** (PA179)
+# **Projektové riadenie** (PA179)
 
-> Plánování, řízení rizik, role modelů v projektovém řízení. Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT). Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2). Příklady z praxe pro vše výše uvedené. [PA179](https://is.muni.cz/auth/el/fi/jaro2022/PA179/um/)
+> Plánovanie, riadenie rizik, role modelov v projektovém rízení. Ganttovy diagramy, sieťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT). Mezinárodní standardy a metodiky projektového riadenie (PMI Project Management Body of Knowledge, PRINCE 2). Príklady z praxe pre všetko vyššie uvedené. [PA179](https://is.muni.cz/auth/el/fi/jaro2022/PA179/um/)
 
-1. [Plánování, řízení rizik, role modelů v projektovém řízení](#plánování-řízení-rizik-role-modelů-v-projektovém-řízení-14)
-2. [Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT)](#ganttovy-diagramy-síťová-analýza-metoda-kritické-cesty-cpm-program-evaluation-and-review-technique-pert-24)
-3. [Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2)](#mezinárodní-standardy-a-metodiky-projektového-řízení-pmi-project-management-body-of-knowledge-prince-2-34)
-4. [Příklady z praxe pro vše výše uvedené](#příklady-z-praxe-pro-vše-výše-uvedené-44)
+1. [Plánovanie, riadenie rizik, role modelov v projektovém rízení](#plánovanie-rízení-rizik-role-modelov-v-projektovém-rízení-14)
+2. [Ganttovy diagramy, sieťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT)](#ganttovy-diagramy-sieťová-analýza-metoda-kritické-cesty-cpm-program-evaluation-and-review-technique-pert-24)
+3. [Mezinárodní standardy a metodiky projektového riadenie (PMI Project Management Body of Knowledge, PRINCE 2)](#mezinárodní-standardy-a-metodiky-projektového-rízení-pmi-project-management-body-of-knowledge-prince-2-34)
+4. [Príklady z praxe pre všetko vyššie uvedené](#príklady-z-praxe-pro-vše-výše-uvedené-44)
 
-## Plánování, řízení rizik, role modelů v projektovém řízení (1/4)
+## Plánovanie, riadenie rizik, role modelov v projektovém riadenie (1/4)
 
-### Plánování
+### Plánovanie
 
-Je třeba rozlišovat mezi:
+Je napríklad rozlišovat mezi:
 
 - **Projekty**
-    - dočasné - mají start i konec, typické fáze (příprava, provedení, uzavření, případně fáze sw životního cyklu)
-    - přinášející změnu, dodávají hodnotu stakeholderům (všem zúčastněným; uživatelům, zákazníkům i dodavatelům produktu...)
-    - unikátní - každý má svá specifika (požadavky, zákazníky, tým...), nejedná se o každodenní rutinnou práci firmy
+    - dočasné - majú start i konec, typické fázy (príprava, prevedenie, uzavrení, prípadne fázy sw životního cyklu)
+    - prinášející zmenu, dodávají hodnotu stakeholderum (všem zúčastneným; používateľum, zákazníkum i dodavatelum produktu...)
+    - unikátne - každý má svá specifika (požadavky, zákazníky, tým...), nejedná se o každodenní rutinnou práci firmy
     - plánované
-    - opakovatelné prvky projektu (či celé projekty) jsou **procesy** - řízené událostmi, bývají dobře definované (jak postupovat), vizualizované flow chartem
+    - opakovatelné prvky projektu (či celé projekty) sú **procesy** - rízené událostmi, bývají dobre definované (ako postupovat), vizualizované flow chartem
       > proces je opakovatelná série aktivit s definovanými vstupy, výstupy, nástroji, technikami...
-    - bývají spojené s rizikem - spojené s unikátností (nikdy jsme to nedělali), deadliny, děláme nějakou změnu
-    - **řízení**
-        - balanc mezi časem, cenou a rozsahem/kvalitou
-        - začneme užíváním standardů (PRINCE2, PMBOK, IPMA), abychom efektivněji komunikovali, koordinovali, zvýšili důvěru stakeholderů, transparentnost, abychom znovu neobjevovali vymyšlené
-- **Programy** - skupina dočasných, vzájemně provázaných projektů řízená jako skupina abychom dosáhli cílů, které projekty sdílí
-    - **řízení**
+    - bývají spojené s rizikem - spojené s unikátností (nikdy jsme to nedelali), deadliny, deláme nejakou zmenu
+    - **rízení**
+        - balanc medzi časem, cenou a rozsahem/kvalitou
+        - začneme užíváním standardu (PRINCE2, PMBOK, IPMA), abychom efektivneji komunikovali, koordinovali, zvýšili duveru stakeholderu, transparentnost, abychom znovu neobjevovali vymyšlené
+- **Programy** - skupina dočasných, vzájemne provázaných projektu rízená jako skupina abychom dosáhli cílu, ktoré projekty sdílí
+    - **rízení**
         - správa rizik
-        - odstraňování omezení a konfliktů z projektů
-        - v projektech se přemýšlí a plánuje i s ohledem na jiné projekty programu
-- **Portfolio** - skupina projektů a programů, řízená k dosažení dlouhodobých strategických cílů
-    - a.k.a. co dlouhodobě nabízíme
-    - **řízení**
+        - odstraňovanie obmedzenie a konfliktu z projektu
+        - v projektech se premýšlí a plánuje i s ohledem na jiné projekty programu
+- **Portfolio** - skupina projektu a programu, rízená k dosažení dlouhodobých strategických cílu
+    - a.k.a. co dlouhodobe nabízíme
+    - **rízení**
         - monitoringem výkonu firmy
-        - výběrem a prioritizací programů a projektů
+        - výberem a prioritizací programu a projektu
 
-Pro konkrétní projekt je potřeba si zvolit vhodný přístup **prediktivní** nebo **agilní** [viz otázka 2](2_softwarove_inzenyrstvi.md).
+Pre konkrétné projekt je ponapríklad si zvolit vhodný prístup **prediktivní** alebo **agilní** [viz otázka 2](2_softwarove_inzenyrstvi.md).
 
-#### Agilní plánování
+#### Agilní plánovanie
 
-Dále je potřeba u plánování projektů sepsat Project Charter popisující základní informace o projektu (proč, co, kdo, kdy, jak, za kolik...), sepsat podrobnosti klíčových strategií (komunikace, rizika, kvalita, změny) a nějakým způsobem začít plánovat práci (product backlog, řešení architektury...).
+Dále je ponapríklad u plánovanie projektu sepsat Project Charter popisující základné informace o projektu (proč, co, kdo, kdy, jak, za kolik...), sepsat podrobnosti kľúčových strategií (komunikácia, rizika, kvalita, zmeny) a neakým spôsobem začít plánovat práci (product backlog, riešenie architektúry...).
 
-#### Prediktivní plánování
+#### Prediktivní plánovanie
 
-Sepisuje se **Project Initiation Documentation** obsahující detailní Business Case, veškeré informace o projektu (proč, co, kdo, kdy, jak, za kolik), definují se klíčové strategie (komunikace, rizika, kvalita, změny), vše se dokumentuje, vytváří se příslušné registry, vše se schvaluje product boardem (zástupci exekutivy, inženýrů a zákazníků). Do PID se pak zapisují i změny a průběh, aby bylo možné porovnat plán a realitu, je dostupný všem v rámci projektu.
+Sepisuje se **Project Initiation Documentation** obsahující detailné Business Case, veškeré informace o projektu (proč, co, kdo, kdy, jak, za kolik), definují se kľúčové strategie (komunikácia, rizika, kvalita, zmeny), vše se dokumentuje, vytvárí se príslušné registry, vše se schvaluje product boardem (zástupci exekutivy, inženýru a zákazníku). Do PID se pak zapisují i zmeny a prubeh, aby bolo možné porovnat plán a realitu, je dostupný všem v rámci projektu.
 
-Dělá se detailní analýza požadavků, spousta Use case diagramů, detailní rozsah sloužící jako základ pro ocenění, design mockupy. Tvoří se **specifikační dokument** produktu - obsahuje požadavky, rozbití systému na komponenty (včetně detailního popisu až po pole vstupních formulářů), očekávanou kvalitu, akceptační kritéria.
+Delá se detailné analýza požiadaviek, spousta Use case diagramu, detailné rozsah sloužící jako základ pre ocenení, design mockupy. Tvorí se **specifikační dokument** produktu - obsahuje požadavky, rozbití systémov na komponenty (včetne detailního popisu až po pole vstupních formuláru), očekávanou kvalitu, akceptačné kritéria.
 
-Dělá se **projektový plán** (proč, co, kdo, kdy, jak, za kolik...) - **Work Breakdown Structure** tvořená ze specifikačního dokumentu, počítá se čas a cena jednotlivých **Work Packages** (součást WBS, nejnižší jednotka) třeba pomocí [PERT](#program-evaluation-and-review-technique-pert), jejich závislosti, tvoříme rozvrh (gantt/network diagram), přiřazujeme odpovědnosti (mělo by jít snadno najít aktivity člověka i všechny spojené s aktivitou). 
+Delá se **projektový plán** (proč, co, kdo, kdy, jak, za kolik...) - **Work Breakdown Structure** tvorená ze specifikačního dokumentu, počítá se čas a cena jednotlivých **Work Packages** (součást WBS, nejnižší jednotka) napríklad pomocí [PERT](#program-evaluation-and-review-technique-pert), ich závislosťi, tvoríme rozvrh (gantt/network diagram), prirazujeme odpovednosti (melo by ísť snadno najít aktivity človeka i všechny spojené s aktivitou). 
 
-**Pozor na rozdíl Člověkoden (Man-Day / MD) vs. Kalendářní čas:** MD je jednotka **úsilí (pracnosti)**, nikoliv času. Úkol o velikosti 10 MD znamená, že zabere 10 dní *jednomu* člověku. Pokud na něj nasadíme 5 lidí, může teoreticky trvat jen 2 kalendářní dny. Do kritické cesty (CPM) se vždy dosazuje kalendářní *délka trvání*, ne absolutní úsilí. (Pozor na *Brooksův zákon*: Přidání lidí do zpožděného SW projektu ho obvykle ještě více zpozdí kvůli režii na komunikaci).
+**Pozor na rozdíl Človekoden (Man-Day / MD) vs. Kalendární čas:** MD je jednotka **úsilí (pracnosti)**, nikoliv času. Úkol o velikosti 10 MD znamená, že zabere 10 dní *jednomu* človeku. Ak na nej nasadíme 5 lidí, muže teoreticky trvat jen 2 kalendární dny. Do kritické cesty (CPM) se vždy dosazuje kalendární *délka trvání*, ne absolutní úsilí. (Pozor na *Brooksuv zákon*: Pridání lidí do zpoždeného SW projektu ho zvyčajne ješte viac zpozdí kvuli režii na komunikaci).
 
-#### Chronologický postup prediktivního plánování (Státnicový chyták)
-Zkoušející často nachytají studenty na otázce: „Co uděláte při plánování jako první? Gantt, nebo síťový graf?“ Správná odpověď je **WBS**. Postup musí jít striktně v tomto pořadí:
-1.  **Dekompozice rozsahu (WBS):** Rozbití celého systému na nejmenší řiditelné celky (**Work Packages**). Bez toho nelze plánovat dál.
-2.  **Odhad pracnosti a zdrojů:** Každému Work Package přiřadíme potřebné úsilí (např. pomocí PERT) a určíme, kdo ho bude dělat.
-3.  **Sestavení síťového grafu:** Definujeme logické závislosti mezi úkoly (co na co navazuje).
+#### Chronologický postup prediktivního plánovanie (Státnicový chyták)
+Zkoušející často nachytají studenty na otázke: „Co udeláte pri plánovanie jako první? Gantt, alebo sieťový graf?“ Správná odpoveď je **WBS**. Postup musí ísť striktne v tomto poradie:
+1.  **Dekompozice rozsahu (WBS):** Rozbití celého systémov na nejmenší riditelné celky (**Work Packages**). Bez toho nemožno plánovat dál.
+2.  **Odhad pracnosti a zdrojov:** Každému Work Package priradíme potrebné úsilí (napr. pomocí PERT) a určíme, kdo ho bude delat.
+3.  **Sestavení sieťového grafu:** Definujeme logické závislosťi medzi úkoly (co na co navazuje).
 4.  **Výpočet kritické cesty (CPM):** Zjistíme matematické trvání projektu a kritické úkoly.
-5.  **Vykreslení do časové osy (Ganttův diagram):** Teprve na základě všech předchozích kroků vzniká Gantt jako vizuální kalendářní plán.
+5.  **Vykreslení do časové osy (Ganttuv diagram):** Teprve na základe všech predchozích krokom/krokov vzniká Gantt jako vizuální kalendární plán.
 
 *WBS*
 
 ![](img/20230526000518.png)
 
-### Řízení rizik
+### Riadenie rizík
 
 Postup:
 
 1. **Identifikace rizik**
-    - čerpáme z předchozích zkušeností, lessons learned... co a proč se stalo?
+    - čerpáme z predchozích zkušeností, lessons learned... co a proč se stalo?
 2. **Ohodnocení rizik**
-    - každé riziko způsobí náklady, můžeme pro něj odhadnout cenu
-    - každému přiřadíme pravděpodobnost a kritičnost dopadu, určíme následky
+    - každé riziko spôsobí náklady, môžeme pre nej odhadnout cenu
+    - každému priradíme pravdepodobnosť a kritičnost dopadu, určíme následky
       ![](img/20230525214112.png)
-3. **Určení odezev na rizika**, možnosti:
-    - **akceptuj** - no tak se to stane, no, nevadí, náklady na prevenci by byly vyšší než samotné riziko
-    - **vyhni se** - nastavení plánu, aby problém nemohl nastat (např. použití jiné technologie, která tento problém nemá)
-    - **přesuň** (třeba na někoho jiného) - např. tento komponent outsourcujeme se solidním SLA, nebo se pojistíme
-    - **zmenši** - sniž pravděpodobnost/míru dopadu rizika, třeba důkladnějším systémem reviews
+3. **Určenie odezev na rizika**, možnosti:
+    - **akceptuj** - no tak se to stane, no, nevadí, náklady na prevenci by boli vyšší než samotné riziko
+    - **vyhni se** - nastavení plánu, aby problém nemohl nastat (napr. použití jiné technologie, ktorá tento problém nemá)
+    - **presuň** (napríklad na nekoho jiného) - napr. tento komponent outsourcujeme se solidním SLA, alebo se pojistíme
+    - **zmenši** - sniž pravdepodobnosť/míru dopadu rizika, napríklad dukladnejším systémem reviews
 4. **Stanovení monitoringu rizik**
-    - stanovení odpovědnosti za monitoring rizik
-    - určení, kde budou rizika definována, kdy budou revidována a upravována
-5. **Vytvoření registru rizik**
+    - stanovení odpovednosti za monitoring rizik
+    - určenie, kde budú rizika definovaná, kdy budú revidována a upravována
+5. **Vytvorení registru rizik**
 
-Možné zdroje rizik (nejčastější tučně):
+Možné zdroje rizik (nejčastejší tučne):
 
-- **uživatel** - **nemožnost/neochota zapojit se**, odpor ke změnám
-- **požadavky** - **špatně pochopené**, blbě definované, nejasné či neadekvátní, **přijdou změny** (mnohdy až v momentě, kdy mohou zásadně narušit vyvíjený systém)
-- **složitost projektu** - komplexní doména, použití nové/nezavedené technologie
-- **management** - **neefektivní řízení**, špatně zvolená/použitá metodika/standard, **špatný odhad nákladů/zdrojů/času**, špatně určená komunikace, **nezkušený manažer**
+- **používateľ** - **nemožnost/neochota zapojit se**, odpor ke zmenám
+- **požadavky** - **špatne pochopené**, blbe definované, nejasné či neadekvátní, **prijdou zmeny** (mnohdy až v momente, kdy mohou zásadne narušit vyvíjený systém)
+- **složitost projektu** - komplexné doména, použití nové/nezavedené technologie
+- **management** - **neefektivní rízení**, špatne zvolená/použitá metodika/standard, **špatný odhad nákladu/zdrojov/času**, špatne určená komunikácia, **nezkušený manažer**
 - **tým** - nezkušenost, **málo lidí**, osobní konflikty
-- **firemní prostředí** - nestabilní, změna vedení...
-- **subdodavatelé** - opoždění, nedostatečná kvalita, komunikace...
+- **firemní prostredia** - nestabilní, zmena vedení...
+- **subdodavatelé** - opoždení, nedostatečná kvalita, komunikácia...
 
-#### Specifika prevence u agilního řízení rizik
+#### Specifika prevence u agilního riadenie rizik
 
 Prevence:
 
-- **Transparence a zpětná vazba**, abychom předešli nedorozumění v týmu
-- **Používání user stories** - jsou snadno pochopitelné pro zákazníka, dají se dobře ověřovat
-- **Jasná definice, co znamená "hotovo"**
-- **Krátké iterace** - brzo zjistíme, co je případně blbě
+- **Transparence a zpetná väzba**, abychom predešli nedorozumení v týmu
+- **Používanie user stories** - sú snadno pochopitelné pre zákazníka, dají se dobre overovat
+- **Jasná definícia, co znamená "hotovo"**
+- **Krátké iterace** - brzo zjistíme, čo je prípadne blbe
 
-### Role modelů v projektovém řízení
-V softwarovém projektovém řízení slouží modely především k **odhadování pracnosti (effort), času a ceny** projektu na základě historických dat a metrik. Zkoušející chtějí slyšet tyto dva hlavní přístupy:
+### Role modelov v projektovém rízení
+V softvérovém projektovém riadenie slouží modely predevším k **odhadovanie pracnosti (effort), času a ceny** projektu na základe historických dát a metrik. Zkoušející chtejí slyšet tyto dva hlavní prístupy:
 
-* **Metoda funkčních bodů (Function Points - FP):** Odhaduje velikost SW z pohledu uživatele (počet vstupů, výstupů, dotazů, interních souborů). Je nezávislá na technologii.
-* **Model COCOMO (Constructive Cost Model) a COCOMO II:** Algoritmetický model, který odhaduje pracnost v člověkoměsících (Person-Months) a kalendářní čas na základě velikosti kódu (KLOC - tisíce řádků kódu) a produktivních faktorů (zkušenost týmu, složitost platformy).
+* **Metoda funkčnéch bodov (Function Points - FP):** Odhaduje velikost SW Z pohľadu používateľa (počet vstupu, výstupu, dotazu, interních súborov). Je nezávislá na technologii.
+* **Model COCOMO (Constructive Cost Model) a COCOMO II:** Algoritmetický model, ktorý odhaduje pracnost v človekomesících (Person-Months) a kalendární čas na základe velikosti kódu (KLOC - tisíce rádku kódu) a produktivních faktoru (zkušenost týmu, složitost platformy).
 
-COCOMO rozlišuje **3 vývojové módy (kontexty projektu)**, na které se doc. Ráček velmi často ptá:
-1.  **Organic (Organický):** Malé projekty, známé prostředí, malý a zkušený tým, flexibilní požadavky (např. interní firemní nástroj). Nízká režie řízení.
-2.  **Semi-detached (Polorozdělený):** Střední projekty, smíšený tým (zkušení i nezkušení), část požadavků je striktní, část volnější. Vyšší nároky na koordinaci.
-3.  **Embedded (Vestavěný / Integrovaný):** Komplexní projekty s extrémně přísnými omezeními (např. řízení letového provozu, bankovní jádro, embedded medicínský software). Požadavky jsou pevné, procesy rigidní, obrovská režie na testování a dokumentaci.
+COCOMO rozlišuje **3 vývojové módy (kontexty projektu)**, na ktoré se doc. Ráček velmi často ptá:
+1.  **Organic (Organický):** Malé projekty, známé prostredia, malý a zkušený tým, flexibilní požadavky (napr. interné firemní nástroj). Nízká režie rízení.
+2.  **Semi-detached (Polorozdelený):** Strední projekty, smíšený tým (zkušení i nezkušení), část požiadaviek je striktní, část volnejší. Vyšší nároky na koordinaci.
+3.  **Embedded (Vestavený / Integrovaný):** Komplexné projekty s extrémne prísnými obmedzeniami (napr. riadenie letového prevádzkau, bankovní jádro, embedded medicínský software). Požadavky sú pevné, procesy rigidní, obrovská režie na testovanie a dokumentaci.
 
-Dále sem spadají **matematické modely řízení** (síťové grafy CPM/PERT), které modelují projekt jako matematický graf a hledají v něm kritická místa (úzká hrdla).
+Dále sem spadají **matematické modely rízení** (sieťové grafy CPM/PERT), ktoré modelují projekt jako matematický graf a hledají v nem kritická místa (úzká hrdla).
 
-## Ganttovy diagramy, síťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT) (2/4)
+## Ganttovy diagramy, sieťová analýza, metoda kritické cesty (CPM), Program Evaluation and Review Technique (PERT) (2/4)
 
 ### Ganttovy diagramy
 
-- nástroj pro plánování (nejen) projektů
+- nástroj pre plánovanie (nejen) projektu
 
 V základu toto:
 
 ![](img/20230525192847.png)
 
-ale lze rozšířit...
+ale možno rozšírit...
 
-- y osa obsahuje úlohy (případně zdroje)
+- y osa obsahuje úlohy (prípadne zdroje)
 - x osa zobrazuje čas
-- úloha jako uzel/obdélník (šířka udává časovou náročnost), případná hrana značí vztah
-- je možné přidat:
+- úloha jako uzel/obdélník (šírka udává časovou náročnost), prípadná hrana značí vztah
+- je možné pridat:
     - milestones
     - progress
-    - zdroje (kdo co dělá, dávají se místo událostí na osu y), pak řešíme problém plánování job-shopu
-    - omezení, precedenční podmínky (úloha musí být započata až po dokončení jiné úlohy, něco je možné paralelizovat...)
-- obvykle minimalizujeme makespan (čas dokončení poslední úlohy a tedy i celého projektu)
+    - zdroje (kdo co delá, dávají se místo udalostí na osu y), pak rešíme problém plánovanie job-shopu
+    - obmedzenie, precedenční podmínky (úloha musí byť započata až po dokončení jiné úlohy, nečo je možné paralelizovat...)
+- zvyčajne minimalizujeme makespan (čas dokončení poslední úlohy a teda i celého projektu)
 
 ![](img/20230525195955.png)
 
-### Síťová analýza
+### Sieťová analýza
 
-Metody pro modelování souboru činností vedoucích k dosažení nějakého cíle (tj. projektů).
+Metody pre modelovanie súborov činností vedoucích k dosažení nejakého cíle (tj. projektu).
 
-Cílem je projekt naplánovat, minimalizovat prostoje a náklady, určit termíny, celkovou dobu trvání projektů, identifikovat kritické úlohy v projektu.
+Cieľom je projekt naplánovat, minimalizovat prostoje a náklady, určiť termíny, celkovou dobu trvání projektu, identifikovat kritické úlohy v projektu.
 
-Používá se pro to síťový graf hranově/uzlově orientovaný - úlohy jsou na hranách/uzlech. Uzlově orientovaný umožňuje snadno modelovat precedenční podmínky, lze snadno použít pro metodu kritické cesty.
+Používá se pre to sieťový graf hranove/uzlove orientovaný - úlohy sú na hranách/uzlech. Uzlove orientovaný umožňuje snadno modelovat precedenční podmínky, možno snadno použít pre metodu kritické cesty.
 
-* **AON (Activity-on-Node / Uzlově orientovaný):** * **Uzly** představují samotné aktivity (činnosti, např. "Programování backendu").
-    * **Hrany (šipky)** představují logické závislosti mezi nimi.
-    * *Využití:* Mnohem častější v moderním softwaru (Jira, MS Project), protože se v něm snadno modelují složitější závislosti (např. SS, FF).
-* **AOA (Activity-on-Arrow / Hranově orientovaný):**
-    * **Hrany (šipky)** představují samotné aktivity, které spotřebovávají čas a zdroje.
-    * **Uzly** představují **události / milníky (milestones)** – okamžik, kdy jedna činnost končí a druhá začíná (mají nulové trvání).
-    * *Využití / Výhoda:* Zkoušející chtějí slyšet, že AOA se skvěle hodí pro přirozené zobrazení milníků přímo v grafech. Někdy vyžaduje zavedení "fiktivních hran" (dummy activities) s nulovým časem pro zachování logiky grafu.
+* **AON (Activity-on-Node / Uzlove orientovaný):** * **Uzly** predstavují samotné aktivity (činnosti, napr. "Programovanie backendu").
+    * **Hrany (šipky)** predstavují logické závislosťi medzi nimi.
+    * *Využití:* Mnohem častejší v moderním softwaru (Jira, MS Project), pretože se v nem snadno modelují složitejší závislosťi (napr. SS, FF).
+* **AOA (Activity-on-Arrow / Hranove orientovaný):**
+    * **Hrany (šipky)** predstavují samotné aktivity, ktoré spotrebovávají čas a zdroje.
+    * **Uzly** predstavují **události / milníky (milestones)** – okamžik, kdy jedna činnost končí a druhá začíná (majú nulové trvání).
+    * *Využití / Výhoda:* Zkoušející chtejí slyšet, že AOA se skvele hodí pre prirozené zobrazení milníku prímo v grafech. Nekdy vyžaduje zavedení "fiktivních hran" (dummy activities) s nulovým časem pre zachovanie logiky grafu.
 
 ### Metoda kritické cesty (CPM)
 
-Metoda pro identifikaci vzájemně závislých aktivit, které mají vliv (jsou kritické) na dobu dokončení projektu a nemohou být opožděny bez prodloužení dokončení projektu.
+Metoda pre identifikaci vzájemne závislých aktivit, ktoré majú vliv (sú kritické) na dobu dokončení projektu a nemohou byť opoždeny bez prodloužení dokončení projektu.
 
-#### 4 typy precedenčních závislostí (Chyták na tabuli)
-Při výpočtu CPM na tabuli vám zkoušející nemusí dát jen klasickou následnost. Musíte znát všechny čtyři typy vazeb:
-* **FS (Finish-to-Start / Konec-Start):** Nejběžnější. Úloha B může začít až poté, co úloha A skončí (např. Testování začne až po dokončení Implementace).
-* **SS (Start-to-Start / Start-Start):** Úloha B může začít hned, jakmile začne úloha A. Mohou běžet paralelně (např. S programováním frontendů se může začít hned, jak se začne programovat backend).
-* **FF (Finish-to-Finish / Konec-Konec):** Úloha B může skončit až tehdi, kdy skončí úloha A (např. Dokumentace celého systému může být hotová/skončená až v momentě, kdy skončí implementace poslední komponenty).
-* **SF (Start-to-Finish / Start-Konec):** Velmi vzácná. Úloha B může skončit až poté, co úloha A začne.
+#### 4 typy precedenčních závislosťí (Chyták na tabuli)
+Pri výpočtu CPM na tabuli vám zkoušející nemusí dát jen klasickou následnost. Musiete znát všechny čtyri typy vazeb:
+* **FS (Finish-to-Start / Konec-Start):** Nejbežnejší. Úloha B muže začít až poté, co úloha A skončí (napr. Testovanie začne až po dokončení Implementácia).
+* **SS (Start-to-Start / Start-Start):** Úloha B muže začít hned, jakmile začne úloha A. Mohou bežet paralelne (napr. S programovaniem frontendu se muže začít hned, ako sa začne programovat backend).
+* **FF (Finish-to-Finish / Konec-Konec):** Úloha B muže skončit až tehdi, kdy skončí úloha A (napr. Dokumentácia celého systémov muže byť hotová/skončená až v momente, kdy skončí implementácia poslední komponenty).
+* **SF (Start-to-Finish / Start-Konec):** Velmi vzácná. Úloha B muže skončit až poté, co úloha A začne.
 
 [Postup](https://www.youtube.com/watch?v=4oDLMs11Exs):
 
-- uděláme si graf závislostí, určíme si dobu trvání aktivit
-- v prvním průchodu jdeme start => konec, řešíme earliest start/completion time. Když vedou 2 do 1, bereme maximum těch 2.
-- v druhém průchodu jdeme konec => start, řešíme latest completion/start time. Když vedou 2 z 1, bereme minimum těch 2.
-- kritická cesta obsahuje aktivity, které mají earliest & latest finish time identický
-- slack/float udává, o kolik můžeme danou aktivitu opozdit, aniž by došlo ke zpoždění projektu (`latest completion time - earliest completion time`)
+- udeláme si graf závislosťí, určíme si dobu trvání aktivit
+- v prvním pruchodu jdeme start => konec, rešíme earliest start/completion time. Keď vedou 2 do 1, bereme maximum tech 2.
+- v druhém pruchodu jdeme konec => start, rešíme latest completion/start time. Keď vedou 2 z 1, bereme minimum tech 2.
+- kritická cesta obsahuje aktivity, ktoré majú earliest & latest finish time identický
+- slack/float udává, o kolik môžeme danou aktivitu opozdit, aniž by došlo ke zpoždení projektu (`latest completion time - earliest completion time`)
 
 ![](img/20230526101347.png)
 
 ### Program Evaluation and Review Technique (PERT)
 
-Technika k odhadu času k dokončení tasku. Bereme **optimistický** odhad, **pesimistický** odhad a **nejpravděpodobnější** odhad:
+Technika k odhadu času k dokončení tasku. Bereme **optimistický** odhad, **pesimistický** odhad a **nejpravdepodobnejší** odhad:
 
-`očekávaný = (optimistický + 4 * nejpravděpodobnější + pesimistický) / 6`
+`očekávaný = (optimistický + 4 * nejpravdepodobnejší + pesimistický) / 6`
 
-Pokud máme informace o úrovni platů implementátorů tasků, můžeme dopočítat odhadovanou cenu.
+Ak máme informace o úrovni platu implementátoru tasku, môžeme dopočítat odhadovanou cenu.
 
-## Mezinárodní standardy a metodiky projektového řízení (PMI Project Management Body of Knowledge, PRINCE 2) (3/4)
+## Mezinárodní standardy a metodiky projektového riadenie (PMI Project Management Body of Knowledge, PRINCE 2) (3/4)
 
-- standardy projektového řízení PRINCE2, PMBOK, IPMA ICB popisují obecnější způsob řízení
-- metodiky sw vývoje (RUP, SCRUM) řeší řízení v rámci vývojového týmu, jsou specifické pro vývoj SW
+- standardy projektového riadenie PRINCE2, PMBOK, IPMA ICB popisují obecnejší spôsob rízení
+- metodiky sw vývoje (RUP, SCRUM) reší riadenie v rámci vývojového týmu, sú specifické pre vývoj SW
 
 ![](img/20230525184623.png)
 
 ### PMI Project Management Body of Knowledge (PMBOK)
 
-- **procesně orientovaný** standard, podrobně popsaná sada good practices
-- snadno se používá jako handbook pro vhodné znalostní oblasti a nástroje/techniky při životním cyklu projektu
-- vhodný, když:
-    - manažer potřebuje tipy na nástroje a techniky, jaké by měl použít, ale aspoň trochu tuší co a jak
+- **procesne orientovaný** standard, podrobne popsaná sada good practices
+- snadno se používá jako handbook pre vhodné znalostní oblasti a nástroje/techniky pri životním cyklu projektu
+- vhodný, keď:
+    - manažer potrebuje tipy na nástroje a techniky, jaké by mel použít, ale aspoň trochu tuší co a jak
 
-49 procesů (série aktivit s definovanými vstupy, výstupy, nástroji a technikami) dělených do:
+49 procesu (série aktivit s definovanými vstupy, výstupy, nástroji a technikami) delených do:
 
-- **5 procesních skupin** - logické dělení procesů podle fází (inicializace, plánování, provedení, monitoring a řízení, uzavírání)
-- **10 vědomostních oblastí/disciplín** projektového managementu, každá má vlastní procesy:
+- **5 procesních skupin** - logické delení procesu popodľa fáz (inicializace, plánovanie, prevedenie, monitoring a rízení, uzavírání)
+- **10 vedomostních oblastí/disciplín** projektového managementu, každá má vlastné procesy:
     - **Integrace**
         - tvorba **Project Charter**u:
             - **Business case (proč)** - cíle projektu, hrubá cena, rozpočet, rizika
             - **Project outcome (co)** - popis, hlavní cíle a požadavky
-            - **Stakeholders (kdo)** - externí i interní, řešíme jejich role, potřeby, zapojení a odpovědnosti
-            - **Management approach (jak)** - popis použitých standardů, nástrojů, metodik, životního cyklu projektu...
-            - **Schedule (kdy)** - hrubý plán projektu, fáze, milestones, Ganttův diagram...
-    - **Rozsah (scope)** - sesbírání požadavků, definice, validace a řízení rozsahu funkcionalit systému, tvorba Work Breakdown Structure
-    - **Plán** - definice a určení pořadí aktivit, odhady časů aktivit, tvorba a řízení plánu
-    - **Cena** - odhad cen a rozpočtu aktivit nebo jednotek práce pomocí Work Breakdown Structure, řízení ceny a rozpočtu
-    - **Kvalita** - plánování, řízení a kontrola kvality
-    - **Zdroje** - odhad nepeněžních a lidských zdrojů, jejich získávání a řízení, tvorba a správa týmů
-    - **Komunikace** - plán, správa a kontrola komunikace a informací o projektu
-    - **Riziko** - identifikace, kvalitativní (míra dopadu) a kvantitativní (pravděpodobnost) analýza rizik, jejich monitoring, plán a procesy reagující na rizika
-    - **Dodavatelé** - produkty a služby pocházející mimo náš tým, kontrakty, objednávky, SLAčka, výběr dodavatelů, monitoring výkonu dodavatelů
-    - **Stakeholdeři** - zúčastněné osoby; jejich identifikace, plánování a správa zapojení stakeholderů do projektu
+            - **Stakeholders (kdo)** - externé i interné, rešíme ich role, potreby, zapojení a odpovednosti
+            - **Management approach (jak)** - popis použitých standardu, nástrojov, metodik, životního cyklu projektu...
+            - **Schedule (kdy)** - hrubý plán projektu, fázy, milestones, Ganttuv diagram...
+    - **Rozsah (scope)** - sesbírání požiadaviek, definícia, validace a riadenie rozsahu funkcionalit systémov, tvorba Work Breakdown Structure
+    - **Plán** - definícia a určenie poradie aktivit, odhady času aktivit, tvorba a riadenie plánu
+    - **Cena** - odhad cen a rozpočtu aktivit alebo jednotek práce pomocí Work Breakdown Structure, riadenie ceny a rozpočtu
+    - **Kvalita** - plánovanie, riadenie a kontrola kvality
+    - **Zdroje** - odhad nepenežních a lidských zdrojov, ich získávanie a rízení, tvorba a správa týmu
+    - **Komunikácia** - plán, správa a kontrola komunikácia a informací o projektu
+    - **Riziko** - identifikace, kvalitativní (míra dopadu) a kvantitativní (pravdepodobnosť) analýza rizik, ich monitoring, plán a procesy reagující na rizika
+    - **Dodavatelé** - produkty a služby pocházející mimo náš tým, kontrakty, objednávky, SLAčka, výber dodavatelu, monitoring výkonu dodavatelu
+    - **Stakeholderi** - zúčastnené osoby; ich identifikace, plánovanie a správa zapojení stakeholderu do projektu
 
 ### PRINCE 2 (PRojects IN Controlled Environment)
 
-- standard pro řízení obecného projektu
-- předepsaný postup, krok za krokem (spousta formulářů na vyplňování, checklisty)
-- součástí není správa požadavků, rozpočtování
+- standard pre riadenie obecného projektu
+- predepsaný postup, krok za krokom (spousta formuláru na vyplňovanie, checklisty)
+- součástí nie je správa požiadaviek, rozpočtovanie
 - vhodný pro:
-    - nutnost velkého reportování
-    - nutnost kompletní projektové dokumentace
-    - tým vyžaduje řád a kontrolu
+    - nutnost velkého reportovanie
+    - nutnost kompletní projektové dokumentácia
+    - tým vyžaduje rád a kontrolu
     - manažery s málo zkušenostmi, hodí se mu podrobný popis postupu
 
 #### Fáze
 
-(hrubě odpovídá UP inception, elaboration, construction a transition):
+(hrube odpovídá UP inception, elaboration, construction a transition):
 
 ![img.png](img.png)
 
 - **Starting up**
     - tvorba **Project brief**:
-        - řešíme feasibilitu, zachycujeme klíčové požadavky, rizika
-        - popis významných požadavků s dopadem na architekturu
-        - identifikace actorů
-        - identifikace dalších systémů, se kterými máme komunikovat
+        - rešíme feasibilitu, zachycujeme kľúčové požadavky, rizika
+        - popis významných požiadaviek s dopadem na architekturu
+        - identifikace actoru
+        - identifikace dalších systémov, se kterými máme komunikovat
         - na konci známe cíle, hrubou architekturu
-        - co se používá pro podobné systémy? s čím máme zkušenosti?
-        - určení použitých technologií
-        - určení orientační ceny, časového plánu a rizik
-    - plán další fáze:
+        - čo sa používá pre podobné systémy? s čím máme zkušenosti?
+        - určenie použitých technologií
+        - určenie orientační ceny, časového plánu a rizik
+    - plán další fázy:
         - **Work Breakdown Structure**
         - identifikace aktivit, dependencí
         - odhad trvání aktivit, stanovení milestones
-        - definice rolí a odpovědností
-        - tvorba rozvrhu (Gantt/síťový diagram)
+        - definícia rolí a odpovedností
+        - tvorba rozvrhu (Gantt/sieťový diagram)
 - **Initiation**
-    - tvorba **Project Initiation Documentation** (dokument/více dokumentů):
-        - obsahuje současný stav projektu, plány, Kdo, Co, Kdy, Jak, Proč, Za Kolik...
-        - slouží k definici projektu, určení rámce...
+    - tvorba **Project Initiation Documentation** (dokument/viac dokumentu):
+        - obsahuje súčasný stav projektu, plány, Kdo, Co, Kdy, Jak, Proč, Za Kolik...
+        - slouží k definici projektu, určenie rámce...
         - schvaluje product board
-        - detailní Business Case (důvody projektu, očekávání, cost-benefit analýzu, časovou škálu, ceny, rizika)
+        - detailné Business Case (dôvody projektu, očekávanie, cost-benefit analýzu, časovou škálu, ceny, rizika)
         - popis struktury managementu, rolí týmu
-        - popis přístupu ke kvalitě, změnám, riziku, komunikaci
+        - popis prístupu ke kvalite, zmenám, riziku, komunikaci
         - plán projektu
-    - plán další fáze
+    - plán další fázy
 - **Delivery**
-    - obvykle má více částí (iterací), každá max 3 měsíce, každá má definované měřitelné a ověřitelné milestones
-    - produktový manažer se stará o udržení ceny, termínů, rozsahu a kvality specifikované v PID
-    - produktový manažer autorizuje, provádí reviews work packages, reportuje (pravidelně) status, změny, problémy a kvalitu výš, spravuje rizika a problémy
-    - týmový manažer provádí týmové plánování (jednotlivých work packages), demonstruje kvalitu produktu, zajišťuje dodání work packages
-    - mezi fázemi se hodnotí končící fáze a plánuje (zase WBS, gantt) další, aktualizuje se PID
+    - zvyčajne má viac částí (iterací), každá max 3 mesíce, každá má definované meritelné a overitelné milestones
+    - produktový manažer se stará o udržení ceny, termínu, rozsahu a kvality specifikované v PID
+    - produktový manažer autorizuje, provádí reviews work packages, reportuje (pravidelne) status, zmeny, problémy a kvalitu výš, spravuje rizika a problémy
+    - týmový manažer provádí týmové plánovanie (jednotlivých work packages), demonstruje kvalitu produktu, zajišťuje dodání work packages
+    - medzi fázymi se hodnotí končící fázy a plánuje (zase WBS, gantt) další, aktualizuje se PID
 - **Close**
-    - předání produktu (samozřejmě opět spousta protokolů), nasazení, uzavření všech dokumentů, PID, dokumentace, tvorba end report a lessons learned
-    - případné předání projektu ops a maintenance týmu
+    - predání produktu (samozrejme opet spousta protokolu), nasadenie, uzavrení všech dokumentu, PID, dokumentácia, tvorba end report a lessons learned
+    - prípadné predání projektu ops a maintenance týmu
     - tvorba SLA
 
-#### 7 principů
+#### 7 principu
 
-(vše máme nějak zdokumentované):
+(vše máme nejak zdokumentované):
 
-- **Kontinuální odůvodnění projektu** - proč to děláme?
-- **Učení se ze zkušeností** - co (ne)fungovalo
-- **Role a odpovědnosti** - přesně specifikovaná struktura týmu, vymezené práva a odpovědnosti
-- **Řízení po fázích** - po každé fázi děláme review Project brief, provádíme reporting vyššímu managementu
-- **Manage by exception** - řízení soustřeďujeme na části, které se nějak (negativně) vymykají. Nezasahujeme do toho, co funguje. Vytyčíme cíle a tolerovatelné odchylky v kvalitě, času, ceně a rozsahu, určíme zodpovědnosti za nepřekračování
-- **Důraz na produkt** - primární cíl je produkt, ne práce
-- **Přizpůsobení metodiky projektu** - není nutné PRINCE používat úplně doslovně, řádek po řádku. Ne všechny formuláře jsou vždy zcela relevantní
+- **Kontinuálné odôvodnení projektu** - proč to deláme?
+- **učenia sa ze zkušeností** - co (ne)fungovalo
+- **Role a odpovednosti** - presne specifikovaná struktura týmu, vymezené práva a odpovednosti
+- **Riadenie po fázch** - po každé fázi deláme review Project brief, provádíme reporting vyššímu managementu
+- **Manage by exception** - riadenie soustreďujeme na časti, ktoré se nejak (negativne) vymykají. Nezasahujeme do toho, co funguje. Vytyčíme cíle a tolerovatelné odchylky v kvalite, času, cene a rozsahu, určíme zodpovednosti za neprekračovanie
+- **Duraz na produkt** - primárné cieľ je produkt, ne práce
+- **Prispôsobení metodiky projektu** - nie je nutné PRINCE používat úplne doslovne, rádek po rádku. Ne všechny formuláre sú vždy úplne relevantní
 
 #### 7 témat
 
-- **Business case** - obsahuje očekávané přínosy, rizika, časový a cenový rozsah, důvody projektu... Měl by být neustále aktualizován a držen validní po celou dobu projektu
-- **Organizace** - definice rolí a odpovědností, typy stakeholderů (dodavatel, business/zákazník, uživatel), 3 úrovně managementu (project board pro směrování projektu (obsahuje exekutivu, senior suppliera, senior usera), project manager pro řízení projektu, team manager pro dodávání produktu), manage by exception
-- **Kvalita** - monitoring, akceptační kritéria, určíme si strategii řízení kvality (nástroje, procesy), řešíme kvalitu produktu i manažerských výtvorů (plány, reporty)
-- **Plány** - plánujeme projekt i jednotlivé fáze, Gantt diagram, Work Breakdown Structure je základem plánování
-- **Rizika** - identifikace možných rizik, určujeme způsob reakce na dané riziko na základě ceny prevence, pravděpodobnosti a dopadu, uchováváme registr rizik
-- **Změny** - u požadavků na změnu řešíme prioritu, dopad, kritičnost, zkoumáme možnosti řešení, dle změny upravujeme záznamy a plán
-- **Postup projektu** - porovnáváme realitu s plány (čas, cena, kvalita, rozsah, rizika...), sledujeme zda stále projekt splňuje business case
+- **Business case** - obsahuje očekávané prínosy, rizika, časový a cenový rozsah, dôvody projektu... Mel by byť neustále aktualizován a držen validní po celou dobu projektu
+- **Organizace** - definícia rolí a odpovedností, typy stakeholderu (dodavatel, business/zákazník, používateľ), 3 úrovne managementu (project board pre smerovanie projektu (obsahuje exekutivu, senior suppliera, senior popoužívateľa), project manager pre riadenie projektu, team manager pre dodávanie produktu), manage by exception
+- **Kvalita** - monitoring, akceptačné kritéria, určíme si strategii riadenie kvality (nástroje, procesy), rešíme kvalitu produktu i manažerských výtvoru (plány, reporty)
+- **Plány** - plánujeme projekt i jednotlivé fázy, Gantt diagram, Work Breakdown Structure je základem plánovanie
+- **Rizika** - identifikace možných rizik, určujeme spôsob reakce na dané riziko na základe ceny prevence, pravdepodobnosti a dopadu, uchováváme registr rizik
+- **Zmeny** - u požiadaviek na zmenu rešíme prioritu, dopad, kritičnost, zkoumáme možnosti riešenie, podľa zmeny upravujeme záznamy a plán
+- **Postup projektu** - porovnáváme realitu s plány (čas, cena, kvalita, rozsah, rizika...), sledujeme či stále projekt splňuje business case
 
-#### 7 procesů
+#### 7 procesu
 
 ![](img/20230525115631.png)
 
-- **Úplný začátek projektu** - nastínění business case, přiřazení klíčových vedoucích osob, studování "lessons learned" předchozích podobných projektů, získání autorizace product boardu
-- **Inicializace projektu** - příprava strategií řízení (rizik, kvality, komunikace, konfigurace), projektového plánu, konkretizace business case, založení dokumentace
-- **Řízení fáze** - řeší produktový manažer, monitoring, reportování významných událostí, řídíme exceptions, revidujeme a schvalujeme práci/nové části produktu
-- **Řízení dodání produktu** - to samé co řízení fáze, ale řeší to týmový manažer
-- **Směrování projektu** - vysokoúrovňová rozhodnutí, funguje po celou dobu projektu, plán nadcházející fáze, na konci projektu autorizujeme uzavření
-- **Řízení mezi fázemi (managing a stage boundary)** - plán nadcházející fáze, řeší produktový manažer, aktualizace business case a projektového plánu, report předchozí fáze
-- **Uzavření projektu** - řeší projektový manažer, evaluace, předání produktu, návrh board na ukončení
+- **Úplný začátek projektu** - nastínení business case, prirazení kľúčových vedoucích osob, studovanie "lessons learned" predchozích podobných projektu, získanie autorizace product boardu
+- **Inicializace projektu** - príprava strategií riadenie (rizik, kvality, komunikácia, konfigurace), projektového plánu, konkretizace business case, založení dokumentácia
+- **Riadenie fázy** - reší produktový manažer, monitoring, reportovanie významných udalostí, rídíme exceptions, revidujeme a schvalujeme práci/nové časti produktu
+- **Riadenie dodání produktu** - to samé co riadenie fázy, ale reší to týmový manažer
+- **Smerovanie projektu** - vysokoúrovňová rozhodnutí, funguje po celou dobu projektu, plán nadcházející fázy, na konci projektu autorizujeme uzavrení
+- **Riadenie medzi fázymi (managing a stage boundary)** - plán nadcházející fázy, reší produktový manažer, aktualizace business case a projektového plánu, report predchozí fázy
+- **Uzavrení projektu** - reší projektový manažer, evaluace, predání produktu, návrh board na ukončení
 
 ### IPMA ICB
 
-*V otázce není, ale není na škodu znát*
+*V otázke nie je, ale nie je na škodu znát*
 
-- obecný standard pro vedení projektu
-- na rozdíl od většiny ostatních obsahuje podrobnou sekci o soft skills
-- vhodný, když:
-    - projekt vyžaduje dobré soft-skills (komunikace, leadership, řešení konfliktů)
+- obecný standard pre vedení projektu
+- na rozdíl od vetšiny ostatních obsahuje podrobnou sekci o soft skills
+- vhodný, keď:
+    - projekt vyžaduje dobré soft-skills (komunikácia, leadership, riešenie konfliktu)
     - manažer je zkušený, zná procesy
-    - není nutná spousta reportingu
-- vhodné pro použití jako handbook pro různé manažerské kompetence
-- kompetenční přístup, pro každou ICB popisuje požadované dovednosti a schopnosti, popis a metriky indikátorů kompetence
-  > kompetence je aplikace znalostí (knowledge, informace & zkušenosti), dovedností (skill, schopnost aplikovat znalosti) a schopností (ability, použití dovedností efektivně, ve správný čas a na správném místě) k dosažení kýženého výsledku
-    - kompetence perspektivy - metody a techniky pro interakci jedinců s prostředím
-    - lidské kompetence - techniky pro jednání s jedinci/skupinami
-    - praktické kompetence - metody a techniky pro úspěch projektu
+    - nie je nutná spousta reportingu
+- vhodné pre použití jako handbook pre rôzne manažerské kompetence
+- kompetenční prístup, pre každou ICB popisuje požadované dovednosti a schopnosťi, popis a Metriky indikátoru kompetence
+  > kompetence je aplikace znalostí (knowledge, informace & zkušenosti), dovedností (skill, schopnosť aplikovat znalosti) a schopnosťí (ability, použití dovedností efektivne, ve správný čas a na správném míste) k dosažení kýženého výsledku
+    - kompetence perspektivy - metody a techniky pre interakci jedincu s prostrediam
+    - lidské kompetence - techniky pre jednání s jedinci/skupinami
+    - praktické kompetence - metody a techniky pre úspech projektu
 
 ### Metodiky
 
-Popsány v [otázce 3](2_softwarove_inzenyrstvi.md) (metodiky sw vývoje jako RUP, SCRUM)
+Popsány v [otázke 3](2_softwarove_inzenyrstvi.md) (metodiky sw vývoje jako RUP, SCRUM)
 
-## Příklady z praxe pro vše výše uvedené (4/4)
+## Príklady z praxe pre všetko vyššie uvedené (4/4)
 
-### Specifika IT projektů
+### Specifika IT projektu
 
-v porovnání s většinou průmyslových odvětví:
+v porovnání s vetšinou prumyslových odvetví:
 
-- nepřesné/neznámé, časté a měnící se požadavky
-- větší nutnost přizpůsobení produktu
+- nepresné/neznámé, časté a menící se požadavky
+- vetší nutnost prispôsobení produktu
 - velká složitost
-- náročné testování
+- náročné testovanie
 - neustálý a rapidní vývoj technologií
-- možnost globální spolupráce
-- projekty mohou v rámci portfolia ovlivnit ostatní projekty (zvlášť při selhání)
-- nutnost řízení rizik
-- dokončené projekty je často třeba servisovat/poskytovat podporu
+- možnost globálné spolupráce
+- projekty mohou v rámci portfolia ovlivnit ostatné projekty (zvlášť pri zlyhania)
+- nutnost riadenie rizik
+- dokončené projekty je často napríklad servisovat/poskytovat podporu
 
 ### IT Infrastructure Library (ITIL)
 
-Best practices pro **řízení IT služeb**:
+Best practices pro **riadenie IT služeb**:
 
 **Fáze:**
-- **Service strategy** - požadavky, strategie pro zajištění kýženého, finance, co vlastně budeme dělat
-- **Service design** - Service Level Agreement, řešení rizik, security & business compliance
-- **Service transition** - jak měníme stávající služby, řešení deploymentu, uložení získaných znalostí pro budoucí projekty
-- **Service operation** - dokumentace pro uživatele/helpdesk, řešení incidentů/změnových požadavků/problémů, řešení identit a přístupu k systému
-- **Continual service improvement** - monitoring, logování, aktualizace běžící služby
+- **Service strategy** - požadavky, strategie pre zabezpečenie kýženého, finance, co vlastne budeme delat
+- **Service design** - Service Level Agreement, riešenie rizik, security & business compliance
+- **Service transition** - ako meníme stávající služby, riešenie deploymentu, uložení získaných znalostí pre budúcí projekty
+- **Service operation** - dokumentácia pre popopoužívateľa/helpdesk, riešenie incidentu/zmenových požiadaviek/problému, riešenie identit a prístupu k systémov
+- **Continual service improvement** - monitoring, protokolovanie, aktualizace bežící služby
 
-### Praktické příklady aplikace
+### Praktické príklady aplikace
 
-#### Příklad použití CPM v praxi
+#### Príklad použití CPM v praxi
 
-**Situace:** Vývoj webové aplikace pro e-commerce
+**Situace:** Vývoj webové aplikace pre e-commerce
 
-**Aktivity a závislosti:**
-- A: Analýza požadavků (5 dní)
-- B: Design databáze (3 dní, po A)
+**Aktivity a závislosťi:**
+- A: Analýza požiadaviek (5 dní)
+- B: Design Databázy (3 dní, po A)
 - C: Design UI/UX (4 dny, po A)
-- D: Implementace backend (8 dní, po B)
-- E: Implementace frontend (6 dní, po C)
+- D: Implementácia backend (8 dní, po B)
+- E: Implementácia frontend (6 dní, po C)
 - F: Integrace (3 dny, po D a E)
-- G: Testování (4 dny, po F)
+- G: Testovanie (4 dny, po F)
 
 **Kritická cesta:** A → B → D → F → G (23 dní)
-**Slack:** C a E mají 2 dny slack
+**Slack:** C a E majú 2 dny slack
 
-#### Příklad PERT odhadu
+#### Príklad PERT odhadu
 
-**Task:** Implementace platebního systému
+**Task:** Implementácia platebního systémov
 
 - **Optimistický odhad:** 8 dní (vše jde hladce)
-- **Nejpravděpodobnější:** 12 dní (standardní průběh)
-- **Pesimistický:** 20 dní (komplikace s API, bezpečnost)
+- **Nejpravdepodobnejší:** 12 dní (standardní prubeh)
+- **Pesimistický:** 20 dní (komplikace s API, Bezpečnosť)
 
 **PERT odhad:** (8 + 4×12 + 20) / 6 = 76/6 ≈ 12,7 dní
 
-[Go to the next question](./4_databaze.md)
+[Go to the next question](./4_dátabaze.md)

@@ -1,307 +1,307 @@
-# Zpracování dat
+# Spracovanie dát
 
-> Základní pojmy a principy datových skladů, datové analytiky a business intelligence. Životní cyklus datového skladu. Analytika velkých dat, jazyky pro realizaci analytický úloh, analytika na úrovni databází. Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat. Příklady z praxe pro vše výše uvedené. (PA036, PA220 || PA212)
+> Základné pojmy a principy dátových skladu, datové analytiky a business intelligence. Životný cyklus dátového skladu. Analytika velkých dát, jazyky pre realizaci analytický úloh, analytika na úrovni databáz. Pokročilé techniky Spracovanie dát, výkonnosťní aspekty Spracovanie velkých dát. Príklady z praxe pre všetko vyššie uvedené. (PA036, PA220 || PA212)
 
-1. [Základní pojmy a principy datových skladů, datové analytiky a business intelligence (1/5)](#základní-pojmy-a-principy-datových-skladů-datové-analytiky-a-business-intelligence-15)
-2. [Životní cyklus datového skladu (2/5)](#životní-cyklus-datového-skladu-25)
-3. [Analytika velkých dat, jazyky pro realizaci analytických úloh, analytika na úrovni databází (3/5)](#analytika-velkých-dat-jazyky-pro-realizaci-analytických-úloh-analytika-na-úrovni-databází-35)
-4. [Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat (4/5)](#pokročilé-techniky-zpracování-dat-výkonnostní-aspekty-zpracování-velkých-dat-45)
+1. [Základné pojmy a principy dátových skladu, datové analytiky a business intelligence (1/5)](#základné-pojmy-a-principy-dátových-skladu-datové-analytiky-a-business-intelligence-15)
+2. [Životný cyklus dátového skladu (2/5)](#životní-cyklus-dátového-skladu-25)
+3. [Analytika velkých dát, jazyky pre realizaci analytických úloh, analytika na úrovni databáz (3/5)](#analytika-velkých-dát-jazyky-pro-realizaci-analytických-úloh-analytika-na-úrovni-databáz-35)
+4. [Pokročilé techniky Spracovanie dát, výkonnosťní aspekty Spracovanie velkých dát (4/5)](#pokročilé-techniky-Spracovanie-dát-výkonnosťní-aspekty-Spracovanie-velkých-dát-45)
 
-## Základní pojmy a principy datových skladů, datové analytiky a business intelligence (1/5)
+## Základné pojmy a principy dátových skladu, datové analytiky a business intelligence (1/5)
 
 ### Business intelligence
 
-- procesy a nástroje pro sběr, analýzu a prezentaci/vizualizaci dat za účelem asistence při tvorbě informovaných rozhodnutí v podnikovém řízení
-- umožňuje transformaci dat do informací
+- procesy a nástroje pre zber, analýzu a prezentaci/vizualizaci dát za účelem asistence pri tvorbe informovaných rozhodnutí v podnikovém rízení
+- umožňuje transformaci dát do informací
 - jádrem je **datový sklad**
 
 ### OLTP (online transaction processing)
-- způsob ukládání dat v db pro transakční zpracování
-- data v databázi se mění, cílem je zajistit konzistenci a umožnit CRUD
-- nutné zamykání tabulek/řádků pro zajištění konzistence
-- vhodné pro uložení dat v operativním provozu podniku (zajímá nás, co máme na skladě, jaká je aktuální cena produktů...)
-- normalizovaná forma (není datová redundance, používají se public keys pro případné spojování dat)
-- používané queries známe dopředu
+- spôsob ukladanie dát v db pre transakční Spracovanie
+- dáta v databázi se mení, cieľom je zajistit konzistenci a umožnit CRUD
+- nutné zamykanie tabulek/rádku pre zabezpečenie konzistencia
+- vhodné pre uložení dát v operativním prevádzkau podniku (zaujíma nás, čo máme na sklade, jaká je aktuálné cena produktu...)
+- normalizovaná forma (nie je datová redundance, používají se public keys pre prípadné spojovanie dát)
+- používané queries známe dopredu
 
 ### OLAP (online analytical processing)
-- způsob ukládání dat pro analytické zpracování
-- data v databázi se nemění
-- zamykání není třeba, data se nemodifikují
-- pracujeme s mnohem větším objemem dat
-- vhodné pro dlouhodobé uložení dat, reflektuje historii dat z produkční databáze a jejich vývoj v čase
-- denormalizovaná forma, hodně indexů, snažíme se minimalizovat nutné joiny, nevadí datová redundance
-- **hvězdicové schéma/dimenzionální modelování** - středobodem je vždy nějaký subjekt (obsahující fakta např. prodej) s **tabulkou faktů** (obsahující konkrétní záznamy měření), ke které se pomocí referencí (foreign key) vážou **tabulky dimenzí** (často odpovědi na otázky KDO, KDY, KDE, JAK..., obvykle detailní (denormalizované) pro snadnou analytiku, redundance nevadí, např. datum dělíme na den, měsíc, rok, den v týdnu, kvartál... můžeme mít separé date i time dimenze, obvykle 4-15). Čím více dimenzí máme, tím více/konkrétněji se můžeme DW dotazovat (dimenze tvoří kontext). Tabulky dimenzí obvykle předvyplníme (pro datum můžeme použít numerický přepis data, např. 20230621), rozlišujeme dimenze data a času. Jako stěžejní data (to, co nás zajímá) bereme fakta, dimenze jsou popisná data k faktům, podle kterých je možné seskupovat. Reference jsou jen v tabulce faktů. ID pro tabulky (surrogate keys, int) dimenzí si generujeme sami, abychom nebyli limitováni použitými klíči z OLTP.
+- spôsob ukladanie dát pre analytické Spracovanie
+- dáta v databázi se nemení
+- zamykanie nie je napríklad, dáta se nemodifikují
+- pracujeme s mnohem vetším objemem dát
+- vhodné pre dlouhodobé uložení dát, reflektuje historii dát z produkční Databázy a ich vývoj v čase
+- denormalizovaná forma, hodne indexu, snažíme se minimalizovat nutné joiny, nevadí datová redundance
+- **hvezdicové schéma/dimenzionální modelovanie** - stredobodem je vždy nejaký subjekt (obsahující fakta napr. prodej) s **tabulkou faktu** (obsahující konkrétné záznamy meranie), ke ktoré se pomocí referencí (foreign key) vážou **tabulky dimenzí** (často odpovedi na otázky KDO, KDY, KDE, JAK..., zvyčajne detailné (denormalizované) pre snadnou analytiku, redundance nevadí, napr. dátamm delíme na den, mesíc, rok, den v týdnu, kvartál... môžeme mať separé date i time dimenze, zvyčajne 4-15). Čím viac dimenzí máme, tým viac/konkrétneji se môžeme DW dotazovat (dimenze tvorí kontext). Tabulky dimenzí zvyčajne predvyplníme (pre dátamm môžeme použít numerický prepis dáta, napr. 20230621), rozlišujeme dimenze dáta a času. Jako stežejní dáta (to, čo nás zaujíma) bereme fakta, dimenze sú popisná dáta k faktum, popodľa kterých je možné seskupovat. Reference sú jen v tabulce faktu. ID pre tabulky (surrogate keys, int) dimenzí si generujeme sami, abychom neboli limitováni použitými kľúči z OLTP.
   ![](img/20230611150321.png)
-- typy faktů:
-    - **transakční** - událost spojená s hodnotou (např. nákup)
-    - **snapshot** - zachycující nějakou aktuální hodnotu (např. naplněnost skladu)
-    - **bez hodnoty** - fakt nemá žádnou numerickou hodnotu, obvykle jde o nějakou událost (např. click na určitý prvek)
-      Za fakty se považují i odvozená data (např. kumulativní hodnoty za nějaké období), nebo data kombinovaná z více procesů (např. prodeje a jejich předpovědi pro dané období). Ty obvykle neukládáme do tabulky faktů (ale může to mít své opodstatnění, třeba pro zrychlení dotazů)
-- nevadí nám drobná neaktuálnost dat
-- query neznáme dopředu, záleží na tom, co chceme zjistit
+- typy faktu:
+    - **transakční** - událost spojená s hodnotou (napr. nákup)
+    - **snapshot** - zachycující nejakou aktuálné hodnotu (napr. naplnenost skladu)
+    - **bez hodnoty** - fakt nemá žádnou numerickou hodnotu, zvyčajne jde o nejakou událost (napr. click na určiťý prvek)
+      Za fakty se považujú i odvozená dáta (napr. kumulativní hodnoty za nejaké období), alebo dáta kombinovaná z viac procesu (napr. prodeje a ich predpovedi pre dané období). Ty zvyčajne neukládáme do tabulky faktu (ale muže to mať své opodstatnení, napríklad pre zrychlení dotazu)
+- nevadí nám drobná neaktuálnost dát
+- query neznáme dopredu, záleží na tom, co chceme zjistit
   ![](img/20230610171630.png)
 
-**Snowflake schema** - star schema, kde dimenze mají hloubku (obsahují reference na další tabulky, např. obsahující month ID a month name). Způsobují performance problémy, jde o antipattern.
+**Snowflake schema** - star schema, kde dimenze majú hloubku (obsahují reference na další tabulky, napr. obsahující month ID a month name). Zpusobují performance problémy, jde o antipattern.
 
 ![](img/20230611150909.png)
 
-**Granularita** popisuje, z jaké úrovně se na fakta díváme (např. zajímá nás, kolik se prodalo daného produktu? Za jeden den? V konkrétním obchodě?). Nejnižší granularita je jeden fakt (ukládáme opravdu fakty, nebo třeba jen agregovaná data?).
+**Granularita** popisuje, z jaké úrovne se na fakta díváme (napr. zaujíma nás, kolik se prodalo daného produktu? Za jeden den? V konkrétním obchode?). Nejnižší granularita je jeden fakt (ukládáme opravdu fakty, alebo napríklad jen agregovaná dáta?).
 
-**Měření/Measure** - aspekt faktu, který nás zajímá, lze agregovat (např. cena prodeje). Některé hodnoty měření lze sčítat (např. tržby), některé jen v některých dimenzích (např. zůstatek na pokladnách, nelze sčítat v čase), některé vůbec (např. cena za jednotku produktu nebo průměrná cena za období...)
+**Meranie/Measure** - aspekt faktu, ktorý nás zaujíma, možno agregovat (napr. cena prodeje). Nektoré hodnoty meranie možno sčítat (napr. tržby), nektoré jen v nekterých dimenzích (napr. zustatek na pokladnách, nemožno sčítat v čase), nektoré vubec (napr. cena za jednotku produktu alebo priemerná cena za období...)
 
-**Conformed (přizpůsobivá?) dimension** - dimenze, která má stejné hodnoty a význam pro data pocházející z více zdrojů. Např. čas je obvykle conformed dimenze, pobočka nemusí být (pod jakou pobočku by spadal prodej přes internet?).
+**Conformed (prispôsobivá?) dimension** - dimenze, ktorá má rovnaké hodnoty a význam pre dáta pocházející z viac zdrojov. Napr. čas je zvyčajne conformed dimenze, pobočka nemusí byť (pod jakou pobočku by spadal prodej pres internet?).
 
 ### Datový sklad
 
 - OLAP
-- oddělení od OLTP, abychom nezatěžovali produkční db
-- obvykle 1 db fungující jako centrální zdroj pravdy pro analýzu a reporting
-- data ve skladu se nemění, pouze přidávají, je vidět vývoj dat v čase
-- může obsahovat data z více zdrojů
-- vyžaduje, aby byla zdrojová data očištěna a konzistentně uložena
-- lze využít standardní databázi (např. postgres), nebo specializovaná řešení (např. Google BigQuery, Teradata)
-- jednoduchá reprezentace dat, aby s nimi mohli pracovat analytici a bylo umožněno používat jednoduché analytické dotazy (s minimem joinů)
-- cílem je umožnit a zjednodušit analýzu dat
+- oddelení od OLTP, abychom nezatežovali produkční db
+- zvyčajne 1 db fungující jako centrálné zdroj pravdy pre analýzu a reporting
+- dáta ve skladu se nemení, iba pridávají, je videt vývoj dát v čase
+- muže obsahovat dáta z viac zdrojov
+- vyžaduje, aby bola zdrojová dáta očištena a konzistentne uložena
+- možno využít standardní databázi (napr. postgres), alebo specializovaná riešenie (napr. Google BigQuery, Teradáta)
+- jednoduchá reprezentace dát, aby s nimi mohli pracovat analytici a bolo umožneno používat jednoduché analytické dotazy (s minimem joinu)
+- cieľom je umožnit a zjednodušit analýzu dát
 
 ### Data mart
 
-- malý data warehouse, soustředí se na jednu zájmovou jednotku (např. objednávky)
-- cílem je dekompozice za účelem zvýšení efektivity/omezení přístupu do jednotlivých částí datového skladu
-- mohou být dvě podoby:
-    - **Nezávislé data marty** - nemáme žádný centrální zdroj pravdy (DW), data do data martů jdou přímo ze zdrojů
-    - **Logické data marty** - data marty fungují jako logické pohledy na část datového skladu, jednodušší na údržbu
+- malý dáta warehouse, soustredí se na jednu zájmovou jednotku (napr. objednávky)
+- cieľom je dekompozice za účelem zvýšení efektivity/obmedzenie prístupu do jednotlivých částí dátového skladu
+- mohou byť dve podoby:
+    - **Nezávislé dáta marty** - nemáme žádný centrálné zdroj pravdy (DW), dáta do dáta martu jdou prímo ze zdrojov
+    - **Logické dáta marty** - dáta marty fungují jako logické pohledy na část dátového skladu, jednoduchší na údržbu
 
 ### Data Cube
 
-- obsah DW, umožňuje pohled na data z různých dimenzí (rozměrů kostky, obvykle 4-15)
-- skládá se z buněk (cells) - každá je kombinací hodnot dimenzí. No data = prázdná buňka.
-- **Dense/sparse cube** - hodně/málo neprázdných buněk v data cube
+- obsah DW, umožňuje pohled na dáta z rôznych dimenzí (rozmeru kostky, zvyčajne 4-15)
+- skládá se z bunek (cells) - každá je kombinací hodnot dimenzí. No dáta = prázdná buňka.
+- **Dense/sparse cube** - hodne/málo neprázdných bunek v dáta cube
 
-Na datový sklad/data marty jsou obvykle napojeny další **vizualizační aplikace** (např. Grafana, Kibana, PowerBI, nebo třeba R project)
+Na datový sklad/dáta marty sú zvyčajne napojeny další **vizualizační aplikace** (napr. Grafana, Kibana, PowerBI, alebo napríklad R project)
 
-## Životní cyklus datového skladu (2/5)
+## Životný cyklus dátového skladu (2/5)
 
-Životní cyklus:
+Životný cyklus:
 
-- **Určení cíle a plánování** - co od systému očekáváme, jaký rozsah dat nás zajímá, odhad ceny, rizik, prioritizace subjektů (=> datamartů)
-- **Návrh infrastruktury** - volba vhodných nástrojů a technologií, architektonických řešení
-- **Návrh a vývoj data martů** - iterativně tvoříme data marty, každý zapojujeme do DW systému
-    - **volba procesu** - včetně modelování procesu (třeba UML diagramem, nebo BPMN), např. prodeje
-    - **určení granularity** - např. prodej jednoho produktu (jedné položky z objednávky) jednomu zákazníkovi, na jedné pobočce v jeden moment
-    - **identifikace dimenzí** - vychází z granularity, můžeme dimenze rozšířit o další jevy (např. den v týdnu, slevové akce...)
-    - **identifikace faktů** - všech sloupců, které budou v tabulce faktů (např. cena jednotky produktu, prodané množství)
-    - čištění dat a jejich přidání do DW systému
-- **ETL (Extract, Transform, Load)** - v průběhu života do skladu přibývají data, které je vždy třeba:
-    - **extrahovat** z datových zdrojů (např. produkční db)
+- **Určenie cíle a plánovanie** - co od systémov očekáváme, jaký rozsah dát nás zaujíma, odhad ceny, rizik, prioritizace subjektu (=> dátamartu)
+- **Návrh infrastruktury** - voľba vhodných nástrojov a technologií, architektonických riešenie
+- **Návrh a vývoj dáta martu** - iterativne tvoríme dáta marty, každý zapojujeme do DW systémov
+    - **voľba procesu** - včetne modelovanie procesu (napríklad UML diagramem, alebo BPMN), napr. prodeje
+    - **určenie granularity** - napr. prodej jednoho produktu (jedné položky z objednávky) jednomu zákazníkovi, na jedné pobočce v jeden moment
+    - **identifikace dimenzí** - vychází z granularity, môžeme dimenze rozšírit o další jevy (napr. den v týdnu, slevové akce...)
+    - **identifikace faktu** - všech sloupcu, ktoré budú v tabulce faktu (napr. cena jednotky produktu, prodané množství)
+    - čištení dát a ich pridání do DW systémov
+- **ETL (Extract, Transform, Load)** - v prubehu života do skladu pribývají dáta, ktoré je vždy napríklad:
+    - **extrahovat** z dátových zdrojov (napr. produkční db)
     - **transformovat**
         - odstranit duplicity
         - upravit, aby odpovídala jednotnému stylu v DW, učesat do formátu používaném v DW
-        - vyčistit od nekompletních dat/chyb (spelling errors)
-        - občas může být třeba rozbít data na více sloupců (name => first name, last name)
-        - lze částečně automatizovat, ale mnohdy jsou třeba manuální zásahy
-        - obvykle nevkládáme přímo do dw, ale do staging table (může být csv ve formátu dw tabulek)
-        - je fajn dělat po částech, ať se do toho nezamotáme
+        - vyčistit od nekompletních dát/chýb (spelling errors)
+        - občas muže byť napríklad rozbít dáta na viac sloupcu (name => first name, last name)
+        - možno částečne automatizovat, ale mnohdy sú napríklad manuální zásahy
+        - zvyčajne nevkládáme prímo do dw, ale do staging table (muže byť csv ve formátu dw tabulek)
+        - je fajn delat po častiach, ať se do toho nezamotáme
     - **naplnit** (load) do DW
-        - nejprve aktualizujeme dimenze (abychom měli k dispozici foreign keys), pak fakta
+        - nejprve aktualizujeme dimenze (abychom meli k dispozici foreign keys), pak fakta
         - upsert (update, insert if not exists) je často drahý -> je fajn detekovat neexistující, pak vložit nové, a pak updatovat
-        - je fajn naplňovat po velkých částech (např. indexy/materializovaná views přepočítat až po vložení, ne po každém řádku, stejně tak integrity checks)
-        - může pomoct, když vkládáme předřazená (presorted) data
-        - paralelizace (jednotlivé dimenze, tabulky faktů i partitions tabulek faktů lze provádět souběžně)
+        - je fajn naplňovat po velkých častiach (napr. indexy/materializovaná views prepočítat až po vložení, ne po každém rádku, stejne tak integrity checks)
+        - muže pomoct, keď vkládáme predrazená (presorted) dáta
+        - paralelizácia (jednotlivé dimenze, tabulky faktu i partitions tabulek faktu možno provádet soubežne)
 
 ![](img/20230610173720.png)
 
-### Změny dimenzí
+### Zmeny dimenzí
 
-Dimenze se mohou v průběhu života DW měnit (změní se třeba region, pod který spadá pobočka)
+Dimenze se mohou v prubehu života DW menit (zmení se napríklad region, pod ktorý spadá pobočka)
 
-Možnosti implementace změny:
-- **Přepis** - nahradíme stará data novými, je to jednoduché, ale ztrácíme informaci o historii
-- **Přidání sloupce s předchozí verzí (a valid from)** - vyřeší problém, ale při další změně čelíme stejnému problému
-- **Verzování** - tabulce dimenzí přidáme sloupce `valid from` a `valid to`, při změně pouze upravíme `valid to` a přidáme řádek pro novou hodnotu dimenze
-- **Přidání dimenze** - výběr aktuální verze musíme řešit jen v případě, že nás daná hodnota zajímá (např. mění se přiřazení obchodu do regionu, ale ne v každém dotazu nás zajímá region)
+Možnosti implementácia zmeny:
+- **Prepis** - nahradíme stará dáta novými, je to jednoduché, ale ztrácíme informaci o historii
+- **Pridání sloupce s predchozí verzí (a valid from)** - vyreší problém, ale pri další zmene čelíme stejnému problému
+- **Verzovanie** - tabulce dimenzí pridáme sloupce `valid from` a `valid to`, pri zmene iba upravíme `valid to` a pridáme rádek pre novou hodnotu dimenze
+- **Pridání dimenze** - výber aktuálné verze musíme rešit jen v prípade, že nás daná hodnota zaujíma (napr. mení se prirazení obchodu do regionu, ale ne v každém dotazu nás zaujíma region)
 
-Pokud často pracujeme s aktuální hodnotou, můžeme použít verzování, ale držet i aktuální hodnotu v separátním sloupci.
+Ak často pracujeme s aktuálné hodnotou, môžeme použít verzovanie, ale držet i aktuálné hodnotu v separátním sloupci.
 
-### Přístupy tvorby datových skladů
+### Prístupy tvorby dátových skladu
 
-- **top-down** - analogie vodopádu, nejdříve analyzujeme datové zdroje, pak navrhneme a implementujeme sklad, nakonec naplníme daty a vytvoříme data marty
-- **bottom-up** - iterativně-inkrementální přístup, postupně pro každý zájmový objekt analyzujeme zdroje, postavíme data mart a případně rozšíříme (pokud nějaký centrální používáme) datový sklad
+- **top-down** - analogie vodopádu, nejdríve analyzujeme datové zdroje, pak navrhneme a implementujeme sklad, nakonec naplníme daty a vytvoríme dáta marty
+- **bottom-up** - iterativne-inkrementálné prístup, postupne pre každý zájmový objekt analyzujeme zdroje, postavíme dáta mart a prípadne rozšíríme (ak nejaký centrálné používáme) datový sklad
 
-## Analytika velkých dat, jazyky pro realizaci analytických úloh, analytika na úrovni databází (3/5)
+## Analytika velkých dát, jazyky pre realizaci analytických úloh, analytika na úrovni databáz (3/5)
 
-### Big data
+### Big dáta
 
-**Big data** - jedná se o data, které kvůli své rychlé a kontinuální tvorbě, velkému objemu, či složitosti, vylučují zpracování tradičními analytickými způsoby.
+**Big dáta** - jedná se o dáta, ktoré kvuli své rychlé a kontinuálné tvorbe, velkému objemu, či složitosti, vylučují Spracovanie tradičními analytickými spôsoby.
 
-- Rychlý příchod dat vyžaduje kontinuální zpracování. Nepoužíváme batch processing, je potřeba stream processing (pro distribuované zpracování velkého množství zpráv/předání dat mezi systémy třeba Apache Kafka).
-- Velikost dat lze zvládat pomocí distribuovaných databází/souborových systémů (obvykle NoSQL databáze, nebo Hadoop Distributed File System)
-- pro zvládání složitosti dat (komplexní vztahy, či data typu video) je nutné použít specializované nástroje (pro vztahy třeba grafovou databázi).
+- Rychlý príchod dát vyžaduje kontinuálné Spracovanie. Nepoužíváme batch processing, je ponapríklad stream processing (pre distribuované Spracovanie velkého množství zpráv/predání dát medzi systémy napríklad Apache Kafka).
+- Velikost dát možno zvládat pomocí distribuovaných databáz/súborových systémov (zvyčajne NoSQL Databázy, alebo Hadoop Distributed File System)
+- pre zvládání složitosti dát (komplexné vztahy, či dáta typu video) je nutné použít specializované nástroje (pre vztahy napríklad grafovou databázi).
 
-### Přístupy ke zpracování dat
+### Prístupy ke Spracovanie dát
 
-- **batch** - jednou za čas aktualizujeme náš DW, doplníme nově vzniklá data
-- **stream** - průběžně vkládáme data tak, jak vznikají (důležité je udržovat konzistentní formát dat), snadněji se škáluje
+- **batch** - jednou za čas aktualizujeme náš DW, doplníme nove vzniklá dáta
+- **stream** - prubežne vkládáme dáta tak, ako vznikají (duležité je udržovat konzistentní formát dát), snadneji se škáluje
 
-### Jazyky pro realizaci analytických úloh
+### Jazyky pre realizaci analytických úloh
 
-- Tradičně jde o SQL, nebo jeho deriváty, které datoví analytici dobře znají.
-- Pro pokročilejší zpracování lze využít model MapReduce (a Hadoop), ve kterém je možné specifikovat transformační uzly v jakémkoliv programovacím jazyce
-- NoSQL databáze mohou mít vlastní rozšíření sql, nebo úplně jiný přístup k analytickým dotazům (např. mongo má knihovny pro různé jazyky)
+- Tradične jde o SQL, alebo jeho deriváty, ktoré datoví analytici dobre znají.
+- Pre pokročilejší Spracovanie možno využít model MapReduce (a Hadoop), ve kterém je možné specifikovat transformační uzly v jakémkoliv programovacím jazyce
+- NoSQL Databázy mohou mať vlastné rozšírení sql, alebo úplne jiný prístup k analytickým dotazum (napr. mongo má knihovny pre rôzne jazyky)
 
-### Druhy sql dotazů specifické pro analytiku
+### Druhy sql dotazu specifické pre analytiku
 
-- **Slice** - v rámci jedné dimenze vybíráme konkrétní hodnotu a zobrazujeme pouze data s touto hodnotou dimenze. V sql pomocí WHERE. Např. kolik se prodalo laptopů?
-- **Dice** - jako slice, akorát pracujeme s intervaly/více hodnotami jedné dimenze (např. prodeje od-do, prodeje laptopů a telefonů), nebo hodnot více dimenzí (prodeje laptopů v říjnu). V SQL pomocí WHERE a AND/OR/IN/BETWEEN...
-- **Roll-up** - provádíme agregaci dat. Dimenzionální - můžeme vynechat nějakou dimenzi (kolik jsme prodali za celý čas? kolik ve všech pobočkách?) nebo hierarchický - můžeme se dívat z pohledu vyšší úrovně nějaké dimenze (kolik jsme prodali v jednotlivých regionech, které se skládají z více poboček?). Oba přístupy lze kombinovat. V sql pomocí agregačních funkcí (GROUP BY a třeba SUM)
-- **Drill-down** - opak roll-upu, jdeme z abstrakce do většího detailu. Je nutné, aby nějaká detailnější data existovala. Obvykle děláme drill-down z nějakého materializovaného pohledu a jdeme na konkrétní data.
+- **Slice** - v rámci jedné dimenze vybíráme konkrétné hodnotu a zobrazujeme iba dáta s touto hodnotou dimenze. V sql pomocí WHERE. Napr. kolik se prodalo laptopu?
+- **Dice** - jako slice, akorát pracujeme s intervaly/viac hodnotami jedné dimenze (napr. prodeje od-do, prodeje laptopu a telefonu), alebo hodnot viac dimenzí (prodeje laptopu v ríjnu). V SQL pomocí WHERE a AND/OR/IN/BETWEEN...
+- **Roll-up** - provádíme agregaci dát. Dimenzionální - môžeme vynechat nejakou dimenzi (kolik jsme prodali za celý čas? kolik ve všech pobočkách?) alebo hierarchický - môžeme se dívat Z pohľadu vyšší úrovne nejaké dimenze (kolik jsme prodali v jednotlivých regionech, ktoré se skládají z viac poboček?). Oba prístupy možno kombinovat. V sql pomocí agregačních funkcií (GROUP BY a napríklad SUM)
+- **Drill-down** - opak roll-upu, jdeme z abstrakce do vetšího detailu. Je nutné, aby nejaká detailnejší dáta existovala. zvyčajne deláme drill-down z nejakého materializovaného pohledu a jdeme na konkrétné dáta.
 
 ### Pivoting
 
-- přeskládání a agregace dat za účelem vizualizace
-- nejjednodušší variantou je **kontingenční tabulka** (cross table), ve které se zaměřujeme na dvě dimenze:
+- preskládání a agregace dát za účelem vizualizace
+- nejjednodušší variantou je **kontingenční tabulka** (cross table), ve ktoré se zamerujeme na dve dimenze:
   ![](img/20230611214059.png)
-- v SQL se dříve muselo provádět pomocí sjednocení (union) několika příkazů
+- v SQL se dríve muselo provádet pomocí sjednocení (union) niekoľkoa príkazu
   ![](img/20230611214616.png)
-- nyní je v SQL možné použít (uvádím i příklady, je možné uvést více sloupců pro vícedimenzionální kontingenční tabulky):
-    - `GROUP BY ROLLUP(year, band)` - vrací *polovinu* kontingenční tabulky (vrátí data, agregaci pro každý rok a celkovou agregaci)
+- nyní je v SQL možné použít (uvádím i príklady, je možné uvést viac sloupcu pre vícedimenzionální kontingenční tabulky):
+    - `GROUP BY ROLLUP(year, band)` - vrací *polovinu* kontingenční tabulky (vrátí dáta, agregaci pre každý rok a celkovou agregaci)
       ![](img/20230611215146.png)
-    - `GROUP BY CUBE(year, band)` - vrací celou kontingenční tabulku (vrátí data, agregaci pro každý rok, agregaci pro každou skupinu a celkovou agregaci)
+    - `GROUP BY CUBE(year, band)` - vrací celou kontingenční tabulku (vrátí dáta, agregaci pre každý rok, agregaci pre každou skupinu a celkovou agregaci)
       ![](img/20230611215253.png)
-    - `GROUP BY GROUPING SETS(...)` - umožňuje větší kontrolu nad agregací dat (lze mimo jiné realizovat příkazy ROLLUP, CUBE)
+    - `GROUP BY GROUPING SETS(...)` - umožňuje vetší kontrolu nad agregací dát (možno mimo jiné realizovat príkazy ROLLUP, CUBE)
       ![](img/20230611215834.png)
 
-### Přístupy k implementaci OLAP
+### Prístupy k implementaci OLAP
 
 - **Relational OLAP (ROLAP)**
-    - data ukládáme v relační databázi (např. postgres), dimenze simulujeme pomocí star schema, pro dotazování používáme standardní SQL
-    - (+) není potřeba specializovaný systém
+    - dáta ukládáme v relačná databázi (napr. postgres), dimenze simulujeme pomocí star schema, pre dotazovanie používáme standardní SQL
+    - (+) nie je ponapríklad specializovaný systém
     - (+) dobrá flexibilita
     - (-) response time
-    - (-) zabírá 3-4x více místa, než MOLAP (v případě dense cubes)
+    - (-) zabírá 3-4x viac místa, než MOLAP (v prípade dense cubes)
 - **Multidimensional OLAP (MOLAP)**
-    - data ukládáme ve speciálních multidimenzionálních strukturách (např. in-memory db, nebo multidimenzionální pole/matice kde používáme přímou adresaci na disku)
-    - rychlejší queries než ROLAP, zabírá míň místa (není potřeba ukládat foreign keys)
-    - horší flexibilita (při přidání hodnoty do domény dimenze je nutné přidat velké množství buněk, u ROLAP jde o jeden řádek v tabulce dimenze)
-    - je potřeba specializovaný systém
-    - mnohdy bývá součástí/add-on databázového řešení (MS SQL Server, Oracle...)
+    - dáta ukládáme ve speciálních multidimenzionálních strukturách (napr. in-memory db, alebo multidimenzionální pole/matice kde používáme prímou adresaci na disku)
+    - rychlejší queries než ROLAP, zabírá míň místa (nie je ponapríklad ukládat foreign keys)
+    - horší flexibilita (pri pridání hodnoty do domény dimenze je nutné pridat velké množství bunek, u ROLAP jde o jeden rádek v tabulce dimenze)
+    - je ponapríklad specializovaný systém
+    - mnohdy bývá součástí/add-on databázového riešenie (MS SQL Server, Oracle...)
 - **Hybrid OLAP (HOLAP)**
     - kombinace MOLAP a ROLAP
-    - čistá data uložena v ROLAP
+    - čistá dáta uložena v ROLAP
     - agregace uloženy v MOLAP
-    - => flexibilita, rychlost, ale vyšší složitost systému
+    - => flexibilita, rychlost, ale vyšší složitost systémov
 
-## Pokročilé techniky zpracování dat, výkonnostní aspekty zpracování velkých dat (4/5)
+## Pokročilé techniky Spracovanie dát, výkonnosťní aspekty Spracovanie velkých dát (4/5)
 
-Pro zajištění rychlosti dotazů v OLAP se používá redundance v podobě:
+Pre zabezpečenie rychlosti dotazu v OLAP se používá redundance v podobe:
 
-- materializovaných pohledů (vkládáme jednou za čas, takže to není problém)
-- indexů
+- materializovaných pohledu (vkládáme jednou za čas, takže to nie je problém)
+- indexu
 - denormalizovaného schématu
 
 ### Indexy
 
-**Indexy** - umožňují rychlejší získání dat, která nás zajímají, pomocí předpočítaných výsledků. Omezují prostor nutný k prohledání při čtení dat.
+**Indexy** - umožňují rychlejší získanie dát, ktorá nás zajímajú, pomocí predpočítaných výsledku. Omezují prostor nutný k prohledání pri čítanie dát.
 
-- obvykle se používají [B+ stromy](4_databaze.md#indexování), ty jsou však limitovány jen pro 1D data, nejsou vhodné pro více dimenzí
-- **UB stromy** - multidimenzionální data jsou linearizovány pomocí Z-křivky a následně indexovány pomocí B* stromu (jako B+, akorát tam jsou jiná pravidla pro rebalanc). Linearizace Z-křivkou poskytuje dobrý výkon pro intervalové dotazy a zajišťuje, že data, která si byla blízká původně si budou blízká i po linearizaci. Indexovat do linearizovaných dat lze pomocí konverze souřadnic na binární číslo a následném prokládání bitů souřadnic.
+- zvyčajne se používají [B+ stromy](4_dátabaze.md#indexovanie), ty sú však limitovány jen pre 1D dáta, nesú vhodné pre viac dimenzí
+- **UB stromy** - multidimenzionální dáta sú linearizovány pomocí Z-krivky a následne indexovány pomocí B* stromu (jako B+, akorát tam sú jiná pravidla pre rebalanc). Linearizace Z-krivkou poskytuje dobrý výkon pre intervalové dotazy a zajišťuje, že dáta, ktorá si bola blízká puvodne si budú blízká i po linearizaci. Indexovat do linearizovaných dát možno pomocí konverze souradnic na binární číslo a následném prokládání bitu souradnic.
   |![](img/20230611224121.png)|![](img/20230611224138.png)|
   |---|---|
   |![](img/20230611224805.png)|![](img/20230611224906.png)|
-- **R stromy** - obdélníky, popsány v [otázce 5](4_databaze.md#indexování), špatně se škálují do mnoha dimenzí
-- **Bitmap indexy** - vhodné pro dimenze s málo variantami (např. pobočky). Pro každou variantu uděláme bitové pole o délce tabulky faktů. Index v poli odpovídá řádku v tabulce faktů. U pole nastavíme 1 pro indexy, ve kterých varianta platí, jinak 0. Výhodou je, že se snadno používají bitové operace (AND, OR) a je možné takto pracovat i s rozdílnými dimenzemi. Při mazání v tabulce faktů je třeba buď upravit všechny bitmap indexy, nebo v tabulce faktů použít *tombstone* hodnotu (považujeme za prázdnou).
-- **Range-encoded bitmap indexy** - vyžadují, aby měla dimenze seřazené hodnoty variant (jinak stejně nemá cenu hledat pomocí intervalů). Opět má každá varianta bitové pole délky tabulky faktů. Pokud je varianta pro daný fakt pravdivá, nastavíme ji, a všechny následující varianty v pořadí, na hodnotu 1 (jinak 0). (Hodnota neznamená např. *narodil se v měsíci*, ale *byl už na živu v měsíci*) Při intervalovém dotazu pak stačí provést `<lower> AND (NOT <upper-exclusive>)`.
+- **R stromy** - obdélníky, popsány v [otázke 5](4_dátabaze.md#indexovanie), špatne se škálují do mnoha dimenzí
+- **Bitmap indexy** - vhodné pre dimenze s málo variantami (napr. pobočky). Pre každou variantu udeláme bitové pole o délce tabulky faktu. Index v poli odpovídá rádku v tabulce faktu. U pole nastavíme 1 pre indexy, ve kterých varianta platí, jinak 0. Výhodou je, že se snadno používají bitové operace (AND, OR) a je možné takto pracovat i s rozdílnými dimenzemi. Pri mazání v tabulce faktu je napríklad buď upravit všechny bitmap indexy, alebo v tabulce faktu použít *tombstone* hodnotu (považujeme za prázdnou).
+- **Range-encoded bitmap indexy** - vyžadují, aby mela dimenze serazené hodnoty variant (jinak stejne nemá cenu hledat pomocí intervalu). Opet má každá varianta bitové pole délky tabulky faktu. Ak je varianta pre daný fakt pravdivá, nastavíme ji, a všechny následující varianty v poradie, na hodnotu 1 (jinak 0). (Hodnota neznamená napr. *narodil se v mesíci*, ale *bol už na živu v mesíci*) Pri intervalovém dotazu pak stačí provést `<lower> AND (NOT <upper-exclusive>)`.
   ![](img/20230612104455.png)
 
 ### Partitioning
 
-**Partitioning** - dělení dat (tabulky) na více (nepřekrývajících se) částí
+**Partitioning** - delení dát (tabulky) na viac (neprekrývajících se) částí
 
-- přístupy:
-    - logické - dělíme dle data/organizační jednotky/kategorie... nebo kombinace těchto faktorů
-    - fyzické - distribuce dat na různé výpočetní uzly, umožnění paralelního zpracování na více strojích
-- může být implementováno přímo v databázovém systému, nebo si ho zajistíme na aplikační úrovni (náročnější)
-- typy dělení:
-    - horizontální (sharding)- tabulku dělíme na více tabulek se stejnými sloupci, obvykle podle intervalu (často časová dimenze, případně nějaká, co se často nemění), ale je možné i třeba podle hashe
-    - vertikální - část sloupců přesuneme do jiné tabulky (a.k.a. row splitting, vztah 1:1), dává smysl když určité sloupce nepoužíváme často.
-- data používaná společně by měla být uložena společně
-- fajn pro škálování, části lze nezávisle prohledávat na více strojích
-- nevýhodou je vyšší složitost systému, při vertikálním dělení jsou drahé joiny
-- doporučuje se dělat partitioning, když má tabulka >100 milionů řádků/je větší než 2GB
+- prístupy:
+    - logické - delíme podľa dáta/organizační jednotky/kategorie... alebo kombinace techto faktoru
+    - fyzické - distribúcia dát na rôzne výpočetné uzly, umožnenie paralelního Spracovanie na viac strojích
+- muže byť implementováno prímo v databázovém systémov, alebo si ho zajistíme na aplikačné úrovni (náročnejší)
+- typy delení:
+    - horizontální (sharding)- tabulku delíme na viac tabulek se stejnými sloupci, zvyčajne popodľa intervalu (často časová dimenze, prípadne nejaká, čo sa často nemení), ale je možné i napríklad popodľa hashe
+    - vertikální - část sloupcu presuneme do jiné tabulky (a.k.a. row splitting, vztah 1:1), dává smysl keď určiťé sloupce nepoužíváme často.
+- dáta používaná společne by mela byť uložena společne
+- fajn pre škálovanie, časti možno nezávisle prohledávat na viac strojích
+- nevýhodou je vyšší složitost systémov, pri vertikálním delení sú drahé joiny
+- doporučuje se delat partitioning, keď má tabulka >100 milionu rádku/je vetší než 2GB
 
-### Optimalizace JOINů
+### Optimalizácia JOINu
 
-JOINy jsou:
-- komutativní (nezáleží na pořadí operandů, `A JOIN B = B JOIN A`)
-- asociativní (nezáleží na závorkách, když chceme použít víc operandů, `(A JOIN B) JOIN C = A JOIN (B JOIN C)`)
-  => pořadí JOINů lze přeskládat, abychom získali rychlejší provedení SQL dotazu
+JOINy sú:
+- komutativní (nezáleží na poradie operandu, `A JOIN B = B JOIN A`)
+- asociativní (nezáleží na závorkách, keď chceme použít viac operandu, `(A JOIN B) JOIN C = A JOIN (B JOIN C)`)
+  => poradie JOINu možno preskládat, abychom získali rychlejší prevedenie SQL dotazu
 
-- obvykle optimalizace provádí databázový systém:
-    - počet kombinací pořadí joinů je `n!` -> pro jednoduché queries je možné zkoumat všechny možnosti, u složitějších je nutné použít metaheuristiky (např. genetické algoritmy)
-    - uživatel může poskytnout hinty/vnutit vlastní plán (pokud víme, co děláme, můžeme být snadno lepší)
-- pokud jsou dimenze dost restriktivní (filtrují hodně faktů), může být vhodné udělat cross join dimenzí
+- zvyčajne optimalizácia provádí databázový systém:
+    - počet kombinací poradie joinu je `n!` -> pre jednoduché queries je možné zkoumat všechny možnosti, u složitejších je nutné použít metaheuristiky (napr. genetické algoritmy)
+    - používateľ muže poskytnout hinty/vnutit vlastné plán (ak víme, co deláme, môžeme byť snadno lepší)
+- ak sú dimenze dost restriktivní (filtrují hodne faktu), muže byť vhodné udelat cross join dimenzí
 
 ### Pohledy
 
-- klasický pohled (**view**) připomíná funkce v programovacích jazycích - pojmenovaný dotaz. Při dotazu nad view se automaticky provede selekce dat
-- **materializovaný pohled** funguje jako klasický pohled, ale má předpočítaný výsledek, uložený v tabulce (funguje jako cache), takže dotazy na materializovaný pohled jsou rychlejší. Při změně underlying dat se musí data materializovaného pohledu přepočítat/rozšířit (lze odložit, ale pak máme nekonzistenci), což u OLAP není zas takový problém, jako u OLTP.
-    - vhodné pro často používané a drahé dotazy/části dotazů
+- klasický pohled (**view**) pripomíná funkcia v programovacích jazycích - pojmenovaný dotaz. Pri dotazu nad view se automaticky provede selekce dát
+- **materializovaný pohled** funguje jako klasický pohled, ale má predpočítaný výsledek, uložený v tabulce (funguje jako cache), takže dotazy na materializovaný pohled sú rychlejší. Pri zmene underlying dát se musí dáta materializovaného pohledu prepočítat/rozšírit (možno odložit, ale pak máme nekonzistenci), což u OLAP nie je zas takový problém, jako u OLTP.
+    - vhodné pre často používané a drahé dotazy/časti dotazu
 
-### Databázové technologie pro Big Data
+### Databázové technologie pre Big Data
 
-**Sloupcové databáze** - na rozdíl od řádkových databází (např. Postgres), kde jsou uloženy vedle sebe data náležící jednomu řádku ukládají sloupcové databáze (např. BigQuery, S4HANA) vedle sebe data z jednoho sloupce. Díky tomu mohou být sloupcové databáze rychlejší pro čtení dat.
+**Sloupcové Databázy** - na rozdíl od rádkových databáz (napr. Postgres), kde sú uloženy vepodľa sebe dáta náležící jednomu rádku ukládají sloupcové Databázy (napr. BigQuery, S4HANA) vepodľa sebe dáta z jednoho sloupce. Vďaka tomu mohou byť sloupcové Databázy rychlejší pre čítanie dát.
 
-**In-memory databáze** - namísto uložení dat na pevném disku držíme data v RAM -> rychlejší přístup, ale mnohem vyšší cena. Např. S4HANA
+**In-memory Databázy** - namísto uložení dát na pevném disku držíme dáta v RAM -> rychlejší prístup, ale mnohem vyšší cena. Napr. S4HANA
 
-**Distribuované databáze** - umožňují horizontální škálování, svou distribuovaností umožňují fault-tolerance (díky replikaci dat), např. Hadoop Distributed File System, Apache Cassandra.
+**Distribuované Databázy** - umožňují horizontální škálovanie, svou distribuovaností umožňují fault-tolerance (vďaka replikaci dát), napr. Hadoop Distributed File System, Apache Cassandra.
 
 ### NoSQL (not only sql)
 
-- **key-value stores** - data ukládáme/hledáme pomocí klíče, snadno se používají jako cache např. Redis
-- **dokumentové databáze** - data ukládají ve formě dokumentů (každý má klíč, podle kterého se referencuje, jinak je to klasická struktura/třída) a kolekcí dokumentů, např. Mongo, Firebase
-- **sloupcové databáze** (column family, wide-column) - data jsou organizována do tzv. "rodin sloupců" (column families), které mají společné vlastnosti nebo jsou často používány společně, např. Cassandra
-- **grafové databáze** - snadno modelují entity a vztahy, např. Neo4j
-- obvykle nebývají ACID (a nepoužívají joiny), díky čemuž mohou být rychlejší. Větším problémem je udržení konzistence dat. Některé poskytují distribuci dat na více výpočetních uzlů out of the box (co vím tak mongo, cassandra)
+- **key-value stores** - dáta ukládáme/hledáme pomocí kľúče, snadno se používají jako cache napr. Redis
+- **dokumentové Databázy** - dáta ukládají ve forme dokumentu (každý má kľúč, popodľa kterého se referencuje, jinak je to klasická struktura/trída) a kolekcí dokumentu, napr. Mongo, Firebase
+- **sloupcové Databázy** (column family, wide-column) - dáta sú organizována do tzv. "rodin sloupcu" (column families), ktoré majú spoločné vlastnosti alebo sú často používány společne, napr. Cassandra
+- **grafové Databázy** - snadno modelují entity a vztahy, napr. Neo4j
+- zvyčajne nebývají ACID (a nepoužívají joiny), vďaka čemuž mohou byť rychlejší. Vetším problémem je udržení konzistencia dát. Nektoré poskytují distribuci dát na viac výpočetních uzlu out of the box (co vím tak mongo, cassandra)
 
 ### Apache Hadoop
 
-**Platforma pro paralelní/distribuované zpracování velkých datasetů**
+**Platforma pre paralelní/distribuované Spracovanie velkých dátasetu**
 
 - batch processing
-- vysoká dostupnost zajištěna replikací dat
+- vysoká dostupnost zajištena replikací dát
 - využívá **Hadoop Distributed File System (HDFS)**
-    - distribuovaný souborový systém vhodný pro immutable data
-    - abstrahuje distribuovanost, uživatel pracuje s daty jednotným způsobem
-    - high availability díky replikaci, data rozdělena do bloků (defaultně 128MB), každý je v HDFS replikován (defaultně 3x, každá replikace na jiném stroji)
-    - jeden stroj je **name node** (master), ostatní **data nodes**. Master má přehled o mapování souborů na bloky a jejich lokaci na data nodes (tato data jsou taky replikována). Pro získání dotazu klient kontaktuje mastera (zjistí, kde má hledat data) a následně kontaktuje příslušné data nodes.
-    - datové bloky jsou write-once (díky čemuž nemusíme řešit zamykání a dosahujeme vyšších rychlostí čtení)
-- spolu s HDFS využívá modelu **MapReduce**
-    - umožňuje paralelní zpracování dat
-    - uživatel definuje jen použité map a reduce funkce (může jich být více)
-    - postupně probíhá Map, Grouping a Reduce fáze
-    - **Map** - transformace dat (filtrování, sorting). Bere vždy jednu položku dat (např. řádek) a vrací 0-1 key-value pár. Tímto způsobem zpracuje všechna data
-    - **Grouping** fáze - děje se automaticky po map fázi, seskupuje data se stejným klíčem (vznikne key-list) a předá data se stejným klíčem jednomu reduceru
-    - **Reduce** - agregace dat podle klíče, sumarizace výsledků Map operací. Bere key-list (obsahující všechny hodnoty pro daný klíč) a vrací key-list (obsahující 0-n výstupních záznamů).
-      Např. word count - map bere řádek a vrací několik (dle výskytu na řádku) dvojic `(slovo, 1)`. Reduce sečte `1` pro daná slova a vrací `(slovo, součet)`.
+    - distribuovaný súborový systém vhodný pre immutable dáta
+    - abstrahuje distribuovanost, používateľ pracuje s dátami jednotným spôsobem
+    - high availability vďaka replikaci, dáta rozdelena do bloku (defaultne 128MB), každý je v HDFS replikován (defaultne 3x, každá replikácia na jiném stroji)
+    - jeden stroj je **name node** (master), ostatné **dáta nodes**. Master má prehled o mapovanie súborov na bloky a ich lokaci na dáta nodes (tato dáta sú taky replikována). Pre získanie dotazu klient kontaktuje mastera (zjistí, kde má hledat dáta) a následne kontaktuje príslušné dáta nodes.
+    - datové bloky sú write-once (vďaka čemuž nemusíme rešit zamykanie a dosahujeme vyšších rychlostí čítanie)
+- spolu s HDFS využívá modelov **MapReduce**
+    - umožňuje paralelní Spracovanie dát
+    - používateľ definuje jen použité map a reduce funkcia (muže jich byť viac)
+    - postupne probíhá Map, Grouping a Reduce fázy
+    - **Map** - transformace dát (filtrovanie, sorting). Bere vždy jednu položku dát (napr. rádek) a vrací 0-1 key-value pár. Tímto spôsobem zpracuje všechna dáta
+    - **Grouping** fázy - deje se automaticky po map fázi, seskupuje dáta se stejným kľúčem (vznikne key-list) a predá dáta se stejným kľúčem jednomu reduceru
+    - **Reduce** - agregace dát popodľa kľúče, sumarizace výsledku Map operací. Bere key-list (obsahující všechny hodnoty pre daný kľúč) a vrací key-list (obsahující 0-n výstupních záznamu).
+      Napr. word count - map bere rádek a vrací niekoľko (podľa výskytu na rádku) dvojic `(slovo, 1)`. Reduce sečte `1` pre daná slova a vrací `(slovo, součet)`.
       ![img.png](img/mapReduce.png)
 
 ### Apache Hive
 
-- distribuovaný data warehouse postavený nad Hadoop (a HDFS)
-- poskytuje SQL-like (HiveQL) rozhraní pro dotazy, které je převedeno do MapReduce dotazů (je možné dělat i vlastní map reduce skripty)
-- umožňuje používání strukturovaných dat (struktury, seznamy, mapy)
-- umožňuje serializaci/deserializaci dat do/z různých formátů (xml, csv, json...)
-- vhodný pro dlouho běžící ETL jobs
-- pokud chceme low latency/interactive queries, je vhodnější použít Apache Impala (SQL query engine nad Hadoopem)
+- distribuovaný dáta warehouse postavený nad Hadoop (a HDFS)
+- poskytuje SQL-like (HiveQL) rozhrania pre dotazy, ktoré je prevedeno do MapReduce dotazu (je možné delat i vlastné map reduce skripty)
+- umožňuje používanie strukturovaných dát (struktury, seznamy, mapy)
+- umožňuje serializaci/deserializaci dát do/z rôznych formátu (xml, csv, json...)
+- vhodný pre dlouho bežící ETL jobs
+- ak chceme low latency/interactive queries, je vhodnejší použít Apache Impala (SQL query engine nad Hadoopem)
 
 ### Stream processing
 
-- nezpracováváme balík dat, ale kontinuální stream
-- Apache Spark (analytický engine pro large-scale data processing, umí batch i stream processing)
-- Apache Storm (real-time výpočty, skládá se ze zdrojů dat a acyklicky propojených zpracovávajících uzlů)
+- nezpracováváme balík dát, ale kontinuálné stream
+- Apache Spark (analytický engine pre large-scale dáta processing, umí batch i stream processing)
+- Apache Storm (real-time výpočty, skládá se ze zdrojov dát a acyklicky propojených zpracovávajících uzlu)
 
 ## Notes
 
-### Příklad architektury Data Warehouse pro Big Data
+### Príklad architektúry Data Warehouse pre Big Data
 
 ![](img/20230612205443.png)
 

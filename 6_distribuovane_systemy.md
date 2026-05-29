@@ -1,222 +1,222 @@
 # Distribuované systémy
 
-> Základní pojmy, principy. Rozdíl mezi centralizovanou a distribuovanou architekturou systému, nevýhody obojího a jejich překonávání. Replikace, sdílení dat. Architektura orientovaná na služby (SOA), webové služby. Příklady existujících technologií a jejich využití. Příklady z praxe pro vše výše uvedené. ([PA053](https://is.muni.cz/auth/el/fi/jaro2023/PA053/um/))
+> Základné pojmy, principy. Rozdíl medzi centralizovanou a distribuovanou architektúrou systémov, nevýhody obojího a ich prekonávanie. replikácia, zdieľanie dát. Architektúra orientovaná na služby (SOA), webové služby. Príklady existujících technologií a ich využití. Príklady z praxe pre všetko vyššie uvedené. ([PA053](https://is.muni.cz/auth/el/fi/jaro2023/PA053/um/))
 
-1. [Základní pojmy, principy (1/6)](#základní-pojmy-principy-16)
-2. [Rozdíl mezi centralizovanou a distribuovanou architekturou systému, nevýhody obojího a jejich překonávání (2/6)](#rozdíl-mezi-centralizovanou-a-distribuovanou-architekturou-systému-nevýhody-obojího-a-jejich-překonávání-26)
-3. [Replikace, sdílení dat (3/6)](#replikace-sdílení-dat-36)
-4. [Architektura orientovaná na služby (SOA), webové služby (4/6)](#architektura-orientovaná-na-služby-soa-webové-služby-46)
-5. [Příklady existujících technologií a jejich využití (5/6)](#příklady-existujících-technologií-a-jejich-využití-56)
-6. [Příklady z praxe pro vše výše uvedené (6/6)](#příklady-z-praxe-pro-vše-výše-uvedené-66)
+1. [Základné pojmy, principy (1/6)](#základné-pojmy-principy-16)
+2. [Rozdíl medzi centralizovanou a distribuovanou architektúrou systémov, nevýhody obojího a ich prekonávanie (2/6)](#rozdíl-mezi-centralizovanou-a-distribuovanou-architektúrou-systémov-nevýhody-obojího-a-ich-prekonávanie-26)
+3. [replikácia, zdieľanie dát (3/6)](#replikácia-zdieľanie-dát-36)
+4. [Architektúra orientovaná na služby (SOA), webové služby (4/6)](#Architektúra-orientovaná-na-služby-soa-webové-služby-46)
+5. [Príklady existujících technologií a ich využití (5/6)](#príklady-existujících-technologií-a-ich-využití-56)
+6. [Príklady z praxe pre všetko vyššie uvedené (6/6)](#príklady-z-praxe-pro-vše-výše-uvedené-66)
 
-## Základní pojmy, principy (1/6)
+## Základné pojmy, principy (1/6)
 
-**Distribuovaný systém** se skládá z komponentů (počítačů) propojených komunikační sítí. Distribuované systémy řeší problémy (výpočty/zpracovávání requestů) spoluprací jednotlivých komponentů (každý dělá něco). Díky tomu se systém snadněji škáluje (posilujeme subsystém, který má problémy).
+**Distribuovaný systém** se skládá z komponentu (počítaču) propojených komunikačné sietí. Distribuované systémy reší problémy (výpočty/spracovávanie requestu) spoluprací jednotlivých komponentu (každý delá neco). Vďaka tomu se systém snadneji škáluje (posilujeme subsystém, ktorý má problémy).
 
 ### Typy architektur
 
-Architektury popsány v [otázce 1](dev_1_programovani_a_softwarovy_vyvoj.md#vícevrstvá-architektura-moderních-informačních-systémů-architektura-model-view-controller-36), takže jen shrnutí:
+architektúry popsány v [otázke 1](dev_1_programovani_a_softwarovy_vyvoj.md#vícevrstvá-Architektúra-moderních-informačních-systémov-Architektúra-model-view-controller-36), takže jen shrnutí:
 
-#### Monolitická architektura
-- obsahuje vše, co systém potřebuje, je možné pouze vertikální škálování, špatná spolehlivost (pád znamená pád celého systému)
+#### Monolitická Architektúra
+- obsahuje vše, co systém potrebuje, je možné iba vertikální škálovanie, Zlá Spoľahlivosť (pád znamená pád celého systémov)
 
-#### Úrovňová (tiered) architektura
-- nezaměňovat s layered
-- jednotlivé úrovně lze distribuovat, paralelizovat, nahradit (komunikace skrz API)
-- Klient může být tenký/tlustý dle poskytnuté funkcionality.
-- př. Client → Server → Database
+#### Úrovňová (tiered) Architektúra
+- nezameňovat s layered
+- jednotlivé úrovne možno distribuovat, paralelizovat, nahradit (komunikácia skrz API)
+- Klient muže byť tenký/tlustý podľa poskytnuté funkcionality.
+- pr. Client → Server → Database
 
 #### Hexagonal/Microkernel/component-based
-- základní aplikace poskytuje minimální funkcionalitu, zbytek se dodává skrz plug-in komponenty komunikující přes předdefinované api
-- komponenty je možné případně zapojovat za běhu systému
-- další možnost využití komponentů - pokud potřebujeme používat legacy systém, který si nemůžeme dovolit přepsat, je možné ho zabalit jako komponent a přistupovat k němu přes naše kompatibilní rozhraní
-- vývoj komponentových systémů je náročnější (zvlášť problematické je správně určit rozhraní), ale umožňuje větší přizpůsobitelnost/znovupoužitelnost komponentů v budoucích projektech
-- např. extensions ve VSCode, component-based architekturu používá Jakarta Enterprise Edition, kde jednotlivé Java Beans jsou komponenty
+- základné aplikace poskytuje minimálné funkcionalitu, zbytek se dodává skrz plug-in komponenty komunikující pres preddefinované api
+- komponenty je možné prípadne zapojovat za behu systémov
+- další možnost využití komponentu - ak potrebujeme používat legacy systém, ktorý si nemôžeme dovolit prepsat, je možné ho zabalit jako komponent a pristupovat k nemu pres naše kompatibilní rozhrania
+- vývoj komponentových systémov je náročnejší (zvlášť problematické je správne určiť rozhrania), ale umožňuje vetší prispôsobiteľnosť/opätovná použiteľnosť komponentu v budúcích projektech
+- napr. extensions ve VSCode, component-based architekturu používá Jakarta Enterprise Edition, kde jednotlivé Java Beans sú komponenty
 
 #### Pipeline architecture
-- sekvenční zpracování, každý komponent se stará o relativně transformaci vstupu na výstup (dělej malou věc, ale dělej ji dobře)
+- sekvenční Spracovanie, každý komponent se stará o relativne transformaci vstupu na výstup (delej malou vec, ale delej ji dobre)
 
 #### Service-oriented architecture
-- popsáno v [samostatné kapitole](#architektura-orientovaná-na-služby-soa-webové-služby-46)
+- popsáno v [samostatné kapitole](#Architektúra-orientovaná-na-služby-soa-webové-služby-46)
 
 #### Microservice architecture
-- vysoká koheze, nízká provázanost služeb, systém je tvořen velkým množstvím malých služeb
-- důležitá je rychlá komunikace mezi službami (gRPC)
+- vysoká koheze, nízká provázanost služeb, systém je tvoren velkým množstvím malých služeb
+- duležitá je rychlá komunikácia medzi službami (gRPC)
 - služby nesdílí DB
 
-### Komunikační paradigmata
+### Komunikačné paradigmata
 
 #### Remote Procedure Call (RPC)
-Umožňuje spuštění předem vystavené procedury mezi procesy (i na vzdáleném stroji) tak, jako bychom proceduru volali přímo v kódu. Implementace procedury může být v odlišném programovacím jazyce. Součástí je definice rozhraní, ze kterého je možné vygenerovat odpovídající volatelné funkce/struktury použité pro argumenty pro náš jazyk.
+Umožňuje spuštení predem vystavené procedury medzi procesy (i na vzdáleném stroji) tak, jako bychom proceduru volali prímo v kódu. Implementácia procedury muže byť v odlišném programovacím jazyce. Součástí je definícia rozhrania, ze kterého je možné vygenerovat odpovídající volatelné funkcia/struktury použité pre argumenty pre náš jazyk.
 
 - De-facto standardem je dnes **gRPC**
-- Pro fullstack typescript aplikace je dnes populární používat **tRPC**
-- V PA053 se probírala **CORBA** (primární focus na Javu, ale podporovala i jiné jazyky, nejde jen o RPC, ale o architekturu pro komunikaci mezi objekty v distribuovaném prostředí), ale ta se v nových systémech prakticky nepoužívá kvůli složitosti/lepším alternativám, nahrazena jednodušším SOAP a REST, nebo RPC řešeními (gRPC, funguje na HTTP/2, zprávy binárně serializuje pomocí protocol bufferu).
+- Pre fullstack typescript aplikace je dnes populární používat **tRPC**
+- V PA053 se probírala **CORBA** (primárné focus na Javu, ale podporovala i jiné jazyky, nejde jen o RPC, ale o architekturu pre komunikaci medzi objekty v distribuovaném prostredia), ale ta se v nových systémech prakticky nepoužívá kvuli složitosti/lepším alternativám, nahrazena jednodušším SOAP a REST, alebo RPC riešeními (gRPC, funguje na HTTP/2, zprávy binárne serializuje pomocí protocol bufferu).
 
 #### Doručovací garance zpráv (Delivery Guarantees)
-Při komunikaci přes RPC nebo Message Brokers narážíme na limity nespolehlivosti sítě. Rozlišujeme tři úrovně garancí:
-* **At-most-once (Nejvýše jednou):** Zpráva je odeslána, ale odesílatel nečeká na potvrzení. Pokud se paket ztratí, zpráva je ztracena. (Nízká režie, vhodné pro telemetrii, senzory).
-* **At-least-once (Alespoň jednou):** Odesílatel posílá zprávu opakovaně (Retry), dokud nedostane potvrzení (ACK). Pokud ACK nepřijde (např. kvůli výpadku sítě při návratu), zpráva může být doručena a zpracována **duplicitně**.
-* **Exactly-once (Právě jednou):** Nejtěžší na implementaci. Zpráva je doručena přesně jednou bez duplicit. Vyžaduje kombinaci *At-least-once* doručení a **idempotence** na straně příjemce.
+Pri komunikaci pres RPC alebo Message Brokers narážíme na limity nespoľahlivosti siete. Rozlišujeme tri úrovne garancí:
+* **At-most-once (Nejvýše jednou):** Zpráva je odeslána, ale odesílatel nečeká na potvrdenie. Ak se paket ztratí, zpráva je ztracena. (Nízká režie, vhodné pre telemetrii, senzory).
+* **At-least-once (Alespoň jednou):** Odesílatel posílá zprávu opakovane (Retry), dokud nedostane potvrdenie (ACK). Ak ACK neprijde (napr. kvuli výpadku siete pri návratu), zpráva muže byť doručena a zpracována **duplicitne**.
+* **Exactly-once (Práve jednou):** Nejtežší na implementaci. Zpráva je doručena presne jednou bez duplicit. Vyžaduje kombinaci *At-least-once* doručenie a **idempotence** na strane príjemce.
 
-#### Idempotence (Klíč k odolnosti)
-Operace je **idempotentní**, pokud její opakované provedení se stejnými parametry vede ke stejnému stavu systému jako její první spuštění (např. `setBalance(100)` je idempotentní, `deductBalance(10)` není). V distribuovaných systémech se neidempotentní operace ošetřují pomocí **Idempotency Tokens** (unikátní ID požadavku generované klientem, které si server ukládá, a duplicitní tokeny podruhé neprocesuje, pouze vrátí původní výsledek).
+#### Idempotence (Kľúč k odolnosti)
+Operace je **idempotentní**, ak jej opakované prevedenie se stejnými parametry vede ke stejnému stavu systémov jako jej první spuštení (napr. `setBalance(100)` je idempotentní, `deductBalance(10)` nie je). V distribuovaných systémech se neidempotentní operace ošetrují pomocí **Idempotency Tokens** (unikátne ID požiadaviek generované klientem, ktoré si server ukládá, a duplicitní tokeny podruhé neprocesuje, iba vrátí puvodné výsledek).
 
 #### Message Queues a Event Brokers
-Pro komunikaci se v distribuovaných systémech kromě RPC používají **message queues** a **event brokers**, kteří umožňují komunikaci typu publisher-subscriber, nebo zpracování jedním z množiny příjemců, a jsou schopny zprávy persistentně uchovávat (hodí se pro transakční zpracování, spolehlivost v případě výpadku).
+Pre komunikaci se v distribuovaných systémech krome RPC používají **message queues** a **event brokers**, kterí umožňují komunikaci typu publisher-subscriber, alebo Spracovanie jedním z množiny príjemcu, a sú schopny zprávy persistentne uchovávat (hodí se pre transakční Spracovanie, Spoľahlivosť v prípade výpadku).
 
 ##### Message Queue (MQ)
-Klasická FIFO fronta – každá zpráva má jednoho příjemce. Po přečtení je zpráva odstraněna z fronty. Konzument neví, kdo zprávu poslal a odesílatel neví, kdo ji přijme. Pokud je fronta plná, dochází k odmítání/mazání starých zpráv (podle konfigurace). [RabbitMQ](https://www.youtube.com/watch?v=NQ3fZtyXji0), Amazon SQS,
+Klasická FIFO fronta – každá zpráva má jednoho príjemce. Po prečtení je zpráva odstranena z fronty. Konzument neví, kdo zprávu poslal a odesílatel neví, kdo ji prijme. Ak je fronta plná, dochází k odmaťání/mazání starých zpráv (popodľa konfigurace). [RabbitMQ](https://www.youtube.com/watch?v=NQ3fZtyXji0), Amazon SQS,
 
 ##### Event Queue
-Primární nástroj pro event-driven architekturu. Publish-subscribe. Append-only log (zprávy se nemažou ihned po přečtení). Nově připojená služba může číst kompletní historii zpráv a rekonstruovat stav systému. Zprávy jsou časově seřazené. Použití: Event sourcing, stream processing, audity. [Apache Kafka](https://www.youtube.com/watch?v=uvb00oaa3k8), AWS Kinesis,
+Primárné nástroj pre event-driven architekturu. Publish-subscribe. Append-only log (zprávy se nemažou ihned po prečtení). Nove pripojená služba muže číst kompletní historii zpráv a rekonstruovat stav systémov. Zprávy sú časove serazené. Použití: Event sourcing, stream processing, audity. [Apache Kafka](https://www.youtube.com/watch?v=uvb00oaa3k8), AWS Kinesis,
 
 ##### Message Bus (Event Broker / Pub-Sub Bus)
-Rozesílá zprávu více příjemcům. Publish-subscribe (1:N). Každá zpráva je doručena všem odběratelům daného tématu. Pracuje s topics, na které se jednotlivé služby „přihlašují“ (subscribe). Odesílatel neřeší, kolik příjemců zprávu dostane. Použití: Reakce více subsystémů na stejnou událost, např. notifikace, cache invalidace. Kafka, Redis Pub/Sub, MQTT brokers
+Rozesílá zprávu viac príjemcum. Publish-subscribe (1:N). Každá zpráva je doručena všem odberatelum daného tématu. Pracuje s topics, na ktoré se jednotlivé služby „prihlašují“ (subscribe). Odesílatel nereší, kolik príjemcu zprávu dostane. Použití: Reakce viac subsystému na stejnou událost, napr. notifikace, cache invalidace. Kafka, Redis Pub/Sub, MQTT brokers
 
-#### Alternativní komunikační způsoby
-Alternativně se může pro komunikaci v distribuovaném systému používat např. REST, nebo (pokud chceme low level kontrolu a výkon) přímá komunikace mezi sockety.
+#### Alternativní komunikačné spôsoby
+Alternativne se muže pre komunikaci v distribuovaném systémov používat napr. REST, alebo (ak chceme low level kontrolu a výkon) prímá komunikácia medzi sockety.
 
-### Cloudové a distribuované výpočetní paradigmata
+### Cloudové a distribuované výpočetné paradigmata
 
 #### Cloud Computing
-**Cloud** - výhodou je, že můžeme používat platformu/infrastrukturu jako službu, aniž bychom se o ni museli starat/provádět nákladnou iniciální investici. Výpočetní výkon lze (i automaticky) upravit/škálovat na základě aktuálního vytížení. Fyzické zdroje mohou být sdílené, čímž je možné dosáhnout nižší ceny a je možné distribuovat výpočetní požadavky (peaky různých aplikací v různých dobách zvládne i jeden stroj). Datová centra lze volit na základě blízkosti k našim zákazníkům.
+**Cloud** - výhodou je, že môžeme používat platformu/infrastrukturu jako službu, aniž bychom se o ni museli starat/provádet nákladnou iniciální investici. Výpočetné výkon možno (i automaticky) upravit/škálovat na základe aktuálního vytížení. Fyzické zdroje mohou byť sdílené, čímž je možné dosáhnout nižší ceny a je možné distribuovat výpočetné požadavky (peaky rôznych aplikací v rôznych dobách zvládne i jeden stroj). Datová centra možno volit na základe blízkosti k našim zákazníkum.
 
 #### GRID Computing
-**GRID computing** - výpočet velmi náročných úloh pomocí velkého množství zdrojů (např. dobrovolnický Folding@home). Zdroj může být CPU, storage, speciální zařízení, ...
+**GRID computing** - výpočet velmi náročných úloh pomocí velkého množství zdrojov (napr. dobrovolnický Folding@home). Zdroj muže byť CPU, storage, speciální zariadení, ...
 
 #### Batch vs Stream Processing
 
 ![](img/20230602104120.png)
 
-U batch processingu můžeme distribuovat pomocí jednotlivých jobs, řeší se plánování jobs (může stačit obyčejná fronta)
+U batch processingu môžeme distribuovat pomocí jednotlivých jobs, reší se plánovanie jobs (muže stačit obyčejná fronta)
 
-Stream např. Apache Kafka
+Stream napr. Apache Kafka
 
 #### MapReduce
-**MapReduce** - k transformaci dat používáme operace MAP (transformace dat 1:1) a REDUCE (sumarizace dat N:1). MAPery lze triviálně paralelizovat (stejné i rozdílné operace), u REDUCErů je to trochu složitější, paralelizujeme rozdílné operace. Např. Apache Hadoop
+**MapReduce** - k transformaci dát používáme operace MAP (transformace dát 1:1) a REDUCE (sumarizace dát N:1). MAPery možno triviálne paralelizovat (rovnaké i rozdílné operace), u REDUCEru je to trochu složitejší, paralelizujeme rozdílné operace. Napr. Apache Hadoop
 
-## Rozdíl mezi centralizovanou a distribuovanou architekturou systému, nevýhody obojího a jejich překonávání (2/6)
+## Rozdíl medzi centralizovanou a distribuovanou architektúrou systémov, nevýhody obojího a ich prekonávanie (2/6)
 
-Hlavním rozdílem je, že centralizovaná architektura shromažďuje data a logiku na jednom místě, distribuovaná architektura rozptyluje logiku do více samostatných komponentů (běžících třeba i na samostatných strojích), které spolu komunikují.
+Hlavním rozdílem je, že centralizovaná Architektúra shromažďuje dáta a logiku na jednom míste, distribuovaná Architektúra rozptyluje logiku do viac samostatných komponentu (bežících napríklad i na samostatných strojích), ktoré spolu komunikují.
 
-### Nevýhody centralizované architektury a jejich řešení
+### Nevýhody centralizované architektúry a ich riešenie
 
-**Nevýhody centralizované architektury:**
-- neumožňuje horizontální škálování => **řešení:** škálujeme vertikálně
-- selhání části znamená selhání celku => **řešení:** redundance, záložní servery
-- nízká flexibilita, vysoká provázanost => **řešení:** důraz na kvalitu kódu
+**Nevýhody centralizované architektúry:**
+- neumožňuje horizontální škálovanie => **riešenie:** škálujeme vertikálne
+- zlyhania časti znamená zlyhania celku => **riešenie:** redundance, záložní servery
+- nízká flexibilita, vysoká provázanost => **riešenie:** duraz na kvalitu kódu
 
-### Nevýhody distribuované architektury a jejich řešení
+### Nevýhody distribuované architektúry a ich riešenie
 
-**Nevýhody distribuované architektury:**
-- komplexita celkového systému, náročnější správa
-- vyžadují více/složitější komunikaci, složitější synchronizace, náchylnost na latenci => **řešení:** použití message queues, gRPC, eventual consistency
+**Nevýhody distribuované architektúry:**
+- komplexita celkového systémov, náročnejší správa
+- vyžadují viac/složitejší komunikaci, složitejší synchronizace, náchylnost na latenci => **riešenie:** použití message queues, gRPC, eventual consistency
 
 ### ACID vs BASE paradigma
 
-Oproti centralizované architektuře distribuované systémy:
+Oproti centralizované architektúre Distribuované systémy:
 
-- nebývají požadavky/transakce ACID, ale **BASE**:
-  - **BAsically available** - nefunkčnost části nezpůsobí nefunkčnost celku, zbytek funguje i v případě nefunkční části systému. např. na netflixu nemusí fungovat služba hledání, ale vše ostatní běží v cajku. Na každý dotaz dostaneme nějakou odpověď.
-  - **Soft state** - změny v systému mohou nastávat i když nepřichází žádné dotazy - systém takto propaguje data, aby dosáhl konzistence
-  - **Eventually consistent** - data nemusí být konzistentní okamžitě po získání odpovědi na dotaz, ale až po nějaké chvíli
+- nebývají požadavky/transakcie ACID, ale **BASE**:
+  - **BAsically available** - nefunkčnost časti nespôsobí nefunkčnost celku, zbytek funguje i v prípade nefunkčné časti systémov. napr. na netflixu nemusí fungovat služba hľadanie, ale vše ostatné beží v cajku. Na každý dotaz dostaneme nejakou odpoveď.
+  - **Soft state** - zmeny v systémov mohou nastávat i keď neprichází žádné dotazy - systém takto propaguje dáta, aby dosáhl konzistencia
+  - **Eventually consistent** - dáta nemusí byť konzistentní okamžite po získanie odpovedi na dotaz, ale až po nejaké chvíli
 
-#### CAP Teorém (Zásadní teoretický pilíř)
-*Státnicová otázka: „Můžeme mít v distribuovaném systému sítě garantovanou okamžitou konzistenci i 100% dostupnost zároveň?“*
+#### CAP Teorém (Zásadní teoretický pilír)
+*Státnicová otázka: „Mužeme mať v distribuovaném systémov siete garantovanou okamžitou konzistenci i 100% dostupnost zároveň?“*
 
-CAP teorém říká, že v distribuovaném datovém úložišti je možné v jeden moment zajistit pouze **dvě ze tří** následujících vlastností:
-* **C (Consistency - Konzistence):** Každé čtení vrátí nejnovější zápis nebo chybu. Všechny uzly vidí stejná data ve stejný čas.
-* **A (Availability - Dostupnost):** Každý nezhavarovaný uzel vrátí vždy odpověď (ne chybu), ale nemusí obsahovat nejnovější zápis.
-* **P (Partition Tolerance - Odolnost proti rozdělení sítě):** Systém pokračuje v činnosti i v případě, že dojde k výpadku komunikace (rozdělení) mezi uzly.
+CAP teorém hovorí, že v distribuovaném dátovom úložišti je možné v jeden moment zajistit iba **dve ze trí** následujících vlastností:
+* **C (Consistency - Konzistencia):** Každé čítanie vrátí nejnovejší zápis alebo chybu. Všechny uzly vidí rovnaká dáta ve rovnaký čas.
+* **A (Availability - Dostupnost):** Každý nezhavarovaný uzel vrátí vždy odpoveď (ne chybu), ale nemusí obsahovat nejnovejší zápis.
+* **P (Partition Tolerance - Odolnost proti rozdelení siete):** Systém pokračuje v činnosti i v prípade, že dojde k výpadku komunikácia (rozdelení) medzi uzly.
 
 
 
-*Důsledek pro praxi:* Protože fyzickou síť (a tedy riziko jejího rozdělení - **P**) nelze v reálném světě 100% garantovat, reálně si vždy vybíráme mezi **CP** (obětujeme dostupnost pro konzistenci - např. MongoDB, etcd, Redis) a **AP** (obětujeme okamžitou konzistenci pro dostupnost -> eventual consistency, např. Apache Cassandra, DynamoDB).
+*Dusledek pre praxi:* Pretože fyzickou sieť (a teda riziko jejího rozdelení - **P**) nemožno v reálném svete 100% garantovat, reálne si vždy vybíráme medzi **CP** (obetujeme dostupnost pre konzistenci - napr. MongoDB, etcd, Redis) a **AP** (obetujeme okamžitou konzistenci pre dostupnost -> eventual consistency, napr. Apache Cassandra, DynamoDB).
 
 #### Klamy distribuovaného počítání (Fallacies of Distributed Computing)
-Při návrhu distribuovaných systémů vývojáři často dělají 8 chybných předpokladů (definoval L. Peter Deutsch), které vedou k selhání architektury:
-1. Síť je spolehlivá. 2. Latence je nulová. 3. Šířka pásma je nekonečná. 4. Síť je bezpečná. 5. Topologie se nemění. 6. Je zde jeden administrátor. 7. Transportní náklady jsou nulové. 8. Síť je homogenní.
-*(U zkoušky stačí uvést první 3–4 jako argument, proč musíme řešit timeouty, retries a asynchronní komunikaci).*
+Pri návrhu distribuovaných systémov vývojári často delají 8 chybných predpokladu (definoval L. Peter Deutsch), ktoré vedou k zlyhania architektúry:
+1. Sieť je spolehlivá. 2. Latence je nulová. 3. Šírka pásma je nekonečná. 4. Sieť je bezpečná. 5. Topologie se nemení. 6. Je zde jeden administrátor. 7. Transportné náklady sú nulové. 8. Sieť je homogénne.
+*(U zkoušky stačí uvést první 3–4 jako argument, proč musíme rešit timeouty, retries a asynchronní komunikaci).*
 
-### Výhody distribuované architektury
+### Výhody distribuované architektúry
 
-- selhání (pád) části systému neznamená pád celku
-- jsou flexibilnější na modifikace díky nízké provázanosti
+- zlyhania (pád) časti systémov neznamená pád celku
+- sú flexibilnejší na modifikace vďaka nízké provázanosti
 
-## Replikace, sdílení dat (3/6)
+## replikácia, zdieľanie dát (3/6)
 
-V distribuovaných systémech se používá replikace dat z různých důvodů. U distribuovaných databází (Apache Cassandra) /filesystémů (Apache Hadoop) to může být z důvodu bezpečnosti/dostupnosti/prevence výpadku, obecně se tím ale v systémech snažíme zajistit rychlejší odezvy.
+V distribuovaných systémech se používá replikácia dát z rôznych dôvodu. U distribuovaných databáz (Apache Cassandra) /filesystému (Apache Hadoop) to muže byť z dôvodu bezpečnosťi/dostupnosti/prevence výpadku, obecne se tým ale v systémech snažíme zajistit rychlejší odezvy.
 
-### Problém centrální databáze
+### Problém centrálné Databázy
 
-Centrální databáze, ve které se sdílí data, se může stát limitujícím bodem -> použijeme buď distribuovanou databázi, která replikaci řeší interně, nebo více databází, které mohou být jednodušší (MongoDB), protože se distribucí dat vzdáváme ACID a fungujeme s BASE. Určitá replikace dat vzniká kešováním (Redis). U replikace je potřeba nějakým způsobem řešit invalidaci dat po změně (timeout, nebo CQRS).
+Centrálné Databázy, ve ktoré se sdílí dáta, se muže stát limitujícím bodem -> použijeme buď distribuovanou databázi, ktorá replikaci reší interne, alebo viac databáz, ktoré mohou byť jednoduchší (MongoDB), pretože se distribucí dát vzdáváme ACID a fungujeme s BASE. Určitá replikácia dát vzniká kešováním (Redis). U replikácia je ponapríklad neakým spôsobem rešit invalidaci dát po zmene (timeout, alebo CQRS).
 
 ### Content Delivery Networks (CDN)
 
-Replikace je kýžená u content delivery network (CDN), kde se snažíme mít statické zdroje (web, obrázky) co nejblíže uživateli, aby se dosáhlo rychlého načítání.
+replikácia je kýžená u content delivery network (CDN), kde se snažíme mať statické zdroje (web, obrázky) co nejblíže používateľmi, aby se dosáhlo rychlého načítání.
 
-### NoSQL databáze a distribuční strategie
+### NoSQL Databázy a distribuční strategie
 
-NoSQL databáze mají obvykle mechanismy pro automatickou replikaci/distribuci dat mezi různými uzly:
+NoSQL Databázy majú zvyčajne mechanismy pre automatickou replikaci/distribuci dát medzi rôznymi uzly:
 
 #### Sharding
-Je možné použít **sharding** (rozbijeme data, uzel se stará o svou doménu) pro distribuci dat
+Je možné použít **sharding** (rozbijeme dáta, uzel se stará o svou doménu) pre distribuci dát
 
-#### Master-Slave replikace
-**Master-slave replikace** pro škálování (u aplikací s častým čtením) a prevenci výpadků (spadne master? jeden ze slaves je nový master) - master se při zápisu stará o aktualizaci dat na slaves. Zapisujeme jen na mastera a ten pak zpropaguje na slaves, kteri jsou jinak read only a jsou pak treba bliz uzivatelum.
+#### Master-Slave replikácia
+**Master-slave replikácia** pre škálovanie (u aplikací s častým čtením) a prevenci výpadku (spadne master? jeden ze slaves je nový master) - master se pri zápisu stará o aktualizaci dát na slaves. Zapisujeme jen na mastera a ten pak zpropaguje na slaves, kteri sú jinak read only a sú pak napríklad bliz uzivatelum.
 
 #### Problém Split-Brain a mechanizmy konsenzu
-*Státnicový chyták (Rossi, Pitner): „Při Master-Slave replikaci se síť rozdělí na dvě poloviny. Slaves v odříznuté polovině si myslí, že Master umřel, a zvolí si nového Mastera. Co se stane a jak tomu zabránit?“*
+*Státnicový chyták (Rossi, Pitner): „Pri Master-Slave replikaci se sieť rozdelí na dve poloviny. Slaves v odríznuté polovine si myslí, že Master umrel, a zvolí si nového Mastera. Co se stane a ako tomu zabránit?“*
 
-Pokud v clusteru vzniknou dva zapíratelní Masteři (každý v jedné odříznuté části sítě), dojde k fenoménu **Split-Brain** (dělený mozek). Obě poloviny začnou nezávisle přijímat zápisy, což nenávratně zkorumpuje konzistenci dat.
+Ak v clusteru vzniknou dva zapíratelní Masteri (každý v jedné odríznuté časti siete), dojde k fenoménu **Split-Brain** (delený mozek). Obe poloviny začnou nezávisle prijímat zápisy, což nenávratne zkorumpuje konzistenci dát.
 
 
 
-**Řešení:**
-1.  **Quorum (Kvorum):** K jakékoli zásadní změně (např. zvolení nového Mastera nebo potvrzení zápisu) je potřeba souhlas **nadpoloviční většiny** všech uzlů ($Většina = \lfloor N/2 \rfloor + 1$). Odříznutá menšina uzlů nikdy nedosáhne kvora, takže se zablokuje pro zápis a split-brain nevznikne. (Proto se distribuované koordinátory staví v lichém počtu uzlů – 3, 5, 7...).
-2.  **Konsenzuální algoritmy (Raft, Paxos):** Protokoly, které formálně zajišťují, že se uzly v distribuovaném prostředí bezpečně shodnou na jedné hodnotě / jednom lídrovi (Leader Election).
-    * **Raft:** Modernější, srozumitelnější. Uzly jsou ve stavech *Leader*, *Follower*, nebo *Candidate*. Používá ho např. `etcd` v Kubernetes.
-    * **ZAB (ZooKeeper Atomic Broadcast):** Speciální protokol, který interně využívá Apache ZooKeeper pro replikaci stavu.
+**Riešenie:**
+1.  **Quorum (Kvorum):** K jakékoli zásadní zmene (napr. zvolení nového Mastera alebo potvrdenie zápisu) je ponapríklad souhlas **nadpoloviční vetšiny** všech uzlu ($Vetšina = \lfloor N/2 \rfloor + 1$). Odríznutá menšina uzlu nikdy nedosáhne kvora, takže se zablokuje pre zápis a split-brain nevznikne. (Proto se distribuované koordinátory staví v lichém počtu uzlu – 3, 5, 7...).
+2.  **Konsenzuální algoritmy (Raft, Paxos):** Protokoly, ktoré formálne zajišťují, že se uzly v distribuovaném prostredia bezpečne shodnou na jedné hodnote / jednom lídrovi (Leader Election).
+    * **Raft:** Modernejší, srozumitelnejší. Uzly sú ve stavech *Leader*, *Follower*, alebo *Candidate*. Používá ho napr. `etcd` v Kubernetes.
+    * **ZAB (ZooKeeper Atomic Broadcast):** Speciální protokol, ktorý interne využívá Apache ZooKeeper pre replikaci stavu.
 
-### Systémy pro sdílení dat
+### Systémy pre zdieľanie dát
 
-Pro sdílení dat (událostí) je možné použít **Apache Kafka**, platformu pro streamování dat ukládaných do logů. Pro sdílení informací o službách distribuovaného systému se dá použít **Apache ZooKeeper**.
+Pre zdieľanie dát (udalostí) je možné použít **Apache Kafka**, platformu pre streamovanie dát ukládaných do logu. Pre zdieľanie informací o službách distribuovaného systémov se dá použít **Apache ZooKeeper**.
 
-## Architektura orientovaná na služby (SOA), webové služby (4/6)
+## Architektúra orientovaná na služby (SOA), webové služby (4/6)
 
-### Architektura orientovaná na služby (SOA)
+### Architektúra orientovaná na služby (SOA)
 
-Architektonický styl, který rozděluje systém na volně provázané, vzájemně nezávislé a samostatně nasaditelné služby, z nichž každá implementuje ucelenou obchodní funkci. Služby komunikují pomocí standardních rozhraní (SOAP, REST, zpráv přes middleware/ESB apod.) a lze je vyvíjet, nasazovat a škálovat nezávisle.
+Architektonický styl, ktorý rozdeluje systém na volne provázané, vzájemne nezávislé a samostatne nasaditeľné služby, z nichž každá implementuje ucelenou obchodní funkci. Služby komunikují pomocí standardních rozhrania (SOAP, REST, zpráv pres middleware/ESB apod.) a možno je vyvíjet, nasazovat a škálovat nezávisle.
 
 #### Charakteristiky SOA:
-- důraz na znovupoužitelnost služeb napříč celou organizací
-- používá ESB (Enterprise Service Bus) pro komunikaci mezi službami
-- standardy jako SOAP, WSDL, UDDI pro definici a objevování služeb
-- služby jsou obvykle hrubozrnné (coarse-grained)
+- duraz na opätovná použiteľnosť služeb napríč celou organizací
+- používá ESB (Enterprise Service Bus) pre komunikaci medzi službami
+- standardy jako SOAP, WSDL, UDDI pre definici a objevovanie služeb
+- služby sú zvyčajne hrubozrnné (coarse-grained)
 - centralizovaná governance a správa služeb
-- těžší infrastruktura, komplexnější implementace
-- fajn pro velké enterprise organizace s potřebou sdílení služeb
+- težší infrastruktura, komplexnejší implementácia
+- fajn pre velké enterprise organizace s potrebou zdieľanie služeb
   ![img.png](img/SOA_archi.png)
 
 #### Zásadní rozdíl: SOA vs. Microservices (Smart Endpoints vs. Smart Pipes)
-Ačkoli jsou mikroslužby evolucí SOA, liší se v kritickém bodě sdílení logiky a integrace:
-* **SOA (Smart Pipes, Dumb Endpoints):** Komunikace je centralizovaná kolem **ESB (Enterprise Service Bus)**. ESB není jen hloupý drát; obsahuje těžkou byznys logiku, transformace formátů (např. XML na JSON), routování a orchestraci. Samotné služby jsou tak "hloupější", ale systém závisí na obřím monolitu uprostřed (ESB), který se stává single point of failure a bottleneckem.
-* **Microservices (Smart Endpoints, Dumb Pipes):** Logika se kompletně přesouvá na konce (do samotných mikroslužeb). Komunikační kanály jsou maximálně jednoduché a "hloupé" (REST, gRPC, lehká message queue bez logiky). Služby si samy řeší transformace dat a stav. Tím se dosahuje skutečného decoupling (rozpojení) služeb.
+Ačkoli sú mikroslužby evolucí SOA, liší se v kritickém bode zdieľanie logiky a integrace:
+* **SOA (Smart Pipes, Dumb Endpoints):** Komunikácia je centralizovaná kolem **ESB (Enterprise Service Bus)**. ESB nie je jen hloupý drát; obsahuje težkou byznys logiku, transformace formátu (napr. XML na JSON), routovanie a orchestraci. Samotné služby sú tak "hloupejší", ale systém závisí na obrím monolitu uprostred (ESB), ktorý se stává single point of failure a bottleneckem.
+* **Microservices (Smart Endpoints, Dumb Pipes):** Logika se kompletne presouvá na konce (do samotných mikroslužeb). Komunikačné kanálmi sú maximálne jednoduché a "hloupé" (REST, gRPC, lehká message queue bez logiky). Služby si samy reší transformace dát a stav. Tým se dosahuje skutečného decoupling (rozpojení) služeb.
 
 
 
 #### Koordinace služeb: Orchestrace vs. Choreografie
-* **Orchestrace (Orchestration):** Centrální prvek (např. orchestrátor v ESB nebo dedikovaná služba) řídí tok byznys procesu. Říká službám: "Ty udělej krok A, ty krok B". Vhodné pro komplexní business procesy (Saga pattern řízený orchestrátorem).
-* **Choreografie (Choreography):** Decentralizovaný přístup založený na událostech (Event-driven). Služby reagují autonomně na události v Message Busu. Služba A publikuje událost `OrderCreated`, služba B ji zachytí, zpracuje platbu a publikuje `PaymentConfirmed`. Neexistuje centrální bod, systém je flexibilnější, ale hůře se v něm vizualizuje celkový stav procesu.
+* **Orchestrace (Orchestration):** Centrálné prvek (napr. orchestrátor v ESB alebo dedikovaná služba) rídí tok byznys procesu. Říká službám: "Ty udelej krok A, ty krok B". Vhodné pre komplexné business procesy (Saga pattern rízený orchestrátorem).
+* **Choreografie (Choreography):** Decentralizovaný prístup založený na událostech (Event-driven). Služby reagují autonomne na události v Message Busu. Služba A publikuje událost `OrderCreated`, služba B ji zachytí, zpracuje platbu a publikuje `PaymentConfirmed`. Neexistuje centrálné bod, systém je flexibilnejší, ale hure se v nem vizualizuje celkový stav procesu.
 
 ### Webové služby
 
-Komponenty umožňující komunikaci a interakci prostřednictvím standardizovaných protokolů a formátů. Jsou založeny na Service Oriented Architecture. Web services poskytují abstrakci funkcionalitě služby skrz webové API. Skrz definiční jazyk je formálně popsáno schéma/rozhraní dané služby a je možné generování klientského kódu pro různé programovací jazyky s cílem usnadnit použití webové služby. Schéma může být zároveň generováno přímo ze zdrojového kódu prostřednictvím anotací.
+komponenty umožňující komunikaci a interakci prostrednictvím standardizovaných protokolu a formátu. Jsou založeny na Service Oriented Architecture. Web services poskytují abstrakci funkcionalite služby skrz webové API. Skrz definiční jazyk je formálne popsáno schéma/rozhrania dané služby a je možné generovanie klientského kódu pre rôzne programovací jazyky s cieľom usnadnit použití webové služby. Schéma muže byť zároveň generováno prímo ze zdrojového kódu prostrednictvím anotací.
 
 #### Historické technologie (SOAP/XML)
 
-Dříve se používaly web services založené na:
+Dríve se používaly web services založené na:
 - **SOAP** (simple object access protocol)
 - **XML**
 - definované pomocí **Web Services Description Language (WSDL)**
@@ -239,79 +239,79 @@ Dříve se používaly web services založené na:
 ```
 
 ##### WSDL (Web Services Description Language)
-- **W3C specification** pro popis webových služeb
+- **W3C specification** pre popis webových služeb
 - **Programmatically generated** from source code annotations
 - **Programming language independent** way to specify service interfaces
 - **Podobné CORBA IDL**
 
 #### Moderní technologie
 
-Aktuálně se pro tyto účely spíše používá:
+Aktuálne se pre tyto účely spíše používá:
 
 ##### REST + JSON
-- **REST** (representational state transfer, není to protokol, ale architektonický styl pro definici rozhraní)
+- **REST** (representational state transfer, nie je to protokol, ale architektonický styl pre definici rozhrania)
 - **JSON** (byť je možné použít i jiné formáty)
 - definované pomocí **OpenAPI Specification**
 
 ##### GraphQL
 - **GraphQL** (a JSON) se svým **GraphQL Schema** a dotazovacím jazykem
-- GraphQL používa jeden entrypoint (+1 playground) a umožňuje přesně specifikovat kýžená data (až na úroveň polí) a řešit tak problém s:
-  - **overfetching** (1 dotaz obsahuje zbytečná data)
-  - **underfetching** (v dotazu nemáme dostatek dat, takže děláme více různých dotazů)
+- GraphQL používa jeden entrypoint (+1 playground) a umožňuje presne specifikovat kýžená dáta (až na úroveň polí) a rešit tak problém s:
+  - **overfetching** (1 dotaz obsahuje zbytečná dáta)
+  - **underfetching** (v dotazu nemáme dostatek dát, takže deláme viac rôznych dotazu)
 
 #### Porovnání SOAP vs REST
 
-*SOAP je nezávislý na transportu, REST využívá HTTP. REST je jednodušší, rychlejší a efektivnější. SOAP umožňuje jednu zprávu cílit více příjemcům, přechod zprávy přes prostředníky, kteří mohou zpracovávat hlavičku (tělo je určeno jen příjemci). SOAP umožňuje výměnu strukturovaných a typovaných XML dat, SOAP hlavička (nepovinná) může obsahovat metadata, QoS, bezpečnostní informace, SAML data, session identifikátor (a.k.a. cookie)..., SOAP obálka je root XML prvek zprávy, obsahuje namespace (určující verzi protokolu), styl kódování dat, SOAP tělo obsahuje samotný obsah zprávy. REST umožňuje provázanost (díky hyperlinkům) a je možné se pomocí něj dostat na úplně jinou stránku mimo náš systém.*
+*SOAP je nezávislý na transportu, REST využívá HTTP. REST je jednoduchší, rychlejší a efektivnejší. SOAP umožňuje jednu zprávu cílit viac príjemcum, prechod zprávy pres prostredníky, kterí mohou zpracovávat hlavičku (telo je určeno jen príjemci). SOAP umožňuje výmenu strukturovaných a typovaných XML dát, SOAP hlavička (nepovinná) muže obsahovat metadáta, QoS, bezpečnosťné informace, SAML dáta, session identifikátor (a.k.a. cookie)..., SOAP obálka je root XML prvek zprávy, obsahuje namespace (určující verzi protokolu), styl kódovanie dát, SOAP telo obsahuje samotný obsah zprávy. REST umožňuje provázanost (vďaka hyperlinkum) a je možné se pomocí nej dostat na úplne jinou stránku mimo náš systém.*
 
-*REST se dívá na web jako na zdroje adresovatelné URL, které vrací reprezentaci dat (HTML, XML, PNG, JSON...). Příjem dat uvede klienta do stavu, který může být transformován přístupem na jiný zdroj. Je bezstavový, každá zpráva obsahuje vše, co je nutné pro její interpretaci (správně by zpráva neměla obsahovat cookie, ale třeba JWT), dotazy jsou kešovatelné.*
+*REST se dívá na web jako na zdroje adresovatelné URL, ktoré vrací reprezentaci dát (HTML, XML, PNG, JSON...). Príjem dát uvede klienta do stavu, ktorý muže byť transformován prístupem na jiný zdroj. Je bezstavový, každá zpráva obsahuje vše, čo je nutné pre jej interpretaci (správne by zpráva nemela obsahovat cookie, ale napríklad JWT), dotazy sú kešovatelné.*
 
-## Příklady existujících technologií a jejich využití (5/6)
+## Príklady existujících technologií a ich využití (5/6)
 
-### Komunikační technologie
+### Komunikačné technologie
 
 #### RPC frameworky
 - **gRPC** - Google's high-performance RPC framework, používá HTTP/2 a Protocol Buffers
-- **tRPC** - TypeScript-first RPC framework pro fullstack aplikace
+- **tRPC** - TypeScript-first RPC framework pre fullstack aplikace
 
 #### Message Brokers
 - **Apache Kafka** - distribuovaná streamovací platforma, high-throughput pub/sub messaging
-- **RabbitMQ** - message broker s podporou různých messaging patterns
+- **RabbitMQ** - message broker s podporou rôznych messaging patterns
 - **Redis Pub/Sub** - jednoduchý publish/subscribe messaging
 
 ### Databázové technologie
 
-#### Distribuované NoSQL databáze
-- **MongoDB** - document-oriented databáze s automatickým shardingem
-- **Amazon DynamoDB** - fully managed NoSQL databáze
-- **Apache HBase** - column-oriented databáze postavená na Hadoop
+#### Distribuované NoSQL Databázy
+- **MongoDB** - document-oriented Databázy s automatickým shardingem
+- **Amazon DynamoDB** - fully managed NoSQL Databázy
+- **Apache HBase** - column-oriented Databázy postavená na Hadoop
 
-#### In-memory databáze a cache
-- **Redis** - in-memory data structure store, používaný jako cache, message broker
+#### In-memory Databázy a cache
+- **Redis** - in-memory dáta structure store, používaný jako cache, message broker
 
 ### Big Data a Stream Processing
 
 #### Batch Processing
-- **Apache Hadoop** - framework pro distribuované ukládání a zpracování big data
-- **Apache Spark** - unified analytics engine pro large-scale data processing
+- **Apache Hadoop** - framework pre distribuované ukladanie a Spracovanie big dáta
+- **Apache Spark** - unified analytics engine pre large-scale dáta processing
 
 #### Stream Processing
 - **Apache Kafka Streams** - stream processing library
 - **Apache Storm** - real-time computation system
 
-## Příklady z praxe pro vše výše uvedené (6/6)
+## Príklady z praxe pre všetko vyššie uvedené (6/6)
 
 #### Netflix
-- **Architektura:** Microservices (600+ služeb)
-- **Databáze:** Cassandra pro user data, MySQL pro billing
-- **Komunikace:** REST APIs, event-driven architecture
-- **CDN:** Vlastní CDN pro video streaming
+- **Architektúra:** Microservices (600+ služeb)
+- **Databázy:** Cassandra pre user dáta, MySQL pre billing
+- **Komunikácia:** REST APIs, event-driven architecture
+- **CDN:** Vlastné CDN pre video streaming
 - **Resilience:** Circuit breakers, bulkheads, timeouts
 
 #### Spotify
-- **Event-driven:** Kafka pro user activity tracking
-- **Recommendation engine:** Apache Spark pro ML workloads
+- **Event-driven:** Kafka pre user activity tracking
+- **Recommendation engine:** Apache Spark pre ML workloads
 - **Content delivery:** Multi-CDN strategy
-- **Service mesh:** Envoy proxy mezi services
+- **Service mesh:** Envoy proxy medzi services
 
 ### Event Sourcing a CQRS
 
@@ -329,11 +329,11 @@ Aktuálně se pro tyto účely spíše používá:
 ```
 ### Middleware v praxi
 
-**Middleware** - vrstva softwaru poskytující rozhraní pro interakci s různými službami/systémy, abstrakce k často používané funkcionalitě, případně vrstva propojující existující systémy.
+**Middleware** - vrstva softwaru poskytující rozhrania pre interakci s rôznymi službami/systémy, abstrakce k často používané funkcionalite, prípadne vrstva propojující existující systémy.
 
-Příklady middleware:
-- **CORBA, Web Services, REST** - komunikační middleware
-- **Message queue systémy, event brokeři** - messaging middleware
+Príklady middleware:
+- **CORBA, Web Services, REST** - komunikačné middleware
+- **Message queue systémy, event brokeri** - messaging middleware
 - **Apache Camel** - integration framework
 - **Spring Boot** - application framework s middleware capabilities
 

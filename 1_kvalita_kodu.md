@@ -1,554 +1,554 @@
 # Kvalita kódu
 
-> Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky. Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality. Principy Clean Code a SOLID, refaktoring kódu. Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy. Ladění a testování výkonu. Proces řízení kvality ve vývoji softwarových systémů. Příklady z praxe pro vše výše uvedené. (PV260, PA017, PA103)
+> Kvalita v vývoji softvérových systémov, Atributy kvality a softvérové Metriky. Taktiky na zaistenie kvality na úrovni jednotlivých atributu kvality. Princípy Clean Code a SOLID, refaktorovanie kódu. Testovanie kódu, jednotkové testy, integračné testy, popopoužívateľské a akceptačné testy. Ladenie a testovanie výkonu. Proces riadenia kvality v vývoji softvérových systémov. Príklady z praxe pre všetko vyššie uvedené. (PV260, PA017, PA103)
 
-1. [Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky (1/6)](#kvalita-ve-vývoji-softwarových-systémů-atributy-kvality-a-softwarové-metriky-16)
-2. [Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality (2/6)](#taktiky-pro-zajištění-kvality-na-úrovni-jednotlivých-atributů-kvality-26)
-3. [Principy Clean Code a SOLID, refaktoring kódu (3/6)](#principy-clean-code-a-solid-refaktoring-kódu-36)
-4. [Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy (4/6)](#testování-kódu-jednotkové-testy-integrační-testy-uživatelské-a-akceptační-testy-46)
-5. [Ladění a testování výkonu (5/6)](#ladění-a-testování-výkonu-56)
-6. [Proces řízení kvality ve vývoji softwarových systémů (6/6)](#proces-řízení-kvality-ve-vývoji-softwarových-systémů-66)
+1. [Kvalita v vývoji softvérových systémov, Atributy kvality a softvérové Metriky (1/6)](#kvalita-ve-vývoji-softvérových-systémov-atributy-kvality-a-softvérové-Metriky-16)
+2. [Taktiky na zaistenie kvality na úrovni jednotlivých atributu kvality (2/6)](#taktiky-pro-zabezpečenie-kvality-na-úrovni-jednotlivých-atributu-kvality-26)
+3. [Princípy Clean Code a SOLID, refaktorovanie kódu (3/6)](#principy-clean-code-a-solid-refaktorovanie-kódu-36)
+4. [Testovanie kódu, jednotkové testy, integračné testy, popopoužívateľské a akceptačné testy (4/6)](#testovanie-kódu-jednotkové-testy-integračné-testy-popopoužívateľské-a-akceptačné-testy-46)
+5. [Ladenie a testovanie výkonu (5/6)](#ladení-a-testovanie-výkonu-56)
+6. [Proces riadenia kvality v vývoji softvérových systémov (6/6)](#proces-rízení-kvality-ve-vývoji-softvérových-systémov-66)
 
-## Kvalita ve vývoji softwarových systémů, atributy kvality a softwarové metriky (1/6)
+## Kvalita v vývoji softvérových systémov, Atributy kvality a softvérové Metriky (1/6)
 
-### Kvalita ve vývoji softwarových systémů
+### Kvalita v vývoji softvérových systémov
 
-- Důležitý aspekt při vývoji sw systémů
-- Kvalita je často definována jako **schopnost produktu dostát požadavkům** => je důležité si určit, co jsou požadavky
-- Kvalita se může lišit podle hlediska:
-  - **Uživatelské hledisko** - použitelnost, spolehlivost, výkon, přesnost, bezpečnost
-  - **Z pohledu vývojáře** - modularita, komplexita, pochopitelnost, testovatelnost
-  - **Z pohledu managera (long term)** - schopnost sw se adaptovat na změny, znovupoužitelnost, udržitelnost, škálovatelnost
-  - **Zákaznické požadavky** a.k.a. externí kvalita (použitelnost, přesnost/správnost, spolehlivost, bezpečnost, výkon...)
-  - Abychom dostáli těmto ^, je třeba, aby šel vývoj snadno, aby se produkt dal jednoduše dlouhodobě udržovat (byl snadný modifikovat/rozšířit), a aby nebyl zbytečně drahý (skrz náklady na provoz i cenu úprav). Toho docílíme dodržováním **interní kvality produktu** (modularita, jednoduchost jednotek, testovatelnost, přizpůsobitelnost změnám, čitelnost kódu, znovupoužitelnost, škálovatelnost, přenositelnost, udržitelnost, dodržování standardů...)
-- Špatná externí kvalita je často symptomem špatné interní kvality produktu (opravy chyb trvají dlouho, systém je pomalý... ale nemusí to být vždy pravda, třeba jen máme slabší UI)
+- Dôležitý aspekt počas vývoja sw systémov
+- Kvalita je často definovaná jako **schopnosť produktu dostát požiadaviekm** => je duležité si určiť, čo sú požiadavky
+- Kvalita sa môže líšiť podľa pohľadu:
+  - **popopoužívateľské pohľad** - Použiteľnosť, Spoľahlivosť, výkon, presnost, Bezpečnosť
+  - **Z pohľadu vývojára** - modularita, komplexita, pochopiteľnosť, Testovateľnosť
+  - **Z pohľadu manažéra (long term)** - schopnosť sw se adaptovat na zmeny, opätovná použiteľnosť, Udržateľnosť, Škálovateľnosť
+  - **Požiadavky zákazníka** a.k.a. vonkajšia kvalita (Použiteľnosť, presnost/správnost, Spoľahlivosť, Bezpečnosť, výkon...)
+  - Abychom dostáli temto ^, je napríklad, aby bol vývoj jednoduchý, aby se produkt dal jednoducho dlhodobo udržiavať (bol jednoduchý modifikovať/rozšíriť), a aby nebol zbytečne drahý (skrz náklady na prevádzka i cenu úprav). Toho docílíme dodržováním **interné kvality produktu** (modularita, jednoduchosť jednotek, Testovateľnosť, prispôsobiteľnosť zmenám, čitateľnosť kódu, opätovná použiteľnosť, Škálovateľnosť, prenositeľnosť, Udržateľnosť, dodržiavanie standardu...)
+- Zlá vonkajšia kvalita je často symptómom zlej interné kvality produktu (opravy chýb trvají dlouho, systém je pomalý... ale nemusí to byť vždy pravda, napríklad jen máme slabší UI)
 
 ### Atributy kvality
 
-Za nejdůležitější atributy kvality kódu se považují:
+Za nejduležitejší Atributy kvality kódu se považujú:
 
-- **Udržitelnost (maintainability)** = snadnost úprav bez technického dluhu
-- **Výkonnost** = reakční doba systému (a efektivita využití zdrojů)
-- **Spolehlivost** = pravděpodobnost bezchybného fungování po určitou dobu
-- **Testovatelnost** = jak snadno (a co všechno) lze systém testovat
-- **Škálovatelnost** = schopnost systému zpracovat větší množství dat/uživatelů...
-- **Bezpečnost** = jak je systém odolný vůči útokům
-- **Použitelnost** = snadnost používání systému a jednoduchost učení se práce s ním, správná funkcionalita (obvykle samostatný bod)
+- **Udržateľnosť (maintainability)** = ľahkosť úprav bez technického dluhu
+- **Výkonnosť** = doba odozvy systémov (a efektivita využití zdrojov)
+- **Spoľahlivosť** = pravdepodobnosť bezchybného fungovania po určiťou dobu
+- **Testovateľnosť** = ako ľahko (a čo všetko) možno systém testovat
+- **Škálovateľnosť** = schopnosť systémov spracovať väčšie množstvo dát/používateľu...
+- **Bezpečnosť** = ako je systém odolný voči útokom
+- **Použiteľnosť** = ľahkosť používania systémov a jednoduchosť učenia sa práce s ním, správna funkcionalita (zvyčajne samostatný bod)
 
-#### Udržitelnost (maintainability)
-- refaktoring na koherentní jednotky, aby bylo místo nutné změny minimální a snadno lokalizovatelné,
-- separace dat od logiky (aby bylo možné jednotku nahradit jinou),
-- decoupling (závislosti na rozhraních, namísto na implementacích)
+#### Udržateľnosť (maintainability)
+- refaktorovanie na koherentné jednotky, aby bolo místo nutné zmeny minimálné a snadno lokalizovateľné,
+- separácia dát od logiky (aby bolo možné jednotku nahradit jinou),
+- decoupling (závislosťi na rozhraniach, namísto na implementacích)
 
-#### Výkonnost
-- kešování
-- paralelismus
-- asynchronní komunikace/zpracování
-- detekce a mitigace bottlenecků
+#### Výkonnosť
+- kešovanie
+- paralelizmus
+- asynchronná komunikácia/Spracovanie
+- detekcia a zmiernenie bottleneckov
 - používat profiler
 
-#### Spolehlivost
-- detekce a náprava zdrojů nespolehlivosti
-- kontrolní mechanismy pro zajištění spolehlivosti
-- vhodné ošetření chyb
-- automatický reporting neočekávaných chyb
-- timeout po requestu
-- monitorování, logování, sběr událostí
-- pravidelné snapshoty a rollback v případě pádu, např. při selhání odeslání formuláře přesměrovat na předvyplněný formulář (předcházet frustraci usera)
-- transakce
-- kontrola vstupů na každé úrovni
-- odstranění single point of failure
+#### Spoľahlivosť
+- detekcia a náprava zdrojov nespoľahlivosti
+- kontrolné mechanizmy pre zabezpečenie spolehlivosti
+- vhodné spracovanie chýb
+- automatické hlásenie neočakávaných chýb
+- timeout po požiadavky
+- monitorovanie, protokolovanie, zber udalostí
+- pravidelné snímky a rollback v prípade pádu, napr. pri zlyhania odoslania formuláre presmerovaťna na predvyplnený formulár (predcházet frustráciu popoužívateľa)
+- transakcie
+- kontrola vstupu na každé úrovni
+- odstránenie single point of failure
 
-#### Testovatelnost
-- separace dat a logiky
-- odstranění globálního stavu
+#### Testovateľnosť
+- separácia dát a logiky
+- odstránenie globálneho stavu
 - clean kod, KISS, dependency separation
 
-#### Škálovatelnost
-- refaktoring na jednodušší, samostatně nasaditelné jednotky
-- extrakce dat pro umožnění paralelizace jednotek
-- extrakce a samostatné nasazení subsystému
-- distribuce a/nebo replikace dat (db bývá bottleneck, ostatní věci lze snadněji paralelizovat)
+#### Škálovateľnosť
+- refaktorovanie na jednoduchší, samostatne nasaditeľné jednotky
+- extrakcia dát pre umožnenie paralelizácia jednotek
+- extrakcia a samostatné nasadenie subsystému
+- distribúcia a/alebo replikácia dát (db bývá bottleneck, ostatné veci možno snadneji paralelizovat)
 
-#### Bezpečnost
-- detekce a oprava chyb
-- použití šifrované komunikace
+#### Bezpečnosť
+- detekcia a oprava chýb
+- použití šifrovanej komunikácie
 
-#### Použitelnost
-- zlepšení UX
-- použití taktik pro zlepšení výkonnosti/škálovatelnosti (když je to pomalé)
+#### Použiteľnosť
+- zlepšenie UX
+- použití taktik pre zlepšenie výkonnosťi/škálovateľnosťi (keď je to pomalé)
 
 
-### Softwarové metriky
+### softvérové Metriky
 
-Měřitelné aspekty sw systému (počet řádků kódu, pokrytí testy, cyklomatická složitost…), které nám dávají informace o celkovém obrazu, ale může být netriviální je vhodně interpretovat.
+Merateľné aspekty sw systémov (počet riadkov kódu, pokrytí testami, Cyklomatická zložitosť…), ktoré nám dávají informace o celkovém obrazu, ale muže byť netriviální je vhodne interpretovat.
 
-Např. 100 % pokrytí testy nemusí znamenat, že v systému nejsou chyby. Velký počet malých tříd zní dobře, ale třídy mohou být naprosto nelogicky strukturované a vzájemně silně závislé…
+Napr. 100 % pokrytí testami nemusí znamenat, že v systémov nesú chyby. Velký počet malých tríd zní dobre, ale trídy mohou byť naprosto nelogicky strukturované a vzájemne silne závislé…
 
-Mohou být přímé (to, co přímo změříme, např. počet defektů) nebo odvozené (vypočítané z přímých, např. hustota defektů; počet defektů na velikost produktu).
+Mohou byť Priame (to, co prímo zmeráme, napr. počet defektov) alebo Odvodené (vypočítané z prímých, napr. hustota defektov; počet defektov na velikost produktu).
 
-Kromě toho je užitečné rozlišit metriky na **objektivní** a **subjektivní**:
-- **Objektivní metrika**: lze ji změřit přímo číselně nezávisle na vnímání (např. LOC – počet řádků kódu, počet tříd, počet funkcí, počet souborů).
-- **Subjektivní metrika**: závisí na vnímání či dojmu (např. čas, který vývojář či uživatel potřebuje k porozumění nové funkcionalitě, nebo „obtížnost" pochopení datového modelu).
+Krome toho je užitečné rozlišit Metriky na **objektivní** a **subjektivní**:
+- **Objektivní metrika**: možno ji zmerať prímo číselne nezávisle na vnímání (napr. LOC – počet riadkov kódu, počet tríd, počet funkcií, počet súborov).
+- **Subjektivní metrika**: závisí na vnímání či dojmu (napr. čas, ktorý vývojár či používateľ potrebuje k porozumení nové funkcionalite, alebo „obtiažnosť" pochopení dátového modelov).
 
-Klasifikace metrik:
+Klasifikácia metrík:
 
-- **Procesní metriky**: Měří samotný proces vývoje (např. průměrný čas na opravu chyby, počet defektů nalezených při inspekci, produktivita).
-- **Produktové metriky**: Měří vlastnosti samotného softwaru (např. cyklomatická složitost, velikost, výkonnost, code coverage).
-- **Zdrojové (Resource) metriky**: Měří lidské nebo hardwarové zdroje (např. úsilí v člověkoměsících, fluktuace týmu, vytíženost serveru).
+- **Procesné Metriky**: Meria samotný proces vývoja (napr. priemerný čas na opravu chyby, počet defektov nalezených pri inspekci, produktivita).
+- **Produktové Metriky**: Meria vlastnosti samého softwaru (napr. Cyklomatická zložitosť, velikost, Výkonnosť, code coverage).
+- **Zdrojové (Resource) Metriky**: Meria lidské alebo hardwarové zdroje (napr. úsilí v človekomesících, fluktuace týmu, vytíženost serverov).
 
-Často nás zajímají spíš poměry/odvozené metriky, např. poměr komentářů k celkovému počtu řádků, průměrná velikost metody, odchylky jednotlivých metrik v rámci projektu nebo mezi různými releasy, hustota defektů, atd. Metriky je ale nebezpečné používat k hodnocení výkonu vývojáře.
+Často nás zaujímajú spíš pomery/Odvodené Metriky, napr. pomer komentárov k celkovému počtu rádku, priemerná velikost metody, odchylky jednotlivých metrik v rámci projektu alebo medzi rôznymi releasy, hustota defektov, atd. Metriky je ale nebezpečné používat k hodnotenie výkonu vývojáre.
 
-**Konkrétní metriky:**
-- **Lines of Code (LOC)** - může být hrubým odhadem úsilí, užitečné pro porovnání napříč releasy
-- **(Non)Commented lines of code (CLOC)** – řádky obsahující komentář vs. bez komentáře
-- **(LOC vs. CLOC)**: Nestačí jen vědět, co to je. Ráček se ptá na výhody a nevýhody. Nevýhodou je silná závislost na použitém programovacím jazyce a stylu programátora.
-- **Počet tříd**
-- **Počet funkcí/metod**
+**Konkrétné Metriky:**
+- **Lines of Code (LOC)** - muže byť hrubým odhadem úsilí, užitečné pre porovnání napríč releasy
+- **(Non)Commented lines of code (CLOC)** – rádky obsahující komentár vs. bez komentáre
+- **(LOC vs. CLOC)**: Nestačí jen vedet, co to je. Ráček se ptá na výhody a nevýhody. Nevýhodou je silná závislosť na použitém programovacím jazyce a stylu programátora.
+- **Počet tríd**
+- **Počet funkcií/metod**
 - **Počet packages**
-- **Počet souborů**
-- **Provázanost tříd** – kolik jiných tříd třída A volá (tight coupling), třídy jsou závislé, pokud metoda A používá metody třídy B
-- **Hloubka dědičnosti** – počet vrstev v hierarchii pod dědičností, čím hlouběji je třída ve stromu dědičnosti, tím komplexnější nejspíše je
-- **Cyklomatická složitost (CC)** – počet nezávislých cest ve zkoumané jednotce (funkce/metodě), které se mohou v běhu programu projevit. $CC = E - N + 2P$ kde E = počet hran (větví), N = počet vrcholů (nevětvených bloků) a P = počet vzájemně nepropojených grafů (obvykle P = 1 pro jednu funkci). Nejnižší hodnota CC je 1 (bez větvení). Čím větší komplexita, tím obtížnější testovatelnost. Kód považuje za "špatný" (standardně se uvádí $CC > 10$, tehdy už je funkce příliš složitá na pochopení a plné pokrytí testy)
-- **Váhovaná komplexita třídy** - součet cyklomatických složitostí metod třídy
-- **Reakce na dotaz** - kolik metod (cizích nebo svých tříd) bude třída A volat při zpracování requestu
-- **Nedostatek soudržnosti** - jak souvisí metody třídy s jejíma instančníma proměnnýma
+- **Počet súborov**
+- **Provázanost tríd** – kolik jiných tríd trída A volá (tight coupling), trídy sú závislé, ak metoda A používá metody trídy B
+- **Hloubka dedičnosti** – počet vrstev v hierarchii pod dedičností, čím hloubeji je trída ve stromu dedičnosti, tým komplexnejší nejspíše je
+- **Cyklomatická komplexnosť (CC)** – počet nezávislých cest ve zkoumané jednotce (funkcia/metode), ktoré se mohou v behu programu projevit. $CC = E - N + 2P$ kde E = počet hran (vetví), N = počet vrcholu (nevetvených bloku) a P = počet vzájemne nepropojených grafu (zvyčajne P = 1 pre jednu funkci). Nejnižší hodnota CC je 1 (bez vetvení). Čím vetší komplexita, tým obtížnejší Testovateľnosť. Kód považuje za "špatný" (standardne se uvádí $CC > 10$, tehdy už je funkcia príliš složitá na pochopení a plné pokrytí testami)
+- **Váhovaná komplexita trídy** - součet cyklomatických zložitosťou metod trídy
+- **Reakce na dotaz** - kolik metod (cizích alebo svých tríd) bude trída A volat pri Spracovanie požiadavky
+- **Nedostatek soudržnosti** - ako souvisí metody trídy s jejíma instančníma promennýma
 
-**Datové funkce (Ukládání dat)**
-Tohle jsou entity nebo tabulky, se kterými systém pracuje.
+**Datové funkcia (Ukladanie dát)**
+Tohle sú entity alebo tabulky, se kterými systém pracuje.
 
-**ILF (Internal Logical File - Interní logický soubor)**: Logická skupina dat, kterou tvůj systém udržuje a mění. Jsou to data, která žijí přímo ve tvé aplikaci.
+**ILF (Internal Logical File - Interné logický soubor)**: Logická skupina dát, kterou tvuj systém udržuje a mení. Jsou to dáta, ktorá žijí prímo ve tvé aplikaci.
 
-**Příklad:** Tabulka Zákazníci ve tvé databázi, kam tvůj systém umí přidávat, upravovat a mazat záznamy.
+**Príklad:** Tabulka Zákazníci ve tvé databázi, kam tvuj systém umí pridávat, upravovat a mazat záznamy.
 
-**EIF (External Interface File - Externí soubor rozhraní)**: Logická skupina dat, kterou tvůj systém pouze čte, ale udržuje ji nějaký jiný, externí systém.
+**EIF (External Interface File - Externé soubor rozhrania)**: Logická skupina dát, kterou tvuj systém iba čte, ale udržuje ji nejaký jiný, externé systém.
 
-**Příklad:** Číselník PSČ nebo aktuální kurzy měn, které si tvůj e-shop pouze stahuje přes API z webu České národní banky, ale nemůže je upravovat.
+**Príklad:** Číselník PSČ alebo aktuálné kurzy men, ktoré si tvuj e-shop iba stahuje pres API z webu České národní banky, ale nemuže je upravovat.
 
-**Transakční funkce (Zpracování dat)**
-Tohle jsou akce, které uživatel (nebo jiný systém) s aplikací provádí.
+**Transakční funkcia (Spracovanie dát)**
+Tohle sú akce, ktoré používateľ (alebo jiný systém) s aplikací provádí.
 
-**EI (External Input - Externí vstup)**: Proces, při kterém data vstupují do systému zvenčí a upravují vnitřní data (ILF) nebo mění chování systému.
+**EI (External Input - Externé vstup)**: Proces, pri kterém dáta vstupují do systémov zvenčí a upravují vnitrní dáta (ILF) alebo mení chovanie systémov.
 
-**Příklad:** Odeslání formuláře pro registraci nového uživatele (vytvoří se záznam v ILF).
+**Príklad:** odoslania formuláre pre registraci nového používateľa (vytvorí se záznam v ILF).
 
-**EO (External Output - Externí výstup)**: Proces, při kterém data vystupují ze systému ven, přičemž systém musí provést nějaký výpočet, odvození nebo logickou operaci.
+**EO (External Output - Externé výstup)**: Proces, pri kterém dáta vystupují ze systémov ven, pričemž systém musí provést nejaký výpočet, odvození alebo logickou operaci.
 
-**Příklad:** Vygenerování měsíčního reportu tržeb (systém musí projít objednávky, sečíst částky, vypočítat daně a výsledek zobrazit).
+**Príklad:** Vygenerovanie mesíčního reportu tržeb (systém musí projít objednávky, sečíst částky, vypočítat dane a výsledek zobrazit).
 
-**EQ (External Inquiry - Externí dotaz)**: Proces, při kterém data vystupují ze systému ven, ale bez jakéhokoliv výpočtu nebo změny dat. Jde o prosté vytažení a zobrazení dat.
+**EQ (External Inquiry - Externé dotaz)**: Proces, pri kterém dáta vystupují ze systémov ven, ale bez jakéhokoliv výpočtu alebo zmeny dát. Jde o prosté vytažení a zobrazení dát.
 
-**Příklad:** Zobrazení detailu profilu uživatele na základě jeho ID (systém jen vezme data z DB a zobrazí je, nic nepočítá).
+**Príklad:** Zobrazení detailu profilu používateľa na základe jeho ID (systém jen vezme dáta z DB a zobrazí je, nic nepočítá).
 
 #### **SQALE (Software Quality Assessment Based on Lifecycle Expectations)**
-– metoda hodnocení technického dluhu na základě charakteristik projektu:
-1. **Level 1**: základní charakteristiky (znovupoužitelnost, udržitelnost, bezpečnost, efektivita, spolehlivost…)
-2. **Level 2**: rozvětvení každé úrovně z Level 1 (např. udržitelnost → čitelnost kódu, pochopitelnost, konzistence názvů, standardy)
-3. **Level 3**: navázání konkrétních požadavků na úrovni kódu (např. „žádné metody delší než 30 řádků", „žádný vícenásobný dědický cyklus", „test coverage ≥ 80 %" atp.) – Výstupem je komplexní index technického dluhu, který se skládá z jednotlivých sub-indexů (např. STI – Testability, SRI – Reliability atd.).
+– metoda hodnocení technického dluhu na základe charakteristik projektu:
+1. **Level 1**: základné charakteristiky (opätovná použiteľnosť, Udržateľnosť, Bezpečnosť, efektivita, Spoľahlivosť…)
+2. **Level 2**: rozvetvení každé úrovne z Level 1 (napr. Udržateľnosť → čitateľnosť kódu, pochopiteľnosť, konzistencia názvu, standardy)
+3. **Level 3**: navázání konkrétních požiadaviek na úrovni kódu (napr. „žádné metody delší než 30 rádku", „žádný vícenásobný dedický cyklus", „test coverage ≥ 80 %" atp.) – Výstupem je komplexné index technického dluhu, ktorý se skládá z jednotlivých sub-indexu (napr. STI – Testability, SRI – Reliability atd.).
 
-## Taktiky pro zajištění kvality na úrovni jednotlivých atributů kvality (2/6)
+## Taktiky na zaistenie kvality na úrovni jednotlivých atributu kvality (2/6)
 
-Problémy s kvalitou a jejich zpracování můžeme rozlišit na různých úrovních:
+Problémy s kvalitou a ich Spracovanie môžeme rozlišit na rôznych úrovních:
 
 **Prevence:**
-- Best practices pro programování - clean code, SOLID, návrhové vzory, párové programování, konvence
-- Zajištění kvality procesy - V-model, TDD
+- Best practices pre programovanie - clean code, SOLID, Návrhové vzory, párové programovanie, konvence
+- Zabezpečenie kvality procesy - V-model, TDD
 
-**Detekce:**
-- Testování požadavků (manual, automatic)
-- Nefunkční požadavky a testy (výkon - perf testing, bezpečnost - penetrační testing)
+**detekcia:**
+- Testovanie požiadaviek (manual, automatic)
+- Nefunkčné požadavky a testy (výkon - perf testing, Bezpečnosť - penetračné testing)
 - Inspekce kódu, code reviews
 - Statická analýza (SonarQube)
 
-**Náprava:**
-- Funkční požadavky → bug fixing
-- Spolehlivost → fault-tolerance - mechanismy pro odolnost proti selhání
-- Výkon → paralelizace, využití zdrojů, odstranění "bottlenecků"
-- Bezpečnost → odstranění jediných bodů selhání, známých závislostí s bezpečnostními nedostatky
-- Udržitelnost → refaktoring, návrhové vzory
+**náprava:**
+- Funkčné požadavky → bug fixing
+- Spoľahlivosť → fault-tolerance - mechanismy pre odolnost proti zlyhania
+- Výkon → paralelizácia, využití zdrojov, odstránenie "bottleneckov"
+- Bezpečnosť → odstránenie jediných bodov zlyhania, známých závislosťí s bezpečnosťními nedostatky
+- Udržateľnosť → refaktorovanie, Návrhové vzory
 
-**Trackování:**
-- Trackování problémů
-- Verzování, release management
-- Sledování technického dluhu, zastaralých komponent
+**Trackovanie:**
+- Trackovanie problému
+- Verzovanie, release management
+- Sledovanie technického dluhu, zastaralých komponent
 
-**Poznámka:** Některé z uvedených taktik jsou konfliktní - nemůžeme mít všechno (např. lepší bezpečnost může ohrozit použitelnost).
+**Poznámka:** Nektoré z uvedených taktik sú konfliktní - nemôžeme mať všechno (napr. lepší Bezpečnosť muže ohrozit Použiteľnosť).
 
 
-## Principy Clean Code a SOLID, refaktoring kódu (3/6)
+## Princípy Clean Code a SOLID, refaktorovanie kódu (3/6)
 
 ### Clean Code
 
-Čitelný, snadno pochopitelný. Kód bývá mnohem více čten než psán, proto je důležité, aby byl srozumitelný, čas vývojářů je drahý. Klíčové je:
+Čitelný, snadno pochopitelný. Kód bývá mnohem viac čten než psán, proto je duležité, aby bol srozumitelný, čas vývojáru je drahý. Kľúčové je:
 
-- **Jasné pojmenovávání** reflektující doménu problému, dostatečně výstižné (a ne příliš dlouhé či generické, viz Java). V ideálním případě by mělo být sebevysvětlující a komentáře by neměly být potřeba, ALE i tak jsou komentáře fajn. hlavně konzistence v codebase
-  - **Třídy**: dodržovat SRP, pojmenovat dle účelu, vyhnout se generickým pojmenováním → vede ke kompaktním specifickým třídám
+- **Jasné pojmenovávanie** reflektující doménu problému, dostatečne výstižné (a ne príliš dlouhé či generické, viz Java). V ideálním prípade by melo byť sebevysvetlující a komentáre by nemely byť ponapríklad, ALE i tak sú komentáre fajn. hlavne konzistencia v codebase
+  - **Trídy**: dodržovat SRP, pojmenovat podľa účelu, vyhnout se generickým pojmenováním → vede ke kompaktním specifickým trídám
   - **Metody**:
-    - pokud vrací bool, pojmenuj to `has*()` nebo `is*()`
-    - používat slovesa, dodržet konvenci pro getters/setters, žádné side-effects
-    - boolean parametry metod jsou bad practice (`setAdminStatus(true/false)` → `[grant/revoke]AdminRights()`)
-    - nepoužívat synonyma pro rozdílné akce (add/append → jaký je rozdíl? nikdo neví)
+    - ak vrací bool, pojmenuj to `has*()` alebo `is*()`
+    - používat slovesa, dodržet konvenci pre getters/setters, žádné side-effects
+    - boolean parametry metod sú bad practice (`setAdminStatus(true/false)` → `[grant/revoke]AdminRights()`)
+    - nepoužívat synonyma pre rozdílné akce (add/append → jaký je rozdíl? nikdo neví)
     - krátké názvy public metod, dlouhé private
-  - **Proměnné**: velký scope → dlouhé jméno, malý scope → krátké
-  - struktury jsou podstatná jména, metody začínají slovesem (nebo se jedná o getter v rustu)
-  - veřejné API (public) jednotky by mělo být jasné a jednoduché, interně (private) se mohou používat delší názvy metod, když je díky tomu jasnější, k čemu slouží
-- **Rozumná velikost jednotek** - ideálně krátké funkce, jednoduché třídy... single responsibility principle. Obsah jednotky by měl reflektovat její název
-- **Užívání standardů** jazyka/technologie
+  - **Promenné**: velký scope → dlouhé jméno, malý scope → krátké
+  - struktury sú podstatná jména, metody začínají slovesem (alebo se jedná o getter v rustu)
+  - verejné API (public) jednotky by melo byť jasné a jednoduché, interne (private) se mohou používat delší názvy metod, keď je vďaka tomu jasnejší, k čemu slouží
+- **Rozumná velikost jednotek** - ideálne krátké funkcia, jednoduché trídy... single responsibility principle. Obsah jednotky by mel reflektovat jej název
+- **Užívání standardu** jazyka/technologie
 - dodržovat best practices jazyka/technologie
 
-Dále se řídí principy:
+Dále se rídí principy:
 
 #### Don't repeat yourself (DRY) princip
 
-Každá informace by měla být v systému jednoznačně definována na jediném místě. Platí na vše, co může být v systému duplikováno (ale i v procesech, třeba opakované manuální spouštění testů => automatizovat)
+Každá informace by mela byť v systémov jednoznačne definovaná na jediném míste. Platí na vše, co muže byť v systémov duplikováno (ale i v procesech, napríklad opakované manuální spouštení testu => automatizovat)
 
-- Např. dokumentaci generujeme ze zdrojáku, abychom neměli více sources of truth
-- Např. definujeme schéma (prisma), ze kterého vygenerujeme jak SQL tabulky, tak struktury pro náš jazyk
-- Např. vytáhneme sdílenou funkcionalitu do vlastní funkce
+- Napr. dokumentaci generujeme ze zdrojáku, abychom nemeli viac sources of truth
+- Napr. definujeme schéma (prisma), ze kterého vygenerujeme ako SQL tabulky, tak struktury pre náš jazyk
+- Napr. vytáhneme sdílenou funkcionalitu do vlastné funkcia
 
 #### Keep it simple stupid (KISS) princip
 
-- Jednoduchost před výkonem
-- Nejlépe fungují systémy, které jsou co nejjednodušší
-- Není důvod používat složité techniky na jednoduché problémy
+- jednoduchosť pred výkonem
+- Nejlépe fungují systémy, ktoré sú co nejjednodušší
+- Nie je dôvod používat zložité techniky na jednoduché problémy
 
 #### You Ain't Gonna Need It (YAGNI)
 
-- Nezabýváme se tvorbou něčeho, co nebudeme potřebovat (např. neděláme přílišné abstrakce pro podporu možné budoucí funkcionality, pokud to není nutné)
-- Je lepší věc udělat jednoduše a pak ji snadno upravit, než ji udělat univerzálně, abychom pak zjistili, že nás nenapadl nějaký edge case a musíme to stejně celé přepsat. Vývoj postupuje po malých krůčcích.
+- Nezabýváme se tvorbou nečeho, co nebudeme potrebovat (napr. nedeláme prílišné abstrakce pre podporu možné budúcí funkcionality, ak to nie je nutné)
+- Je lepší vec udelat jednoducho a pak ji snadno upravit, než ji udelat univerzálne, abychom pak zjistili, že nás nenapadl nejaký edge case a musíme to stejne celé prepsat. Vývoj postupuje po malých kručcích.
 
 ### SOLID
 
 #### Single responsibility
-- každá třída by měla mít pouze jednu zodpovědnost, a.k.a. pro každou třídu by měl být pouze jeden důvod, proč by se měla změnit (např. FileReader by se měl starat pouze o čtení ze souboru, ne o zpracovávání čtených dat. Pouze změna způsobu čtení ze souboru může zapříčinit, že musíme měnit FileReader) => nižší provázanost (závislosti) tříd, vyšší koheze (zaměřenost na jednu věc)
+- každá trída by mela mať iba jednu zodpovednost, a.k.a. pre každou trídu by mel byť iba jeden dôvod, proč by se mela zmenit (napr. FileReader by se mel starat iba o čítanie ze súborov, ne o spracovávanie čtených dát. Iba zmena spôsobu čítanie ze súborov muže zapríčinit, že musíme menit FileReader) => nižší provázanost (závislosťi) tríd, vyšší koheze (zamerenost na jednu vec)
 
 #### Open/closed principle
-- Otevřeno pro rozšíření, uzavřeno pro modifikaci, preferujeme přidávání nové funkcionality před změnou zdrojového kódu/binárky toho, co už máme => menší šance, že něco rozbijeme, na nových třídách nic nezávisí
-- používá se implementace rozhraní/abstraktní třídy
-- dodržování OCP způsobuje vyšší komplexitu, takže je potřeba ho používat obezřetně a jen tam, kde se často mění/přidává funkcionalita
+- Otevreno pre rozšírení, uzavreno pre modifikaci, preferujeme pridávanie nové funkcionality pred zmenou zdrojového kódu/binárky toho, co už máme => menší šance, že neco rozbijeme, na nových trídách nic nezávisí
+- používá se implementácia rozhrania/abstraktní trídy
+- dodržiavanie OCP spôsobuje vyšší komplexitu, takže je ponapríklad ho používat obezretne a jen tam, kde se často mení/pridává funkcionalita
 
 #### Liskov substitution principle
-- instance tříd by měly být nahraditelné jejich podtřídami, aniž by došlo k narušení chování systému - všechny podtřídy by měly dodržovat kontrakty nadtříd a neměly by odstraňovat chování nadtříd
-- potomci nesmějí:
-  - "odstraňovat" nebo omezovat chování jejich rodičů
-  - porušovat základní invarianty třídy - neměnné vlastnosti
-  - požadovat volání specifických funkcí pro zjištění, zda-li se jedná o potomka nebo rodiče
-  - porušovat jakékoliv předem stanovené kontrakty jejich rodičovskou třídou
-- problém je, když musíme explicitně ověřovat, o jaký podtyp se jedná (`if instanceOf - then` → maintenance nightmare) - toto by měl řešit polymorfismus
+- instance tríd by mely byť nahraditelné ich podtrídami, aniž by došlo k narušení chovanie systémov - všechny podtrídy by mely dodržovat kontrakty nadtríd a nemely by odstraňovat chovanie nadtríd
+- potomci nesmejí:
+  - "odstraňovat" alebo omezovat chovanie ich rodiču
+  - porušovat základné invarianty trídy - nemenné vlastnosti
+  - požadovat volání specifických funkcií pre zjištení, či se jedná o potomka alebo rodiče
+  - porušovat jakékoliv predem stanovené kontrakty ich rodičovskou trídou
+- problém je, keď musíme explicitne overovat, o jaký podtyp se jedná (`if instanceOf - then` → maintenance nightmare) - toto by mel rešit polymorfismus
 - nedodržení lsp -> narušení polymorfysmu
-- držet se robustness principu pro typesafe variance:
+- držet se robustness principu pre typesafe variance:
   - _"be conservative in what you do, be liberal in what you accept from others"_
-  - contravariantni parametry metod u podtrid: musi prijmat typ, ktere bere nadtrida nebo obecnější
-  - covariantni navratove typy metod u podtrid: musi vracet typ, ktery vraci nadtrida nebo konkrétnější
-  - nevyhazovat zadne nove vyjimky v podtridach, ktere nejsou v nadtride
-  - detailnější video k ty contra/covariance a LSP [here](https://www.youtube.com/watch?v=7hXi0N1oWFU)
+  - contravariantni parametry metod u podtrid: musi prijmat typ, ktere bere nadtrida alebo obecnejší
+  - covariantni navratove typy metod u podtrid: musi vracet typ, ktery vraci nadtrida alebo konkrétnejší
+  - nevyhazovat zadne nove vyjimky v podtridach, ktere nesú v nadtride
+  - detailnejší video k ty contra/covariance a LSP [here](https://www.youtube.com/watch?v=7hXi0N1oWFU)
 
 #### Interface segregation principle
-- klienti kódu by neměli být závislí na metodách, které nepoužívají, a.k.a. dělej malá a jednoduchá rozhraní namísto velkých
-- rozhraní třídy by mělo mít jen ty metody, které její klienti nejspíš budou používat v jednotných kontextech
-- psát malé a soudržné rozhraní
-- nedodržení → klienti používají jen zlomek třídy, při rozšíření/dědění musí implementovat spoustu "zbytečných" metod
-- např. chci v rustu převést strukturu na string. Jediné co proto musím udělat je zajistit implementaci Display traitu (a ničeho jiného).
+- klienti kódu by nemeli byť závislí na metodách, ktoré nepoužívají, a.k.a. delej malá a jednoduchá rozhrania namísto velkých
+- rozhrania trídy by melo mať jen ty metody, ktoré jej klienti nejspíš budú používat v jednotných kontextech
+- psát malé a soudržné rozhrania
+- nedodržení → klienti používají jen zlomek trídy, pri rozšírení/dedení musí implementovat spoustu "zbytočných" metod
+- napr. chci v rustu prevést strukturu na string. Jediné co proto musím udelat je zajistit implementaci Display traitu (a ničeho jiného).
 
 #### Dependency inversion
-- moduly by měly záviset na abstrakcích (rozhraní), ne na konkrétních implementacích
-- snižuje se tím provázanost modulů, je možné poskytnout vlastní implementaci či mockovat
-- konstruktor by měl přijímat vše, na čem struktura závisí, ne si vytvářet zdroje sám (např. repo si nemá tvořit připojení do databáze, ale má být předáno v konstruktoru) = dependency injection konstruktorem
+- moduly by mely záviset na abstrakcích (rozhrania), ne na konkrétních implementacích
+- snižuje se tým provázanost modulu, je možné poskytnout vlastné implementaci či mockovat
+- konstruktor by mel prijímat vše, na čem struktura závisí, ne si vytváret zdroje sám (napr. repo si nemá tvorit pripojení do Databázy, ale má byť predáno v konstruktoru) = dependency injection konstruktorem
 
-### Refaktoring
+### refaktorovanie
 
-Úprava modulu takovým způsobem, aby se nezměnilo jeho externí chování, ale pouze došlo ke zlepšení jeho interní struktury/modifikovatelnosti...
+Úprava modulu takovým spôsobem, aby se nezmenilo jeho externé chovanie, ale iba došlo ke zlepšenie jeho interné struktury/modifikovatelnosti...
 
-- Před refaktoringem je důležité mít chování solidně pokryto testy, abychom nezpůsobili nechtěnou změnu
-- Během refaktoringu neděláme nic jiného (žádná nová funkcionalita)
-- **Kdy refaktorovat?** Když nevyvíjím → oddělit refactoring od developmentu, součást rutiny při TDD, při opravě bugu, po zavedené nové funkcionality, dlouhodobé plánované refaktorování
-- **GRASP** - General Responsibility Assignment Software Principles → principy pro lepší design OOP kódu
-- Techniky (některé editory je podporují, což usnadňuje práci a je pravděpodobně spolehlivější):
-  - **Extrakce funkce** - kus kódu funguje jako jednotka/potřeboval by komentář => vytáhni ho do funkce, dej tomu přiléhající jméno, bude možné to použít na více místech
-  - **Inline funkce** - opak výše, vhodné pro triviální situace jako `isMoreThanFiveEven(x)`
-  - **Nahrazení mnoha parametrů funkce strukturou** - fajn, když funkce používá ranec proměnných => stanou se fieldy struktury
-  - **Move method/field** - z jedné do jiné struktury, pokud to dává smysl (třeba doménově)
-  - **Extrakce/inline třídy** - z třídy obsahující množinu polí, která jsou related, vytáhneme nový objekt, který bude původní třída obsahovat/nebo naopak pro inline
-  - **Early return** - obecně chceme, aby funkce popisovala správný/bezchybný tok programu. Pokud při zpracování funkce objevíme chybu ve vstupních datech, hodíme tam return. V takových případech nepoužíváme `if-else`, ale `if return`
+- Pred refaktoringem je duležité mať chovanie solidne pokryto testy, abychom nespôsobili nechtenou zmenu
+- Behem refaktoringu nedeláme nic jiného (žádná nová funkcionalita)
+- **Kdy refaktorovat?** Keď nevyvíjím → oddelit refactoring od developmentu, součást rutiny pri TDD, pri oprave bugu, po zavedené nové funkcionality, dlouhodobé plánované refaktorovanie
+- **GRASP** - General Responsibility Assignment Software Principles → principy pre lepší design OOP kódu
+- Techniky (nektoré editory je podporují, což usnadňuje práci a je pravdepodobne spolehlivejší):
+  - **extrakcia funkcia** - kus kódu funguje jako jednotka/potreboval by komentár => vytáhni ho do funkcia, dej tomu priléhající jméno, bude možné to použít na viac místech
+  - **Inline funkcia** - opak výše, vhodné pre triviální situace jako `isMoreThanFiveEven(x)`
+  - **Nahrazení mnoha parametru funkcia strukturou** - fajn, keď funkcia používá ranec promenných => stanou se fieldy struktury
+  - **Move method/field** - z jedné do jiné struktury, ak to dává smysl (napríklad doménove)
+  - **extrakcia/inline trídy** - z trídy obsahující množinu polí, ktorá sú related, vytáhneme nový objekt, ktorý bude puvodné trída obsahovat/alebo naopak pre inline
+  - **Early return** - obecne chceme, aby funkcia popisovala správný/bezchybný tok programu. Ak pri Spracovanie funkcia objevíme chybu ve vstupních datech, hodíme tam return. V takých prípadech nepoužíváme `if-else`, ale `if return`
   - **Rename** cokoliv
-  - **Seskupení mnoha parametrů do struktury**
-  - **Udělat final parametry metod**
-  - **Dlouhá složitá metoda** → vlastní objekt (třída)
-  - **Odstranění prostředníka**
+  - **Seskupení mnoha parametru do struktury**
+  - **Udelat final parametry metod**
+  - **Dlouhá složitá metoda** → vlastné objekt (trída)
+  - **odstránenie prostredníka**
   - **Odstranit magické čísla**
-  - **Zapouzdření vlastností**
+  - **Zapouzdrení vlastností**
   - **Guard clauses** → redukovat nesting
 
-Kód, který se dobře čte a udržuje nemusí být ten nejrychlejší/nejefektivnější (abstrakce mohou něco stát). Obvykle nám mírné snížení výkonu za vyšší čitelnost nevadí, ale nemusí to být vždy pravda.
+Kód, ktorý se dobre čte a udržuje nemusí byť ten nejrychlejší/nejefektivnejší (abstrakce mohou neco stát). zvyčajne nám mírné snížení výkonu za vyšší čitateľnosť nevadí, ale nemusí to byť vždy pravda.
 
-## Testování kódu, jednotkové testy, integrační testy, uživatelské a akceptační testy (4/6)
+## Testovanie kódu, jednotkové testy, integračné testy, popopoužívateľské a akceptačné testy (4/6)
 
-= proces evaluace, zda systém splňuje specifikované požadavky (IEEE: "Testing is the process of exercising or evaluating a system or system component by manual or automated means to verify that it satisfies specified requirements.")
+= proces evaluace, či systém splňuje specifikované požadavky (IEEE: "Testing is the process of exercising or evaluating a system or system component by manual or automated means to verify that it satisfies specified requirements.")
 
 **Terminologie:**
-- **Defekt (defect)** - nedokonalost nebo porucha sw, kvůli které produkt nesplňuje požadavky  
-  _Příklad: Funkce vrací špatný výsledek kvůli chybě v algoritmu._
+- **defekt (defect)** - nedokonalost alebo porucha sw, kvuli ktoré produkt nesplňuje požadavky  
+  _Príklad: Funkcia vrací špatný výsledek kvuli chybe v algoritmu._
 - **Error** - lidská chyba produkující nesprávný výsledek  
-  _Příklad: Vývojář omylem použije špatný operátor ve výrazu._
-- **Selhání (failure)** - náhlá neschopnost produktu provádět požadovanou funkci  
-  _Příklad: Aplikace spadne při pokusu uložit data._
+  _Príklad: Vývojár omylem použije špatný operátor ve výrazu._
+- **zlyhania (failure)** - náhlá neschopnosť produktu provádet požadovanou funkci  
+  _Príklad: Aplikace spadne pri pokusu uložit dáta._
 - **Chyba (fault)** - projev erroru v software  
-  _Příklad: Nesprávně inicializovaná proměnná způsobí nesprávné chování._
-- **Bug** - synonymum pro defekt  
-  _Příklad: Tlačítko v UI nefunguje podle očekávání._
+  _Príklad: Nesprávne inicializovaná promenná spôsobí nesprávné chovanie._
+- **Bug** - synonymum pre defekt  
+  _Príklad: Tlačítko v UI nefunguje popodľa očekávanie._
 
-**Principy testování:**
+**Principy testovanie:**
 - **Sensitivita** - testy musí odhalit chybu/nedostatek vždy
 - **Zvolit spolehlivá kritéria** - fail fast
-- **Machine independent** - nezávislé na prostředí
-- **Redundance** - jasně stanovit záměr
-- **Omezení (restriction)** - usnadnění problému
-- **Rozděl a panuj** - složité testovací problémy jdou usnadnit rozdělením prostoru vstupů
-- **Viditelnost** - schopnost něco změřit, abychom něco testovali, musíme vědět, jak to má ideálně dopadnout
-- **Zpětná vazba** - ladění procesu vývoje, poučit se z chyb
+- **Machine independent** - nezávislé na prostredia
+- **Redundance** - jasne stanovit zámer
+- **Obmedzenie (restriction)** - usnadnení problému
+- **Rozdel a panuj** - zložité testovacie problémy jdou usnadnit rozdelením prostoru vstupu
+- **Viditelnost** - schopnosť neco zmerať, abychom neco testovali, musíme vedet, ako to má ideálne dopadnout
+- **Zpetná väzba** - ladení procesu vývoje, poučit se z chýb
 
-- V praxi je testování z pravidla nekompletní. Testováním odhalujeme chyby, ale nedokazujeme bezchybnost.
-- Každý test by měl testovat pouze jednu věc/vlastnost/feature, ideální je spousta malých testů, díky čemuž můžeme snadno identifikovat zdroj problému.
-- Ideálně by měl testování provádět někdo jiný, než autor testovaného kódu
-- **Prioritizace testování na základě rizik** - nemůžeme otestovat všechno, prioritizace testování rizikových funkcionalit (risk = dopad + pravděpodobnost)
-- Pokud narazíme na chybu, pro kterou nebyl test, je důležitá nejen oprava, ale i přidání (ideálně automatizovaného) testu, aby se chyba už nemohla opakovat
+- V praxi je testovanie z pravidla nekompletní. Testovaniem odhalujeme chyby, ale nedokazujeme bezchybnost.
+- Každý test by mel testovat iba jednu vec/vlastnost/feature, ideálné je spousta malých testu, vďaka čemuž môžeme snadno identifikovat zdroj problému.
+- Ideálne by mel testovanie provádet nekdo jiný, než autor testovaného kódu
+- **Prioritizace testovanie na základe rizik** - nemôžeme otestovat všechno, prioritizace testovanie rizikových funkcionalit (risk = dopad + pravdepodobnosť)
+- Ak narazíme na chybu, pre kterou nebol test, je duležitá nejen oprava, ale i pridání (ideálne automatizovaného) testu, aby se chyba už nemohla opakovat
 
-### Typy testování podle přístupu
+### Typy testovanie popodľa prístupu
 
-- **Whitebox (strukturální)** - vidíme zdrojový kód a můžeme vstupy testů cílit na spouštění kritických míst (off-by-one error, zero division...)
-  - např. unit, integration, performance tests
-- **Blackbox (funkcionální)** - nevidíme co se děje uvnitř systému, pouze sledujeme vstupy a výstupy
-  - např. acceptance tests, system tests
+- **Whitebox (strukturální)** - vidíme zdrojový kód a môžeme vstupy testu cílit na spouštení kritických míst (off-by-one error, zero division...)
+  - napr. unit, integration, performance tests
+- **Blackbox (funkcionální)** - nevidíme čo sa deje uvnitr systémov, iba sledujeme vstupy a výstupy
+  - napr. acceptance tests, system tests
 
-### Obecné typy testování
+### Obecné typy testovanie
 
-- **Regresní testování** - sledujeme, zda změny v systému nepřinesly pády (automatizovaných) testů
-- **Smoke testy** - sledujeme, zda vybrané kritické funkce fungují v novém prostředí. Pokud ne, nemá vůbec cenu nasazovat a testovat další věci
-- **Sanity testy** - jako smoke, ale spouští se pro ověření nápravy chyb/přidání funkcionality
-- **A/B testování** - používáme dvě varianty a sledujeme, která je úspěšnější (obvykle při testování UI)
-- :haha: v praxi někteří experti praktikují melounové testování pro zvýšení test coverage, zvenku zelené, uvnitř červené :haha:
+- **Regresné testovanie** - sledujeme, či zmeny v systémov neprinesly pády (automatizovaných) testu
+- **Smoke testy** - sledujeme, či vybrané kritické funkcia fungují v novém prostredia. Ak ne, nemá vubec cenu nasazovat a testovat další veci
+- **Sanity testy** - jako smoke, ale spouští se pre overenie nápravy chýb/pridání funkcionality
+- **A/B testovanie** - používáme dve varianty a sledujeme, ktorá je úspešnejší (zvyčajne pri testovanie UI)
+- :haha: v praxi nekterí experti praktikují melounové testovanie pre zvýšení test coverage, zvenku zelené, uvnitr červené :haha:
 
-- Kvalita testů lze ověřit **mutačním testováním**: do aplikace zavedeme defekty (mutací zdrojového kódu, např. negací operátoru, off-by-one, vynechání volání) a sledujeme, kolik jich bylo odhaleno testy. Pokud něco prošlo, může jít o kandidáta na další testy. Předpoklad je, že testy, které najdou mutanty, najdou i opravdové chyby. Mscore = Mkilled / (Mtotal - Meq), kde Meq jsou ekvivalentní mutanti (mutace oproti původnímu programu nezpůsobí chybu).
-- Některé situace jsou pro náš produkt rizikovější (lze odhadnout při analýze), než ostatní - na ty bychom se měli zaměřit při testování
-- Vstupy testů vhodně rozdělujeme na kategorie (např. <0, 0, >0), z každé vybereme pár reprezentantů (abychom nemuseli testovat úplně každou hodnotu)
+- Kvalita testu možno overit **mutačním testovaniem**: do aplikace zavedeme defekty (mutací zdrojového kódu, napr. negací operátoru, off-by-one, vynechání volání) a sledujeme, kolik jich bolo odhaleno testy. Ak neco prošlo, muže ísť o kandidáta na další testy. Predpoklad je, že testy, ktoré najdou mutanty, najdou i opravdové chyby. Mscore = Mkilled / (Mtotal - Meq), kde Meq sú ekvivalentní mutanti (mutace oproti puvodnímu programu nespôsobí chybu).
+- Nektoré situace sú pre náš produkt rizikovejší (možno odhadnout pri analýze), než ostatné - na ty bychom se meli zamerit pri testovanie
+- Vstupy testu vhodne rozdelujeme na kategorie (napr. <0, 0, >0), z každé vybereme pár reprezentantu (abychom nemuseli testovat úplne každou hodnotu)
 
-Testování si můžeme usnadnit tím, že v systému modelujeme nevalidní stavy jako nereprezentovatelné (rust enum <3, builder pattern, stavový automat...)
+Testovanie si môžeme usnadnit tým, že v systémov modelujeme nevalidní stavy jako nereprezentovatelné (rust enum <3, builder pattern, stavový automat...)
 
-### Pokrytí testy
+### pokrytí testami
 
-Můžeme sledovat různá kritéria, pokrytí znamená, že danou cestou kódu prošel aspoň jeden test, metrika je obvykle v procentech:
+Mužeme sledovať ruzná kritéria, pokrytí znamená, že danou cestou kódu prošel aspoň jeden test, metrika je zvyčajne v procentech:
 
-- **Line/statement coverage** - pokryté řádky/výrazy
-- **Function coverage** - pokryté funkce/metody, jde o to, zda byla aspoň jednou zavolána
-- **Branch coverage** - pokryté logické větve programu
-- **Condition coverage** - každá boolean podmínka byla vyhodnocena jako true i false
+- **Line/statement coverage** - pokryté rádky/výrazy
+- **Function coverage** - pokryté funkcia/metody, jde o to, či bola aspoň jednou zavolána
+- **Branch coverage** - pokryté logické vetve programu
+- **Condition coverage** - každá boolean podmínka bola vyhodnocena jako true i false
 
-Mnohdy není 100% pokrytí možné (pokud třeba někde něco redundantně testujeme, better be safe than sorry) a zároveň 100% pokrytí neznamená bezchybnost.
+Mnohdy nie je 100% pokrytí možné (ak napríklad nekde neco redundantne testujeme, better be safe than sorry) a zároveň 100% pokrytí neznamená bezchybnost.
 
-Některé části kódu je mnohem těžší pokrýt, než jiné.
+Nektoré časti kódu je mnohem težší pokrýt, než jiné.
 
-Může pomoct hledat části kódu, které jsou neotestované, ale o kvalitě testů se toho moc nedozvíme.
+Môže pomoct hledat časti kódu, ktoré sú neotestované, ale o kvalite testu se toho moc nedozvíme.
 
 ### Jednotkové (unit) testy
 
-Validace, že se izolovaná jednotka kódu (funkce/třída) chová tak, jak bychom očekávali:
+Validace, že se izolovaná jednotka kódu (funkcia/trída) chová tak, ako bychom očekávali:
 
 - White box
-- Testy jsou automatizované, rychlé, jednoduché, čitelné, deterministické, každý testuje jednu jedinou věc
-- Izolujeme jednotku od zbytku systému pomocí *test doubles*, nafejkovaných závislostí:
-  - **dummy objekt** - nikdy se nepoužije, ale je potřeba třeba jako parametr
-  - **fake objekt** - jen pro účely testů, jednoduchý, ale v praxi nepoužitelný (např. in-memory db)
-  - **stub** - vrací vždy stejnou věc (stubborn, tvrdohlave vraci vzdy stejnou hodnotu)
-  - **spy** - je schopen si zapamatovat, jak a s čím byl volán (např. volala se metoda odeslání mailu s tímto obsahem)
-  - **mock** - předprogramovaný objekt (když tě někdo zavolá s parametrem A, uděláš toto, jinak něco jiného)
-- **AAA** - arrange (příprava), act (provedení testovaného chování), assert (ověření) - tři fáze každého testu, act by měl být co nejkratší
-- Např. cargo test, jest, junit
-- Pokročilejší techniky zahrnující analýzu zdrojového kódu a následné vygenerování vstupních hodnot (symbolic execution), případně formální verifikace využívající matematických důkazů, model checking...
+- Testy sú automatizované, rychlé, jednoduché, čitelné, deterministické, každý testuje jednu jedinou vec
+- Izolujeme jednotku od zbytku systémov pomocí *test doubles*, nafejkovaných závislosťí:
+  - **dummy objekt** - nikdy se nepoužije, ale je ponapríklad napríklad jako parametr
+  - **fake objekt** - jen pre účely testu, jednoduchý, ale v praxi nepoužitelný (napr. in-memory db)
+  - **stub** - vrací vždy stejnou vec (stubborn, tvrdohlave vraci vzdy stejnou hodnotu)
+  - **spy** - je schopen si zapamatovat, ako a s čím bol volán (napr. volala se metoda odoslania mailu s tímto obsahem)
+  - **mock** - predprogramovaný objekt (keď te nekdo zavolá s parametrem A, udeláš toto, jinak neco jiného)
+- **AAA** - arrange (príprava), act (prevedenie testovaného chovanie), assert (overenie) - tri fázy každého testu, act by mel byť co nejkratší
+- Napr. cargo test, jest, junit
+- Pokročilejší techniky zahrnující analýzu zdrojového kódu a následné vygenerovanie vstupních hodnot (symbolic execution), prípadne formální verifikace využívající matematických dukazu, model checking...
 
-### Integrační testy
+### integračné testy
 
-- Sledují, zda spolu jednotky interagují tak, jak bychom očekávali
-- Pomalejší, větší a složitější, než unit testy
+- Sledují, či spolu jednotky interagují tak, ako bychom očekávali
+- Pomalejší, vetší a složitejší, než unit testy
 - Black/white box
-- Pro testování UI použijeme *Playwright* (dřív se používalo *Selenium*)
+- Pre testovanie UI použijeme *Playwright* (drív se používalo *Selenium*)
 
 ### Systémové testy
 
-- Ověření, že systém splňuje specifikované požadavky
-- Testují použitelnost, kapacitu, výkon, splnění funkcionality, bezpečnost...
-- Benchmarking, penetrační testování, uživatelské testy...
-- Lze automatizovat pomocí programem ovládaným prohlížečem (Playwright, dříve Selenium, Puppeteer)
+- Overenie, že systém splňuje specifikované požadavky
+- Testují Použiteľnosť, kapacitu, výkon, splnení funkcionality, Bezpečnosť...
+- Benchmarking, penetračné testovanie, popopoužívateľské testy...
+- Možno automatizovat pomocí programem ovládaným prohlížečem (Playwright, dríve Selenium, Puppeteer)
 - Black box
 
-### Akceptační testy
+### akceptačné testy
 
-- Ověření, že systém splňuje business požadavky a je připraven k vydání
-- Může být ve formě odškrtávání políček s požadavky na systém, které zákazník předem určil
-- Prováděny se zákazníkem
+- Overenie, že systém splňuje business požadavky a je pripraven k vydání
+- Môže byť ve forme odškrtávanie políček s požadavky na systém, ktoré zákazník predem určil
+- Provádeny se zákazníkem
 - Black box
 
 ### Test-driven development (TDD)
 
-Skládá se z tří fází, red, green, blue, které iterativně aplikujeme. V každé části se snažíme docílit pouze jedné věci (a ničeho jiného, holt počkáme do další fáze):
+Skladá se z trí fáz, red, green, blue, ktoré iterativne aplikujeme. V každé časti se snažíme docílit iba jedné veci (a ničeho jiného, holt počkáme do další fázy):
 
-- **Red/test** - vytvoříme failující test pro co nejmenší část funkcionality, kterou chceme implementovat
-- **Green/write** - implementujeme funkcionalitu co nejjednodušeji tak, aby test prošel (a zároveň nerozbil jiný test)
-- **Blue/refactor** - upravíme implementaci tak, aby odpovídala standardům, aby byl kód hezký...
+- **Red/test** - vytvoríme failující test pre co nejmenší část funkcionality, kterou chceme implementovat
+- **Green/write** - implementujeme funkcionalitu co nejjednoduchoji tak, aby test prošel (a zároveň nerozbil jiný test)
+- **Blue/refactor** - upravíme implementaci tak, aby odpovídala standardum, aby bol kód hezký...
 
 ### Behaviour-driven development (BDD)
 
-- Se zákazníkem sepíšeme chování systému jako jednotlivé scénáře
-- Scénáře slouží vývojářům i testerům jako jednotky
-- Např. gherkin, cucumber - konstrukty given, when a then (jako AAA) se používají pro definici scénářů v english-like jazyce srozumitelném zákazníkovi, tyto scénáře se pak objevují i v testech
+- Se zákazníkem sepíšeme chovanie systémov jako jednotlivé scénáre
+- Scénáre slouží vývojárum i testerum jako jednotky
+- Napr. gherkin, cucumber - konstrukty given, when a then (jako AAA) se používají pre definici scénáru v english-like jazyce srozumitelném zákazníkovi, tyto scénáre se pak objevují i v testech
 
-## Ladění a testování výkonu (5/6)
+## Ladenie a testovanie výkonu (5/6)
 
-Cílem je identifikace a řešení případných problémů týkajících se rychlosti, odezvy a propustnosti systému, nalezení hranic. Dynamické testování sw za cílem zjištění, jak se chová pod zátěží, jaké operace trvají nejdéle, jak by je šlo optimalizovat, co bere nejvíce výpočetního výkonu atp.
+Cieľom je identifikace a riešenie prípadných problému týkajících se rychlosti, odezvy a propustnosti systémov, nalezení hranic. Dynamické testovanie sw za cieľom zjištení, ako sa chová pod záteží, jaké operace trvají nejdéle, ako by je šlo optimalizovat, co bere nejviac výpočetního výkonu atp.
 
 **Performance testing zahrnuje:**
 
 ### Load testing
-- zátěžové testy, sledujeme jak systém zvládá dlouhodobější zátěž
-- jak se bude systém chovat s předpokládaným počtem dotazů/uživatelů během určitého časového úseku
-- verifikuje schopnost systému zvládat očekávanou zátěž
+- zátežové testy, sledujeme ako systém zvládá dlouhodobejší zátež
+- ako sa bude systém chovat s predpokládaným počtem dotazu/používateľu behem určiťého časového úseku
+- verifikuje schopnosť systémov zvládat očekávanou zátež
 
 ### Stress testing
-- sledujeme, jak se systém vypořádává s krátkodobými výkyvy v zátěži (když najednou přijde spousta požadavků)
-- jaký je horní limit systému, kolik toho zvládne, než začne odmítat požadavky atp, pomocí postupného zvyšování zátěže až po selhání
-- hledáme potentiální ddos, security issues, korupci dat
-- jak rychle se zvládne systém vrátit do normálu, identifikace bottlenecků v hw
-- **Spike testing** - testování rychlého krátkého nárůstu na limitní kapacitu
+- sledujeme, ako sa systém vyporádává s krátkodobými výkyvy v záteži (keď najednou prijde spousta požiadaviek)
+- jaký je horní limit systémov, kolik toho zvládne, než začne odmaťat požadavky atp, pomocí postupného zvyšovanie záteže až po zlyhania
+- hledáme potentiální ddos, security issues, korupci dát
+- ako rychle se zvládne systém vrátit do normálu, identifikace bottleneckov v hw
+- **Spike testing** - testovanie rychlého krátkého nárustu na limitní kapacitu
 
 ### Soak/endurance testing
-- narůstající počet uživatelů a požadavků v průběhu dlouhého časového úseku
-- nejčastěji má za cíl odhalit memory leaks atp
+- narustající počet používateľu a požiadaviek v prubehu dlouhého časového úseku
+- nejčasteji má za cieľ odhalit memory leaks atp
 
-### testing škálovatelnosti
-- sledování narůstajícího využití resources s narůstajícím počtem požadavků
-- měli bychom pozorovat +- přímou úměru
+### testing škálovateľnosťi
+- sledovanie narustajícího využití resources s narustajícím počtem požiadaviek
+- meli bychom pozorovat +- prímou úmeru
 
-Běžící systém je také vhodné dlouhodobě monitorovat, abychom odhalili další slabá místa.
+Bežící systém je tiež vhodné dlouhodobe monitorovat, abychom odhalili další slabá místa.
 
-Výkon lze obecně zvýšit za cenu dalších atributů (například maintainability), proto je nutné volit správný kompromis pro náš případ.
+Výkon možno obecne zvýšit za cenu dalších atributu (napríklad maintainability), proto je nutné volit správný kompromis pre náš prípad.
 
 **Nástroje:** jProfiler, jMeter, Gatling, Siege, LoadRunner, BlazeMeter
 
-## Proces řízení kvality ve vývoji softwarových systémů (6/6)
+## Proces riadenia kvality v vývoji softvérových systémov (6/6)
 
-**Software Quality Management (SQM)** je kolekce všech procesů, které zajišťují, že implementace produktů, služby a životního cyklu splňuje standardy kvality organizace a ostatních zúčastněných stran.
+**Software Quality Management (SQM)** je kolekce všech procesu, ktoré zajišťují, že implementácia produktu, služby a životního cyklu splňuje standardy kvality organizace a ostatních zúčastnených stran.
 
-**Různé pohledy na kvalitu:**
+**Ruzné pohledy na kvalitu:**
 - **Kvalita použití** - user experience
-- **Externí kvalita** - projde to všemi testy a požadavky
-- **Interní kvalita** - kvalita návrhu, udržovatelnost atp
-- **Procesní kvalita** - je při vývoji správně postupováno?
+- **vonkajšia kvalita** - projde to všemi testy a požadavky
+- **Interné kvalita** - kvalita návrhu, udržovatelnost atp
+- **Procesní kvalita** - je počas vývoja správne postupováno?
 
-**Proces řízení SQM zahrnuje:** procesy a jejich vlastníky, požadavky na procesy, metriky procesů, výstupy procesů a zpětná vazba.
+**Proces riadenie SQM zahrnuje:** procesy a ich vlastníky, požadavky na procesy, Metriky procesu, výstupy procesu a zpetná väzba.
 
-Skládá se z:
+Skladá se z:
 
-### Definice požadavků na sw kvalitu a plánování (SQP)
-- specifikace funkčních i nefunkčních požadavků, stanovení hodnotících kritérií, rizik, určení metrik, podrobný popis a rozvržení aktivit k zajištění kvality
-- použití standardů, požadavky kvality, odhady a plánování aktivit, požadavky, scope, zdroje, risky, časový plán
+### Definícia požiadaviek na sw kvalitu a plánovanie (SQP)
+- špecifikácia funkčnéch i nefunkčnéch požiadaviek, stanovení hodnotících kritérií, rizik, určenie metrik, podrobný popis a rozvržení aktivit k zabezpečenie kvality
+- použití standardu, požadavky kvality, odhady a plánovanie aktivit, požadavky, scope, zdroje, risky, časový plán
 
-### Zajištění (assurance) sw kvality (SQA)
-- definice a kontrola procesů, které povedou k zajištění sw kvality a prevenci defektů (mimo jiné nastavení CI/CD)
-- zajišťuje adekvátnost a průkaznost procesů, IEEE standardy
+### Zabezpečenie (assurance) sw kvality (SQA)
+- definícia a kontrola procesu, ktoré povedou k zabezpečenie sw kvality a prevenci defektov (mimo jiné nastavení CI/CD)
+- zajišťuje adekvátnost a prukaznost procesu, IEEE standardy
 
 ### Kontrola sw kvality (SQC)
-- kontrola, zda produkt/jeho části splňují požadavky (včetně požadavků na kvalitu) a jejich vývoj se řídí definovanými procesy, monitoring zda se držíme procesů a vytyčených cílů
-- procházení artefaktů procesů a kontrola, že odpovídají standardu v nejrůznějších rovinách (design, požadavky, omezení, ...), monitorování, plan-do-check-act
+- kontrola, či produkt/jeho časti splňují požadavky (včetne požiadaviek na kvalitu) a ich vývoj se rídí definovanými procesy, monitoring či se držíme procesu a vytyčených cílu
+- procházení artefaktu procesu a kontrola, že odpovídají standardu v nejruznejších rovinách (design, požadavky, obmedzenie, ...), monitorovanie, plan-do-check-act
 
-### Zlepšení kvality (SPI)
-- snaha zlepšit procesy, abychom docílili zlepšení kvality
-- zpětná vazba, zlepšení procesů a tím i dalších výstupů, zlepšit efektivitu, efektivnost, praktiky
+### Zlepšenie kvality (SPI)
+- snaha zlepšit procesy, abychom docílili zlepšenie kvality
+- zpetná väzba, zlepšenie procesu a tým i dalších výstupu, zlepšit efektivitu, efektivnost, praktiky
 
 ## Notes
 
 ### Capability Maturity Model
-Definuje úrovně vyspělosti organizace v kontextu zajištění kvality:
+Definuje úrovne vyspelosti organizace v kontextu zabezpečenie kvality:
 
-- **Level 1 Výchozí (ad hoc)** - chaos, nepředvídatelná cena, plán
-- **Level 2 Opakovatelný (doing agile)** - intuitivní, cena a kvalita jsou proměnlivé, plán je pod vědomou kontrolou, neformální metody & procedury
-- **Level 3 Definovaný (being agile)** - orientace na kvalitu, spolehlivé ceny a plány, stále nepředvídatelný výkon systému kvality
-- **Level 4 Řízený (thinking agile)** - měření, promyšlená a statisticky řízená kvalita produktu
-- **Level 5 Optimalizující (agile culture)** - automatizace a zlepšení výrobního procesu, prevence chyb, inovace technologie
+- **Level 1 Výchozí (ad hoc)** - chaos, nepredvídatelná cena, plán
+- **Level 2 Opakovatelný (doing agile)** - intuitivní, cena a kvalita sú promenlivé, plán je pod vedomou kontrolou, neformální metody & procedury
+- **Level 3 Definovaný (being agile)** - orientace na kvalitu, spolehlivé ceny a plány, stále nepredvídatelný výkon systémov kvality
+- **Level 4 Řízený (thinking agile)** - meranie, promyšlená a statisticky rízená kvalita produktu
+- **Level 5 Optimalizující (agile culture)** - automatizace a zlepšenie výrobního procesu, prevence chýb, inovace technologie
 
 **Další modely:**
-- **SPICE** (Software Process Improvement and Capability Determination) - 5 kategorií, 24 procesů, 201 praktik
+- **SPICE** (Software Process Improvement and Capability Determination) - 5 kategorií, 24 procesu, 201 praktik
 - **CMMI** - pokročilejší model
-- **Six Sigma** - data based, eliminace defektů (definuj, měř, analyzuj, zlepši, kontroluj)
+- **Six Sigma** - dáta based, eliminace defektov (definuj, mer, analyzuj, zlepši, kontroluj)
 
-### Prevence problémů kvality
+### Prevence problému kvality
 
-- Následování best practices a konvencí, obecných (SOLID, clean code) i pro danou technologii/jazyk (eslint, cargo fmt)
-- Využití principů návrhových vzorů
-- Techniky jako TDD, párové programování, code reviews
-- Použití procesních standardů (ITIL), agilních technik (scrum, kanban)
-- Automatizované testování, CI
-- Komunikace, jednotný jazyk
-- Fail-fast přístup - snažíme se detekovat problém ve vstupech, namísto abychom klidně akceptovali cokoliv a pak se divili při neočekávaném chování
-- Design by contract - naše metody (zvlášť při tvorbě) mohou vyžadovat splnění určitého kontraktu (lze vynutit asserty), aby mohly poskytnout garance o výstupech. Je možné použít podmíněnou kompilaci a mít kontrakty třeba jen ve vývojovém prostředí (tím se ale můžeme připravit o přesné určení místa problému na produkci)
+- Následovanie best practices a konvencí, obecných (SOLID, clean code) i pre danou technologii/jazyk (eslint, cargo fmt)
+- Využití principu návrhových vzoru
+- Techniky jako TDD, párové programovanie, code reviews
+- Použití procesních standardu (ITIL), agilních technik (scrum, kanban)
+- Automatizované testovanie, CI
+- Komunikácia, jednotný jazyk
+- Fail-fast prístup - snažíme se detekovat problém ve vstupech, namísto abychom klidne akceptovali cokoliv a pak se divili pri neočekávaném chovanie
+- Design by contract - naše metody (zvlášť pri tvorbe) mohou vyžadovat splnení určiťého kontraktu (možno vynutit asserty), aby mohly poskytnout garance o výstupech. Je možné použít podmínenou kompilaci a mať kontrakty napríklad jen ve vývojovém prostredia (tým se ale môžeme pripravit o presné určenie místa problému na produkci)
 
-Nefunkční problémy kvality se řeší architekturou. Pro prevenci těchto problémů je možné vytvořit model systému a na něm si simulačně ověřovat požadavky (např. schopnost obsloužit určitý počet požadavků za určitý čas) a případně odvodit nároky na jednotlivé komponenty (třeba maximální dobu zpracování požadavku v daném komponentu).
+Nefunkčné problémy kvality se reší architektúrou. Pre prevenci techto problému je možné vytvorit model systémov a na nem si simulačne overovat požadavky (napr. schopnosť obsloužit určiťý počet požiadaviek za určiťý čas) a prípadne odvodit nároky na jednotlivé komponenty (napríklad maximálné dobu Spracovanie požiadaviek v daném komponentu).
 
-Pro ověření kvality je také možné použít formální verifikaci (používá se třeba pro dokazování správnosti algoritmů).
+Pre overenie kvality je tiež možné použít formální verifikaci (používá se napríklad pre dokazovanie správnosti algoritmu).
 
-### Detekce problémů kvality
+### detekcia problému kvality
 
-- **Code reviews** (vzájemné mezi vývojáři), **inspections** (formální, je fajn použít formulář; ukazuje to přípravu, na nic se nezapomene a zároveň se odfiltrují zbytečnosti, nelpíme na stylu, řešíme správnost, dodržování standardů...)
-- **(Automatizované) testování** (rust\cargo test)
+- **Code reviews** (vzájemné medzi vývojári), **inspections** (formální, je fajn použít formulár; ukazuje to prípravu, na nic se nezapomene a zároveň se odfiltrují zbytečnosti, nelpíme na stylu, rešíme správnost, dodržiavanie standardu...)
+- **(Automatizované) testovanie** (rust\cargo test)
 - **Statická analýza** (rust\cargo clippy, borrow checker, sonarqube) - nespouštíme kód
 
 ### Špatný kód
 
-- Pomíchané úrovně abstrakce
-- Nízká koheze (megatřídy, dlouhé funkce...)
-- Kruhové závislosti (je pak závislost na implementaci, blbě se sleduje flow a vztahy, blbě se to testuje, udržuje a škáluje)
+- Pomíchané úrovne abstrakce
+- Nízká koheze (megatrídy, dlouhé funkcia...)
+- Kruhové závislosťi (je pak závislosť na implementaci, blbe se sleduje flow a vztahy, blbe se to testuje, udržuje a škáluje)
 - Duplikace kódu
-- Spousta parametrů
+- Spousta parametru
 - Blbé názvy
-- Dělání věcí příliš "chytře", když to není nutné
-- Nedodržování standardů/vhodných konstruktů jazyka
+- Delání vecí príliš "chytre", keď to nie je nutné
+- Nedodržovanie standardu/vhodných konstruktu jazyka
 - Magické konstanty
 
-#### Code smells a řešení
+#### Code smells a riešenie
 
-!Jednotlivé taktiky mohou být vzájemně v rozporu, je potřeba si určit, čeho chceme docílit! (např. udržitelnost vs výkon)
+!Jednotlivé taktiky mohou byť vzájemne v rozporu, je ponapríklad si určiť, čeho chceme docílit! (napr. Udržateľnosť vs výkon)
 
-##### Udržitelnost
-- příliš brzké optimalizace => nejdřív profiluj, pak případně optimalizuj
-- přílišná flexibilita => snaž se o jednoduchost, pak případně rozšiřuj
-- snaha o moc chytré řešení => stavební základy by měly být co nejjednodušší
-- nepoužívání standardů, principů návrhových vzorů
+##### Udržateľnosť
+- príliš brzké optimalizácia => nejdrív profiluj, pak prípadne optimalizuj
+- prílišná flexibilita => snaž se o jednoduchosť, pak prípadne rozširuj
+- snaha o moc chytré riešenie => stavební základy by mely byť co nejjednodušší
+- nepoužívání standardu, principu návrhových vzoru
 - nízká modularizace
 
-##### Výkonnost
-- redundantní práce => kešování, memoizace, bottom-up approach dynamického programování
-- sekvenční zpracování/hledání => binární hledání, chytřejší algoritmy, práce se seřazenými kolekcemi, paralelizace go brrrrrr
-- dlouhé kritické sekce (ve vícevláknových programech) => minimalizujeme kritickou sekci, může být lepší použít více zámků
-- aktivní čekání => async zpracování, necháme se notifikovat až operace skončí...
+##### Výkonnosť
+- redundantní práce => kešovanie, memoizace, bottom-up approach dynamického programovanie
+- sekvenční Spracovanie/hľadanie => binární hľadanie, chytrejší algoritmy, práce sa sarazenými kolekcemi, paralelizácia go brrrrrr
+- dlouhé kritické sekce (ve vícevláknových programech) => minimalizujeme kritickou sekci, muže byť lepší použít viac zámku
+- aktivní čekání => async Spracovanie, necháme se notifikovat až operace skončí...
 
-##### Spolehlivost
-- nevalidujeme vstupní data, slepá důvěra
+##### Spoľahlivosť
+- nevalidujeme vstupní dáta, slepá duvera
 - špatný error/exception handling
-- nepředpokládáme, že by funkce mohl někdo zavolat v jiném pořadí
-- přílišný hypetrain, používáme technologie, kterým úplně nerozumíme
-- absence logování => loguj, je fajn vědět, co se v systému dělo před pádem
-- snadný pád celého systému kvůli jedné části => nasaď více služeb, implementuj restart/recover, automatické přepnutí se na jinou, funkční službu
+- nepredpokládáme, že by funkcia mohl nekdo zavolat v jiném poradie
+- prílišný hypetrain, používáme technologie, kterým úplne nerozumíme
+- absence protokolovanie => loguj, je fajn vedet, čo sa v systémov delo pred pádem
+- jednoduchý pád celého systémov kvuli jedné časti => nasaď viac služeb, implementuj restart/recover, automatické prepnutí se na jinou, funkčné službu
 
-##### Testovatelnost
-- globální stav, proměnné
-- schovávání závislostí; je lepší provést dependency injection, než sázet na předchozí volání `init()` funkce pracující s globálním stavem
-- komunikace mezi jednotkami, které by neměly komunikovat => SOLID
-- nutnost hacky solutions, abychom vůbec mohli testovat => SOLID
-- nedeterminismus (závislost na čase, náhodnosti, globálním stavu, databázi... např. bacha na iteraci přes rust std::collections::HashMap, elementy jsou náhodně seřazené)
-- neoddělujeme inicializační a aplikační logiku
+##### Testovateľnosť
+- globálné stav, promenné
+- schovávanie závislosťí; je lepší provést dependency injection, než sázet na predchozí volání `init()` funkcia pracující s globálním stavem
+- komunikácia medzi jednotkami, ktoré by nemely komunikovat => SOLID
+- nutnost hacky solutions, abychom vubec mohli testovat => SOLID
+- nedeterminismus (závislosť na čase, náhodnosti, globálním stavu, databázi... napr. bacha na iteraci pres rust std::collections::HashMap, elementy sú náhodne serazené)
+- neoddelujeme inicializační a aplikačné logiku
 
-##### Škálovatelnost
-- monolitická aplikace, distribuce může zvýšit výkon/kapacitu, ale bacha na nutný režijní overhead, těžší testování, nasazování, bezpečnost...
+##### Škálovateľnosť
+- monolitická aplikace, distribúcia muže zvýšit výkon/kapacitu, ale bacha na nutný režijní overhead, težší testovanie, nasazovanie, Bezpečnosť...
 
-### Sledování problémů kvality
+### Sledovanie problému kvality
 
 - Issue tracking
 - Správa technického dluhu (tracking, vyhrazení času na jeho nápravu)
